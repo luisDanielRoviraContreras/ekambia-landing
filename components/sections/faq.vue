@@ -119,10 +119,10 @@ export default class faq extends Vue {
   align-items: center
   justify-content: center
   flex-direction: column
-  padding-bottom: 150px
   position: relative
   padding: 0px 20px
-  padding-top: 100px
+  padding-bottom: 150px
+  padding-top: 200px
   background: #fff
   .con-faq
     display: flex

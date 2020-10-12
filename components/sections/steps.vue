@@ -93,8 +93,7 @@ export default class steps extends Vue {}
 .steps
   width: 100%
   background: #000
-  padding-top: 100px
-  padding-top: 120px
+  padding-top: 160px
   z-index: 200
   position: relative
   padding-bottom: 300px

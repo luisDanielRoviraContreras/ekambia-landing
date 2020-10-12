@@ -75,7 +75,7 @@ export default class muestra extends Vue {
 .muestra
   background: #fff
   padding-top: 130px
-  padding-bottom: 100px
+  padding-bottom: 200px
   position: relative
   h2
     width: 100%

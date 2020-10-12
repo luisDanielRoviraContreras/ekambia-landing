@@ -9,7 +9,8 @@
     "export": "nuxt-ts export",
     "serve": "nuxt-ts serve",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
+    "lint": "npm run lint:js",
+    "push": "git push && git push heroku master"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.10",
