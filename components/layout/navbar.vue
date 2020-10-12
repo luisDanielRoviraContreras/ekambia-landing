@@ -66,7 +66,7 @@ export default class navbar extends Vue {
   top: 0px
   width: 100%
   z-index: 2000
-  background: -color(black)
+  background: #000
   display: flex
   align-items: center
   justify-content: space-between
@@ -159,8 +159,8 @@ export default class navbar extends Vue {
     .con-btns
       padding-right: 10px
       .button
-        font-size: .9rem
-        padding: 12px 16px
+        font-size: .8rem
+        padding: 10px 16px
     ul
       display: none
     .open

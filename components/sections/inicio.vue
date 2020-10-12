@@ -173,7 +173,7 @@ export default class inicio extends Vue {}
     .btn
       width: 54px
       height: 54px
-      background: -color(black)
+      background: #000
       border-radius: 20px
       display: flex
       align-items: center

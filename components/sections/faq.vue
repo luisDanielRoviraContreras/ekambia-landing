@@ -147,7 +147,7 @@ export default class faq extends Vue {
   .con-btns
     ul
       li
-        border: 3px solid -color(black, .05)
+        border: 3px solid rgba(0,0,0,.05)
         padding: 20px
         margin: 20px
         border-radius: 25px
@@ -159,12 +159,12 @@ export default class faq extends Vue {
         transition: all .25s ease
         background: #fff
         &:hover:not(.active)
-          background: -color(black, .05)
+          background: rgba(0,0,0,.05)
           border: 3px solid transparent
           .number
             transform: translate(-6px) rotate(12deg)
         &.active
-          background: -color(black)
+          background: #000
           color: #fff
           .number
             transform: translate(-6px) rotate(12deg)

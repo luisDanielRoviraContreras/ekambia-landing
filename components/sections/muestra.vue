@@ -108,7 +108,7 @@ export default class muestra extends Vue {
           position: absolute
           width: 0%
           height: 100%
-          background: -color(black)
+          background: #000
           z-index: 10
           border-radius: inherit
           top: 0px
