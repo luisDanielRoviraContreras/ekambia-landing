@@ -1,0 +1,77 @@
+<template>
+  <div class="content">
+    <navbar />
+    <banner-prices />
+    <inicio />
+    <steps />
+    <astronauta />
+    <muestra />
+    <circles />
+    <faq />
+    <download />
+    <Footer />
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+@Component
+export default class index extends Vue {}
+</script>
+<style lang="sass">
+// @import url('../static/Gilroy-Bold.ttf');
+@font-face
+  font-family: 'Gilroy'
+  font-style: normal
+  font-weight: 400
+  font-display: swap
+  src: url('~assets/Gilroy-Bold.ttf') format('truetype')
+
+\:root
+  --bg: 255,255,255
+  --color: 255, 218, 26
+  --black: 0, 0, 0
+  --text: 21, 22, 22
+  --gray: 245, 247, 248
+  --gray-2: 238, 240, 241
+
+.content
+  padding-top: 66px
+
+body
+  background: #000
+  font-family: 'Open Sans', sans-serif
+
+h1,h2,h3,h4,h5,h6,.title
+  font-family: 'Gilroy', sans-serif
+*
+  list-style: none
+  outline: none
+  padding: 0px
+  margin: 0px
+  box-sizing: border-box
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  outline-color: transparent
+  outline-style: none
+  outline: none !important
+  &:focus
+    outline: none !important
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+  .content
+    overflow: hidden
+
+*::-webkit-scrollbar
+  width: 5px
+  height: 5px
+  display: block
+  background: -color('bg')
+
+*::-webkit-scrollbar-thumb
+  background: -color('black', .2)
+  border-radius: 5px
+  &:hover
+    background: -color('black', .6)
+// responsive
+
+// @media (max-width: 812px), (pointer:none), (pointer:coarse)
+</style>
