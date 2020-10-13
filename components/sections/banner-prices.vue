@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-prices">
+  <div id="inicio" class="banner-prices">
     <div class="con-btns">
       <Button border>
         Asuncion
@@ -12,27 +12,77 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.939 4.939L6.879 12 13.939 19.061 16.061 16.939 11.121 12 16.061 7.061z"/></svg>
     </button>
     <div ref="items" class="con-items">
-      <div v-for="(item, i) in 20" :key="i" class="item">
+      <div v-for="(item, i) in prices" :key="i" class="item">
         <div class="con-banderas">
-          <img src="banderas/1.png" alt="">
-          <img src="banderas/2.png" alt="">
+          <img :src="`banderas/${item.img1}.png`" alt="">
+          <img :src="`banderas/${item.img2}.png`" alt="">
         </div>
 
         <div class="con-names">
-          Dolar vs Euro
+          {{ item.name }}
         </div>
 
         <div class="con-prices">
           <div class="buy price">
             <span>Compra</span>
             <b>
-              124
+              {{ item.buy }}
             </b>
           </div>
           <div class="sell price">
             <span>Venta</span>
             <b>
-              126
+              {{ item.sell }}
+            </b>
+          </div>
+        </div>
+      </div>
+      <div v-for="(item, i) in prices" :key="i" class="item">
+        <div class="con-banderas">
+          <img :src="`banderas/${item.img1}.png`" alt="">
+          <img :src="`banderas/${item.img2}.png`" alt="">
+        </div>
+
+        <div class="con-names">
+          {{ item.name }}
+        </div>
+
+        <div class="con-prices">
+          <div class="buy price">
+            <span>Compra</span>
+            <b>
+              {{ item.buy }}
+            </b>
+          </div>
+          <div class="sell price">
+            <span>Venta</span>
+            <b>
+              {{ item.sell }}
+            </b>
+          </div>
+        </div>
+      </div>
+      <div v-for="(item, i) in prices" :key="i" class="item">
+        <div class="con-banderas">
+          <img :src="`banderas/${item.img1}.png`" alt="">
+          <img :src="`banderas/${item.img2}.png`" alt="">
+        </div>
+
+        <div class="con-names">
+          {{ item.name }}
+        </div>
+
+        <div class="con-prices">
+          <div class="buy price">
+            <span>Compra</span>
+            <b>
+              {{ item.buy }}
+            </b>
+          </div>
+          <div class="sell price">
+            <span>Venta</span>
+            <b>
+              {{ item.sell }}
             </b>
           </div>
         </div>
@@ -47,6 +97,36 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class bannerPrices extends Vue {
+  prices: any = [
+    {
+      name: 'Euro vs Dólar',
+      img1: 1,
+      img2: 2,
+      buy: '224',
+      sell: '228'
+    },
+    {
+      name: 'Pesos vs Real',
+      img1: 3,
+      img2: 4,
+      buy: '44',
+      sell: '46'
+    },
+    {
+      name: 'Sol vs Peso',
+      img1: 5,
+      img2: 6,
+      buy: '120',
+      sell: '126'
+    },
+    {
+      name: 'Dólar vs Peso',
+      img1: 7,
+      img2: 8,
+      buy: '400',
+      sell: '480'
+    }
+  ]
   prev() {
     (this.$refs.items as any).scrollLeft -= window.innerWidth < 620 ? window.innerWidth : window.innerWidth / 2
   }
@@ -58,16 +138,17 @@ export default class bannerPrices extends Vue {
 <style lang="sass" scoped>
 .banner-prices
   width: 100%
-  height: 60px
+  // height: 60px
   display: flex
   align-items: center
   justify-content: flex-start
   overflow: hidden
   border-bottom: 1px solid rgba(0,0,0,.05)
   background: #fff
+  padding-top: 66px
   .arrow
     height: 60px
-    padding: 15px
+    padding: 8px
     cursor: pointer
     background: transparent
     border: 0px
@@ -83,15 +164,19 @@ export default class bannerPrices extends Vue {
     &.arrow2
       box-shadow: -20px 0px 20px 0px rgba(0,0,0,.03)
     svg
-      width: 20px
+      width: 22px
       transition: all .2s ease
   .con-btns
     display: flex
     align-items: center
     justify-content: center
     padding: 0px 0px
+    padding-left: 10px
     button
-      margin: 0px 5px
+      margin: 0px 4px
+      padding: 10px 12px
+      border-radius: 16px
+      font-size: .85rem
   .con-items
     display: flex
     align-items: center
@@ -99,7 +184,7 @@ export default class bannerPrices extends Vue {
     justify-content: flex-start
     overflow-x: auto
     overflow-y: hidden
-    height: 80px
+    height: 60px
     padding-left: 5px
     padding-right: 5px
     scroll-behavior: smooth
@@ -108,7 +193,7 @@ export default class bannerPrices extends Vue {
       height: 0px
     .item
       background: #fff
-      height: 80px
+      height: 60px
       display: flex
       align-items: center
       justify-content: center
@@ -160,8 +245,23 @@ export default class bannerPrices extends Vue {
           margin-left: 5px
 @media (max-width: 620px)
   .banner-prices
+    .con-items
+      padding-left: 0px
+      .item
+        .con-banderas
+          img
+            width: 30px
+            border-radius: 10px
+            margin: 0px 3px
     .arrow
-      padding: 10px
+      padding: 5px
     .con-btns
-      display: none
+      flex-direction: column
+      .button
+        padding: 7px 5px
+        font-size: .7rem
+        margin: 0px !important
+        min-width: 73px
+        border-radius: 0px
+    //   display: none
 </style>

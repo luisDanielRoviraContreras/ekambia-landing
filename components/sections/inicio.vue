@@ -61,8 +61,8 @@
                   <label for="">Yo recibo</label>
                   <input type="text">
                   <select name="" id="">
-                    <option value="1">Dollar</option>
-                    <option value="2">Guarani</option>
+                    <option value="1">Guarani</option>
+                    <option value="2">Dollar</option>
                   </select>
                 </div>
               </div>
@@ -165,6 +165,7 @@ export default class inicio extends Vue {}
   background: #fff
   .button
     margin-top: 30px
+    padding: 17px
   // button
   //   margin-top: 20px
   .con-inputs
@@ -198,11 +199,11 @@ export default class inicio extends Vue {}
     border-radius: 20px
     label
       position: absolute
-      left: 15px
-      top: -14px
+      left: 20px
+      top: -12px
       background: #fff
       border-radius: 10px
-      padding: 0px 5px
+      padding: 0px 8px
       font-weight: bold
       font-family: 'Gilroy', sans-serif
     input
@@ -233,6 +234,19 @@ export default class inicio extends Vue {}
     transform: translate(0,-50%)
     .price
       padding: 20px
+      font-weight: bold
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: center
+      &:last-child
+       &:after
+         content: ''
+         position: absolute
+         left: 0px
+         height: 30px
+         width: 1px
+         background: rgba(0,0,0,.1)
 
 .inicio
   width: 100%
@@ -240,15 +254,19 @@ export default class inicio extends Vue {}
   background: #fff
   // overflow: hidden
   position: relative
+  display: flex
+  align-items: center
+  justify-content: center
   .con-inicio
     display: flex
     align-items: center
     justify-content: center
     z-index: 100
     position: relative
+    max-width: 1400px
   .con-change
     width: 50vw
-    height: calc(100vh - 50px)
+    min-height: 800px
     display: flex
     align-items: center
     justify-content: center
@@ -256,14 +274,12 @@ export default class inicio extends Vue {}
     z-index: 100
   .con-text
     width: 50vw
-    height: calc(100vh - 50px)
-    // position: absolute
+    min-height: 800px
     display: flex
-    align-items: center
+    align-items: flex-start
     justify-content: center
-    // position: relative
+    padding-top: 70px
     .text
-      position: absolute
       bottom: 550px
       padding: 0px 30px
       .con-download
@@ -307,10 +323,12 @@ export default class inicio extends Vue {}
       height: auto
       width: 100vw
       padding-bottom: 150px
+      min-height: auto
       .change
         width: calc(100% - 40px)
         margin: 0px 20px
     .con-text
+      min-height: auto
       height: auto
       padding-top: 70px
       padding-bottom: 50px

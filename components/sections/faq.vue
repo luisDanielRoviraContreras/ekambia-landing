@@ -4,7 +4,7 @@
     <img class="moneda2" src="moneda.svg" alt="">
     <img class="billete1" src="billete.svg" alt="">
     <img class="billete2" src="billete.svg" alt="">
-    <h2>Preguntas frecuentes</h2>
+    <h2 id="faq">Preguntas frecuentes</h2>
     <div class="con-faq">
       <div class="con-texts">
         <div v-if="active == 1" class="text-1">
@@ -122,7 +122,7 @@ export default class faq extends Vue {
   position: relative
   padding: 0px 20px
   padding-bottom: 150px
-  padding-top: 200px
+  padding-top: 80px
   background: #fff
   .con-faq
     display: flex
@@ -144,6 +144,7 @@ export default class faq extends Vue {
     width: 100%
     text-align: center
     margin-bottom: 50px
+    padding-top: 120px
   .con-btns
     ul
       li

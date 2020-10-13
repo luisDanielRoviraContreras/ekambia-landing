@@ -43,7 +43,7 @@ export default class btn extends Vue {
   transition: all .25s ease
   &.border
     background: transparent
-    border: 2px solid -color('black')
+    border: 2px solid -color('black', .15)
     color: -color('black')
     &.white
       border: 2px solid -color('bg', .3)

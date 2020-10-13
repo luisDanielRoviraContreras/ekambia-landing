@@ -16,7 +16,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
-export default class index extends Vue {}
+export default class index extends Vue {
+}
 </script>
 <style lang="sass">
 // @import url('../static/Gilroy-Bold.ttf');
@@ -36,11 +37,14 @@ export default class index extends Vue {}
   --gray-2: 238, 240, 241
 
 .content
-  padding-top: 66px
+  // padding-top: 66px
+  scroll-behavior: smooth
 
 body
   background: #000
   font-family: 'Open Sans', sans-serif
+  scroll-behavior: smooth
+  overflow: hidden
 
 h1,h2,h3,h4,h5,h6,.title
   font-family: 'Gilroy', sans-serif
@@ -58,7 +62,9 @@ h1,h2,h3,h4,h5,h6,.title
     outline: none !important
     -webkit-tap-highlight-color: rgba(0,0,0,0)
   .content
-    overflow: hidden
+    overflow: auto
+    overflow-x: hidden
+    height: 100vh
 
 *::-webkit-scrollbar
   width: 5px

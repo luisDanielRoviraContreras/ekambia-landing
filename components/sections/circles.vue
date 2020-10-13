@@ -1,5 +1,5 @@
 <template>
-  <div class="circles">
+  <div id="beneficios" class="circles">
     <img class="star1" src="estrella.svg" alt="">
     <img class="star2" src="estrella.svg" alt="">
     <img class="star3" src="estrella.svg" alt="">

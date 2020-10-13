@@ -1,5 +1,5 @@
 <template>
-  <div class="muestra">
+  <div id="como-cambiar" class="muestra">
     <img class="planeta" src="planeta.svg" alt="">
 
     <h2>Todo es muy fácil con la app de eKambia</h2>
