@@ -257,11 +257,13 @@ export default class bannerPrices extends Vue {
       padding: 5px
     .con-btns
       flex-direction: column
+      padding-left: 0px
       .button
-        padding: 7px 5px
+        padding: 9px 4px
         font-size: .7rem
         margin: 0px !important
-        min-width: 73px
+        min-width: 72px
         border-radius: 0px
+        border: 0px !important
     //   display: none
 </style>

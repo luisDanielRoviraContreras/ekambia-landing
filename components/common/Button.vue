@@ -41,6 +41,9 @@ export default class btn extends Vue {
   position: relative
   border: 2px solid transparent
   transition: all .25s ease
+  &.yellow:hover
+    transform: translate(0, -5px)
+    box-shadow: 0px 10px 30px 0px -color('color', .4)
   &.border
     background: transparent
     border: 2px solid -color('black', .15)
