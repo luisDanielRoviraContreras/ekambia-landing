@@ -9,6 +9,7 @@
     <img class="billete2" src="billete.svg" alt="">
     <div class="con-inicio">
       <div class="con-text">
+        <img class="montana" src="/montana.svg" alt="">
         <div class="text">
           <h1>
             Con eKambia cambiar <br> dinero nunca fue tan fácil
@@ -17,8 +18,6 @@
             <btns-download />
           </div>
         </div>
-
-        <img class="montana" src="/ekambia_montana.svg" alt="">
       </div>
       <div class="con-change">
         <div class="change">
@@ -290,15 +289,13 @@ export default class inicio extends Vue {}
       h1
         font-size: 3rem
         line-height: 3.5rem
-    .montana
-      position: absolute
-      bottom: 500px
-      left: -300px
-      width: 140%
-      max-width: 2100px
-      transform: translate(0%,100%) rotate(1.5deg)
-      pointer-events: none
-      min-width: 1500px
+  .montana
+    position: absolute
+    bottom: 480px
+    left: -200px
+    width: 1600px
+    transform: translate(0%,100%)
+    pointer-events: none
 // responsive
 
 @media (max-width: 1275px)
@@ -319,6 +316,7 @@ export default class inicio extends Vue {}
 @media (max-width: 970px)
   .con-inicio
     flex-direction: column
+    padding-bottom: 100px
     .con-change
       height: auto
       width: 100vw
@@ -333,8 +331,9 @@ export default class inicio extends Vue {}
       padding-top: 70px
       padding-bottom: 50px
       .montana
-        left: 30%
-        transform: translate(-50%, 110%) rotate(0)
+        left: -180px
+        width: 900px
+        bottom: 270px
       .text
         position: relative
         bottom: 0px
@@ -352,15 +351,12 @@ export default class inicio extends Vue {}
     bottom: 100px
     width: 100px
   .con-inicio
-    padding-bottom: 100px
+    padding-bottom: 150px
     .con-text
       .montana
-        width: 100%
-        min-width: 850px
-        top: auto
-        bottom: -420px
-        left: -200px
-        transform: translate(0) rotate(1deg)
+        left: -160px
+        width: 900px
+        bottom: 270px
       .text
         h1
           font-size: 1.5rem

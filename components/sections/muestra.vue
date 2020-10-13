@@ -134,6 +134,7 @@ export default class muestra extends Vue {
           border: 2px solid -color(black, .2)
           border-radius: 25px
           position: relative
+          font-size: .95rem
         &.active
           color: #fff
           &:after
@@ -142,7 +143,7 @@ export default class muestra extends Vue {
             transform: scale(1)
     .phone
       position: relative
-      width: 300px
+      width: 270px
       z-index: 100
       .tel
         width: 100%

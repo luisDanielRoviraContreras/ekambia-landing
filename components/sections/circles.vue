@@ -262,7 +262,7 @@ export default class circles extends Vue {}
           width: 100%
           height: 100%
           transform: scale(1.25)
-          border: 2px solid rgba(255,255,255,.03)
+          border: 2px solid rgba(255,255,255,.06)
           position: absolute
           border-radius: 50%
           animation: circleAnimate 3s ease infinite alternate
@@ -271,7 +271,7 @@ export default class circles extends Vue {}
           width: 100%
           height: 100%
           transform: scale(.85)
-          border: 2px solid rgba(255,255,255,.03)
+          border: 2px solid rgba(255,255,255,.06)
           position: absolute
           border-radius: 50%
           animation: circleAnimate 5s ease infinite alternate

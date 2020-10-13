@@ -36,8 +36,6 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class navbar extends Vue {
-  active: string = 'sec1'
-
   handleClickLogin() {
     window.open('https://ekambia.herokuapp.com/login/')
   }

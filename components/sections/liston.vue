@@ -148,9 +148,9 @@ export default class bannerPrices extends Vue {
         content: ''
         position: absolute
         right: 0px
-        height: 35px
+        height: 30px
         width: 1px
-        background: rgba(0,0,0,.1)
+        background: rgba(255,255,255,1)
       .con-banderas
         display: flex
         align-items: center

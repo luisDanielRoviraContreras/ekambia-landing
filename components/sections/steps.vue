@@ -129,7 +129,7 @@ export default class steps extends Vue {}
     background: rgba(255,255,255,.1)
     width: 300px
     padding: 20px
-    height: 400px
+    height: 340px
     display: flex
     align-items: center
     justify-content: center
@@ -160,6 +160,7 @@ export default class steps extends Vue {}
       position: absolute
       top: -30px
       box-shadow: 0px 5px 25px 0px -color('color', .3)
+      font-family: 'Gilroy', sans-serif
     h3
       text-align: center
       width: 100%

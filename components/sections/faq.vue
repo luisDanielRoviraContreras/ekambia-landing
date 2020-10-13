@@ -134,6 +134,7 @@ export default class faq extends Vue {
     .con-texts
       max-width: 550px
       padding: 20px
+      padding-right: 50px
       h3
         padding-bottom: 20px
         font-size: 1.4rem
