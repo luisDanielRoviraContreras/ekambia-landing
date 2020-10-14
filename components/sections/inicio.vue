@@ -147,7 +147,7 @@ export default class inicio extends Vue {}
     a
       font-size: .7rem
       text-align: center
-      color: -color(black)
+      color: #000
       display: block
       width: 100%
       margin-top: 20px
