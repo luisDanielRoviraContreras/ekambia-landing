@@ -1,67 +1,17 @@
 <template>
   <div id="inicio" class="banner-prices">
     <div class="con-btns">
-      <Button border>
-        Asuncion
-      </Button>
-      <Button>
+      <button border>
+        Asunción
+      </button>
+      <button class="active">
         Arbitraje
-      </Button>
+      </button>
     </div>
-    <button @click="prev" class="arrow arrow1">
+    <button :disabled="scrollLeft == 0" @click="prev" class="arrow arrow1">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.939 4.939L6.879 12 13.939 19.061 16.061 16.939 11.121 12 16.061 7.061z"/></svg>
     </button>
     <div ref="items" class="con-items">
-      <div v-for="(item, i) in prices" :key="i" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item.img1}.png`" alt="">
-          <img :src="`banderas/${item.img2}.png`" alt="">
-        </div>
-
-        <div class="con-names">
-          {{ item.name }}
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              {{ item.buy }}
-            </b>
-          </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              {{ item.sell }}
-            </b>
-          </div>
-        </div>
-      </div>
-      <div v-for="(item, i) in prices" :key="i" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item.img1}.png`" alt="">
-          <img :src="`banderas/${item.img2}.png`" alt="">
-        </div>
-
-        <div class="con-names">
-          {{ item.name }}
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              {{ item.buy }}
-            </b>
-          </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              {{ item.sell }}
-            </b>
-          </div>
-        </div>
-      </div>
       <div v-for="(item, i) in prices" :key="i" class="item">
         <div class="con-banderas">
           <img :src="`banderas/${item.img1}.png`" alt="">
@@ -97,7 +47,64 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class bannerPrices extends Vue {
+  scrollLeft: any = 0
   prices: any = [
+    {
+      name: 'Euro vs Dólar',
+      img1: 1,
+      img2: 2,
+      buy: '224',
+      sell: '228'
+    },
+    {
+      name: 'Pesos vs Real',
+      img1: 3,
+      img2: 4,
+      buy: '44',
+      sell: '46'
+    },
+    {
+      name: 'Sol vs Peso',
+      img1: 5,
+      img2: 6,
+      buy: '120',
+      sell: '126'
+    },
+    {
+      name: 'Dólar vs Peso',
+      img1: 7,
+      img2: 8,
+      buy: '400',
+      sell: '480'
+    },
+    {
+      name: 'Euro vs Dólar',
+      img1: 1,
+      img2: 2,
+      buy: '224',
+      sell: '228'
+    },
+    {
+      name: 'Pesos vs Real',
+      img1: 3,
+      img2: 4,
+      buy: '44',
+      sell: '46'
+    },
+    {
+      name: 'Sol vs Peso',
+      img1: 5,
+      img2: 6,
+      buy: '120',
+      sell: '126'
+    },
+    {
+      name: 'Dólar vs Peso',
+      img1: 7,
+      img2: 8,
+      buy: '400',
+      sell: '480'
+    },
     {
       name: 'Euro vs Dólar',
       img1: 1,
@@ -133,6 +140,13 @@ export default class bannerPrices extends Vue {
   next() {
     (this.$refs.items as any).scrollLeft += window.innerWidth < 620 ? window.innerWidth : window.innerWidth / 2
   }
+
+  mounted() {
+    const items: any = this.$refs.items
+    items.addEventListener('scroll',() => {
+      this.scrollLeft = items.scrollLeft
+    })
+  }
 }
 </script>
 <style lang="sass" scoped>
@@ -155,6 +169,9 @@ export default class bannerPrices extends Vue {
     z-index: 10
     position: relative
     transition: all .25s ease
+    &:disabled
+     opacity: .4
+     pointer-events: none
     &:hover svg
       transform: scale(1.2)
     &:active svg
@@ -177,6 +194,17 @@ export default class bannerPrices extends Vue {
       padding: 10px 12px
       border-radius: 16px
       font-size: .85rem
+      border: 0px
+      background: transparent
+      border: 2px solid rgba(0,0,0,.08)
+      cursor: pointer
+      transition: all .25s ease
+      &:hover
+        background: rgba(0,0,0,.08)
+        border: 2px solid transparent
+      &.active
+        background: #000
+        color: #fff
   .con-items
     display: flex
     align-items: center

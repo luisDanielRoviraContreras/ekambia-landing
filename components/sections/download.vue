@@ -30,14 +30,12 @@ export default class download extends Vue {}
 .nave
   position: absolute
   bottom: 0px
-  left: 28%
-  transform: translate(-50%)
+  transform: translate(-450px)
   width: 600px
 .planeta
   position: absolute
   bottom: 0px
-  right: 28%
-  transform: translate(50%)
+  transform: translate(450px)
   width: 700px
 @keyframes scale
   0%

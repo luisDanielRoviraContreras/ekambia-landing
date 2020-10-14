@@ -65,7 +65,9 @@
         </li>
         <li>
           <p>
-            Av. Lorem, ipsum dolor sit amet consectetur adipisicing 3550 elit. Ipsum consequatur incidunt harum
+            Av. Aviadores Del Chaco 2050, <br>
+            complejo World Trade Center, <br>
+            torre Byspania, planta baja.
           </p>
         </li>
       </ul>
@@ -142,6 +144,10 @@ export default class footerx extends Vue {}
     padding-top: 60px
     padding-bottom: 60px
     ul
+      &:hover
+        h4
+          &:after
+            background: -color(color)
       li
         max-width: 250px
         .redes
@@ -158,6 +164,8 @@ export default class footerx extends Vue {}
             transition: all .25s ease
             &:hover
               transform: scale(1.15)
+              svg
+                fill: -color(color)
             svg
               width: 24px
               fill: #fff
@@ -172,7 +180,8 @@ export default class footerx extends Vue {}
             top: 0px
             width: 20px
             height: 2px
-            background: -color(color)
+            background: #fff
+            transition: all .25s ease
         >a, p
           list-style: none
           text-decoration: none

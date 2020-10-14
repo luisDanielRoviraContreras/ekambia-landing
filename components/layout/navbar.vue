@@ -110,6 +110,7 @@ export default class navbar extends Vue {
       font-size: 1rem
       opacity: .7
       text-decoration: none
+      transition: all .25s ease
       &:hover
         opacity: 1
         &:after
@@ -117,6 +118,7 @@ export default class navbar extends Vue {
           opacity: 1
       &.active
         opacity: 1
+        color: -color(color)
       &:after
         opacity: 0
         width: 0px
@@ -124,7 +126,7 @@ export default class navbar extends Vue {
         content: ''
         background: -color(color)
         height: 10px
-        top: -5px
+        top: -6px
         border-radius: 10px
         transition: all .25s ease
         z-index: -1

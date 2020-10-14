@@ -40,11 +40,12 @@
               <div class="inputs">
                 <div class="con-input">
                   <label for="">Yo tengo</label>
-                  <input type="text">
+                  <input placeholder="0.00" type="text">
                   <select name="" id="">
                     <option value="1">Dollar</option>
                     <option value="2">Guarani</option>
                   </select>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.939 7.939L12 12.879 7.061 7.939 4.939 10.061 12 17.121 19.061 10.061z"/></svg>
                 </div>
                 <button class="btn">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -58,11 +59,12 @@
                 </button>
                 <div class="con-input">
                   <label for="">Yo recibo</label>
-                  <input type="text">
+                  <input placeholder="0.00" type="text">
                   <select name="" id="">
                     <option value="1">Guarani</option>
                     <option value="2">Dollar</option>
                   </select>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.939 7.939L12 12.879 7.061 7.939 4.939 10.061 12 17.121 19.061 10.061z"/></svg>
                 </div>
               </div>
               <Button yellow block>
@@ -184,6 +186,8 @@ export default class inicio extends Vue {}
       margin-top: -10px
       margin-bottom: -10px
       cursor: pointer
+      z-index: 100
+      position: relative
       svg
         transform: rotate(90deg)
         fill: #fff
@@ -196,6 +200,7 @@ export default class inicio extends Vue {}
     border: 2px solid rgba(0,0,0,.1)
     width: 100%
     border-radius: 20px
+    z-index: 10
     label
       position: absolute
       left: 20px
@@ -212,15 +217,29 @@ export default class inicio extends Vue {}
       background: transparent
       font-weight: bold
       font-family: 'Gilroy', sans-serif
+    svg
+      width: 18px
+      position: absolute
+      right: 0px
+      margin: 10px
     select
       background: transparent
       padding: 18px
-      padding-right: 0px
+      padding-right: 40px
       border: 0px
       font-weight: bold
-      margin-right: 15px
       font-family: 'Gilroy', sans-serif
-      max-width: 100px
+      max-width: 140px
+      border-radius: inherit
+      -webkit-appearance: none
+      -moz-appearance: none
+      text-indent: 1px
+      text-overflow: ''
+      cursor: pointer
+      &:hover
+        background: -color(gray)
+      &:-ms-expand
+        display: none
   .con-price
     display: flex
     align-items: center
@@ -231,6 +250,7 @@ export default class inicio extends Vue {}
     border-radius: 20px
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,.05)
     transform: translate(0,-50%)
+    padding: 0px 10px
     .price
       padding: 20px
       font-weight: bold

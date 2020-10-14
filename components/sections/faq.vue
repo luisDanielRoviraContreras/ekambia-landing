@@ -135,6 +135,16 @@ export default class faq extends Vue {
       max-width: 550px
       padding: 20px
       padding-right: 50px
+      position: relative
+      &:after
+        content: ''
+        position: absolute
+        left: 20px
+        top: 10px
+        width: 40px
+        height: 3px
+        background: -color(color)
+        border-radius: 5px
       h3
         padding-bottom: 20px
         font-size: 1.4rem
@@ -190,6 +200,7 @@ export default class faq extends Vue {
           font-size: 3rem
           padding-right: 20px
           transition: transform .2s ease
+          font-family: 'Gilroy', sans-serif
 // responsive
 
 @media (max-width: 1000px)

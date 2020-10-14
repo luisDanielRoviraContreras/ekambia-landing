@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div v-for="(item) in 6" :key="item" class="item">
+      <div v-for="(item) in 6" :key="item+30" class="item">
         <div class="con-banderas">
           <img :src="`banderas/${item}.png`" alt="">
         </div>
@@ -49,7 +49,79 @@
           </div>
         </div>
       </div>
-      <div v-for="(item) in 6" :key="item" class="item">
+      <div v-for="(item) in 6" :key="item+10" class="item">
+        <div class="con-banderas">
+          <img :src="`banderas/${item}.png`" alt="">
+        </div>
+
+        <div class="con-names">
+          Dolar
+        </div>
+
+        <div class="con-prices">
+          <div class="buy price">
+            <span>Compra</span>
+            <b>
+              124
+            </b>
+          </div>
+          <div class="sell price">
+            <span>Venta</span>
+            <b>
+              126
+            </b>
+          </div>
+        </div>
+      </div>
+      <div v-for="(item) in 6" :key="item+20" class="item">
+        <div class="con-banderas">
+          <img :src="`banderas/${item}.png`" alt="">
+        </div>
+
+        <div class="con-names">
+          Dolar
+        </div>
+
+        <div class="con-prices">
+          <div class="buy price">
+            <span>Compra</span>
+            <b>
+              124
+            </b>
+          </div>
+          <div class="sell price">
+            <span>Venta</span>
+            <b>
+              126
+            </b>
+          </div>
+        </div>
+      </div>
+      <div v-for="(item) in 6" :key="item+40" class="item">
+        <div class="con-banderas">
+          <img :src="`banderas/${item}.png`" alt="">
+        </div>
+
+        <div class="con-names">
+          Dolar
+        </div>
+
+        <div class="con-prices">
+          <div class="buy price">
+            <span>Compra</span>
+            <b>
+              124
+            </b>
+          </div>
+          <div class="sell price">
+            <span>Venta</span>
+            <b>
+              126
+            </b>
+          </div>
+        </div>
+      </div>
+      <div v-for="(item) in 6" :key="item+50" class="item">
         <div class="con-banderas">
           <img :src="`banderas/${item}.png`" alt="">
         </div>
