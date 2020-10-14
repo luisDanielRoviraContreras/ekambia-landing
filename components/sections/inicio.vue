@@ -222,6 +222,7 @@ export default class inicio extends Vue {}
       position: absolute
       right: 0px
       margin: 10px
+      top: 4px
     select
       background: transparent
       padding: 18px
