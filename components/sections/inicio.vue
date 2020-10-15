@@ -3,13 +3,25 @@
     <div class="update">
       Ultima actualizacion de cotizaciones: <b>29/09/2002 - 13:30</b>
     </div>
-    <img class="moneda1" src="moneda.svg" alt="">
-    <img class="moneda2" src="moneda.svg" alt="">
-    <img class="billete1" src="billete.svg" alt="">
-    <img class="billete2" src="billete.svg" alt="">
+
+    <img :style="{
+      transform: `translate(-${x / 80}px, -${y / 80}px)`
+    }" class="moneda1" src="moneda.svg" alt="">
+    <img :style="{
+      transform: `translate(-${x / 40}px, -${y / 40}px)`
+    }" class="moneda2" src="moneda.svg" alt="">
+    <img :style="{
+      transform: `translate(${x / 60}px, ${y / 60}px)`
+    }" class="billete1" src="billete.svg" alt="">
+    <img :style="{
+      transform: `translate(-${x / 70}px, -${y / 70}px)`
+    }" class="billete2" src="billete.svg" alt="">
+
     <div class="con-inicio">
       <div class="con-text">
-        <img class="montana" src="/montana.svg" alt="">
+        <img :style="{
+          transform: `translate(-${x / 80}px, 0)`
+        }" class="montana" src="/montana.svg" alt="">
         <div class="text">
           <h1>
             Con eKambia cambiar <br> dinero nunca fue tan fácil
@@ -88,7 +100,18 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
-export default class inicio extends Vue {}
+export default class inicio extends Vue {
+  x: any = 0
+  y: any = 0
+  handleMousemove(evt) {
+    console.log('move')
+    this.x = evt.x
+    this.y = evt.y
+  }
+  mounted() {
+    window.addEventListener('mousemove', this.handleMousemove)
+  }
+}
 </script>
 <style lang="sass" scoped>
 .update
@@ -116,14 +139,14 @@ export default class inicio extends Vue {}
   transform: rotate(90deg)
 .billete1
   position: absolute
-  right: 32%
+  right: 42%
   bottom: 400px
   z-index: 10
-  width: 170px
+  width: 130px
   transform: rotate(50deg)
 .billete2
   position: absolute
-  left: -60px
+  left: 0px
   top: 40px
   z-index: 10
   width: 140px
@@ -315,10 +338,10 @@ export default class inicio extends Vue {}
         line-height: 3.5rem
   .montana
     position: absolute
-    bottom: 468px
+    bottom: 0px
     left: -490px
     width: 2600px
-    transform: translate(0%,100%)
+    // transform: translate(0%,100%)
     pointer-events: none
 // responsive
 
