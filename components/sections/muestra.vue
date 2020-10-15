@@ -10,11 +10,22 @@
           <img src="tel.png" alt="">
         </div>
         <div class="con-images">
-          <img v-if="active == 1" src="/muestra/1.png" key="1" alt="">
-          <img v-else-if="active == 2" src="/muestra/2.png" key="2" alt="">
-          <img v-else-if="active == 3" src="/muestra/3.png" key="3" alt="">
-          <img v-else-if="active == 4" src="/muestra/4.png" key="4" alt="">
-          <img v-else-if="active == 5" src="/muestra/5.png" key="5" alt="">
+          <img class="bg" src="/muestra/1.png" alt="">
+          <transition name="img">
+            <img v-if="active == 1" src="/muestra/1.png" key="1" alt="">
+          </transition>
+          <transition name="img">
+            <img v-if="active == 2" src="/muestra/2.png" key="2" alt="">
+          </transition>
+          <transition name="img">
+            <img v-if="active == 3" src="/muestra/3.png" key="3" alt="">
+          </transition>
+          <transition name="img">
+            <img v-if="active == 4" src="/muestra/4.png" key="4" alt="">
+          </transition>
+          <transition name="img">
+            <img v-if="active == 5" src="/muestra/5.png" key="5" alt="">
+          </transition>
         </div>
       </div>
       <ul>
@@ -59,6 +70,13 @@ export default class muestra extends Vue {
 }
 </script>
 <style lang="sass" scoped>
+.img-enter-active, .img-leave-active
+  transition: all .25s ease
+.img-enter
+  transform: translate(100%)
+.img-leave-to
+  transform: translate(-100%)
+
 .planeta
   position: absolute
   top: 50px
@@ -159,13 +177,24 @@ export default class muestra extends Vue {
         left: 15px
         border-radius: 30px
         overflow: hidden
-        img
+        background: #fff
+        .bg
           width: 100%
           position: relative
           left: 0px
           top: 0px
           z-index: 20
           display: block
+          transform: translate(0%)
+          visibility: hidden
+        img
+          width: 100%
+          position: absolute
+          left: 0px
+          top: 0px
+          z-index: 20
+          display: block
+          transition: all .25s ease
 // responsive
 
 @media (max-width: 730px)

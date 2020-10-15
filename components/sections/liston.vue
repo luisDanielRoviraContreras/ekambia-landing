@@ -250,5 +250,15 @@ export default class bannerPrices extends Vue {
 
 // responsive
 
-// @media (max-width: 812px), (pointer:none), (pointer:coarse)
+@media (max-width: 600px)
+  .liston
+    height: 60px
+    .con-items
+      .item
+        height: 60px
+        padding: 0px 10px
+        .con-banderas
+          img
+            width: 30px
+
 </style>
