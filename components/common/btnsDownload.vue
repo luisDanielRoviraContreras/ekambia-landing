@@ -62,9 +62,10 @@ export default class btns extends Vue {}
 
 @media (max-width: 600px)
   .con-btns
-    .button
+    button
       min-width: 160px
-      padding: 8px 15px
+      padding: 10px 15px
+      border-radius: 22px
       svg
         width: 25px
       &:nth-child(1)
@@ -72,5 +73,5 @@ export default class btns extends Vue {}
       .btn-text
         padding-left: 0px
         h5
-          font-size: .85rem !important
+          font-size: .8rem !important
 </style>

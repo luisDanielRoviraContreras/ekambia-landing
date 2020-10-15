@@ -188,6 +188,9 @@ export default class inicio extends Vue {}
       cursor: pointer
       z-index: 100
       position: relative
+      transition: all .25s ease
+      &:hover
+        transform: scale(1.1) rotate(8deg)
       svg
         transform: rotate(90deg)
         fill: #fff
@@ -312,9 +315,9 @@ export default class inicio extends Vue {}
         line-height: 3.5rem
   .montana
     position: absolute
-    bottom: 480px
-    left: -200px
-    width: 1600px
+    bottom: 468px
+    left: -490px
+    width: 2600px
     transform: translate(0%,100%)
     pointer-events: none
 // responsive
@@ -352,9 +355,9 @@ export default class inicio extends Vue {}
       padding-top: 70px
       padding-bottom: 50px
       .montana
-        left: -180px
-        width: 900px
-        bottom: 270px
+        left: -100px
+        width: 1200px
+        bottom: 208px
       .text
         position: relative
         bottom: 0px
@@ -375,9 +378,9 @@ export default class inicio extends Vue {}
     padding-bottom: 150px
     .con-text
       .montana
-        left: -160px
-        width: 900px
-        bottom: 270px
+        left: -230px
+        width: 1400px
+        bottom: 250px
       .text
         h1
           font-size: 1.5rem

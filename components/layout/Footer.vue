@@ -214,6 +214,7 @@ export default class footerx extends Vue {}
         margin: 15px
 @media (max-width: 650px)
   .footer
+    margin-bottom: 120px
     .cinta
       p
         font-size: .6rem
