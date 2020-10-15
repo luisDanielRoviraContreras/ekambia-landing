@@ -104,9 +104,10 @@ export default class inicio extends Vue {
   x: any = 0
   y: any = 0
   handleMousemove(evt) {
-    console.log('move')
-    this.x = evt.x
-    this.y = evt.y
+    if (window.innerWidth > 812) {
+      this.x = evt.x
+      this.y = evt.y
+    }
   }
   mounted() {
     window.addEventListener('mousemove', this.handleMousemove)

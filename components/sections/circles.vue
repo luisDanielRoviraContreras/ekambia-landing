@@ -1,5 +1,5 @@
 <template>
-  <div id="beneficios" class="circles">
+  <div :class="{ visible }" id="beneficios" class="circles">
     <img class="star1" src="estrella.svg" alt="">
     <img class="star2" src="estrella.svg" alt="">
     <img class="star3" src="estrella.svg" alt="">
@@ -7,13 +7,17 @@
     <img class="star5" src="estrella.svg" alt="">
     <img class="star6" src="estrella.svg" alt="">
     <img class="star7" src="estrella.svg" alt="">
-    <div class="con-svg1">
-      <div class="custom-shape-divider-top-1602088878">
+    <div  class="con-svg1">
+      <div :style="{
+      transform: `translate(-${x / 40}px, 0)`
+    }" class="custom-shape-divider-top-1602088878">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
       </div>
-      <div class="line">
+      <div :style="{
+      transform: `translate(${x / 60}px, 0)`
+    }" class="line">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
           </svg>
@@ -98,12 +102,16 @@
       </div>
     </div>
     <div class="con-svg2">
-      <div class="custom-shape-divider-top-1602088878">
+      <div :style="{
+      transform: `translate(-${x / 40}px, 0)`
+    }" class="custom-shape-divider-top-1602088878">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
       </div>
-      <div class="line">
+      <div :style="{
+      transform: `translate(${x / 60}px, 0)`
+    }" class="line">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
           </svg>
@@ -114,7 +122,30 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
-export default class circles extends Vue {}
+export default class circles extends Vue {
+  x: any = 0
+  y: any = 0
+  visible: boolean = false
+
+  handleMousemove(evt) {
+    if (window.innerWidth > 812) {
+      this.x = evt.x
+      this.y = evt.y
+    }
+  }
+  mounted() {
+    window.addEventListener('mousemove', this.handleMousemove)
+
+    const content = document.querySelector('.content')
+    content.addEventListener('scroll', () => {
+      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+        this.visible = true
+      } else {
+        this.visible = false
+      }
+    })
+  }
+}
 </script>
 <style lang="sass" scoped>
 .star1
@@ -179,7 +210,7 @@ export default class circles extends Vue {}
     position: absolute
     top: 0
     left: 0
-    width: 100%
+    width: 120%
     overflow: hidden
     line-height: 0
     svg
@@ -221,6 +252,12 @@ export default class circles extends Vue {}
   flex-direction: column
   padding-top: 50px
   padding-bottom: 50px
+  &.visible
+    .circle
+      opacity: 1
+      transform: translate(0)
+      .con-svg
+        transform: scale(1)
   .circle
     position: relative
     width: 100%
@@ -230,6 +267,9 @@ export default class circles extends Vue {}
     align-items: center
     justify-content: space-between
     padding: 40px
+    transition: all .3s ease
+    transform: translate(0, 100px)
+    opacity: 0
     .text
       padding: 0px 40px
       flex: 1
@@ -251,6 +291,8 @@ export default class circles extends Vue {}
       display: flex
       align-items: center
       justify-content: center
+      transition: all .3s ease
+      transform: scale(.6)
       .con-circles
         width: 100%
         height: 100%

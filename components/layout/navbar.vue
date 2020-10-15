@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div :class="{ scroll }" class="navbar">
     <div class="logo-menu">
       <div class="con-logo">
         <img class="logo-web" src="ekambia_logo.svg" alt="">
@@ -36,6 +36,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class navbar extends Vue {
+  scroll: boolean = false
   handleClickLogin() {
     window.open('https://ekambia.herokuapp.com/login/')
   }
@@ -50,6 +51,8 @@ export default class navbar extends Vue {
       const cambiar: any = document.querySelector('#como-cambiar')
       const beneficios: any = document.querySelector('#beneficios')
       const faq: any = document.querySelector('#faq').parentNode
+
+      this.scroll = scrollTop > 0
 
       if (scrollTop > cambiar.offsetTop - 100) {
         document.querySelectorAll('.navbar a').forEach(item => item.classList.remove('active'))
@@ -81,6 +84,12 @@ export default class navbar extends Vue {
   display: flex
   align-items: center
   justify-content: space-between
+  &.scroll
+    .button
+      padding: 10px 20px
+    nav
+      a
+        padding: 16px 20px
   .logo-menu
     display: flex
     align-items: center

@@ -1,5 +1,5 @@
 <template>
-  <div class="download">
+  <div :class="{ visible }" class="download">
     <img class="nave" src="nave.svg" alt="">
     <img class="planeta" src="planeta.svg" alt="">
     <header>
@@ -10,10 +10,10 @@
     </header>
 
     <div class="con-img">
-      <img src="chica_ekambia.png" alt="">
+      <img  src="chica_ekambia.png" alt="">
     </div>
 
-    <div class="circle1">
+    <div  class="circle1">
     </div>
     <div class="circle2">
     </div>
@@ -24,7 +24,30 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
-export default class download extends Vue {}
+export default class download extends Vue {
+  x: any = 0
+  y: any = 0
+  visible: boolean = false
+
+  handleMousemove(evt) {
+    if (window.innerWidth > 812) {
+      this.x = evt.x
+      this.y = evt.y
+    }
+  }
+  mounted() {
+    window.addEventListener('mousemove', this.handleMousemove)
+
+    const content = document.querySelector('.content')
+    content.addEventListener('scroll', () => {
+      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+        this.visible = true
+      } else {
+        this.visible = false
+      }
+    })
+  }
+}
 </script>
 <style lang="sass" scoped>
 .nave
@@ -54,14 +77,27 @@ export default class download extends Vue {}
   position: relative
   padding-top: 50px
   background: #fff
+  &.visible
+    h2
+      opacity: 1
+      transform: translate(0)
+    .con-btns-download
+      opacity: 1
+      transform: translate(0)
   .con-btns-download
     margin-top: 30px
     margin-bottom: 60px
     display: block
+    opacity: 0
+    transition: all .25s ease
+    transform: translate(0, 100px)
   h2
     font-size: 2.8rem
     text-align: center
     padding: 0px 20px
+    transition: all .25s ease
+    transform: translate(0, 50px)
+    opacity: 0
   .circle1
     width: 600px
     height: 600px

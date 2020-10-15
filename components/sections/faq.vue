@@ -1,9 +1,17 @@
 <template>
-  <div class="faq">
-    <img class="moneda1" src="moneda.svg" alt="">
-    <img class="moneda2" src="moneda.svg" alt="">
-    <img class="billete1" src="billete.svg" alt="">
-    <img class="billete2" src="billete.svg" alt="">
+  <div :class="{ visible }" class="faq">
+    <img :style="{
+      transform: `translate(${x / 120}px, ${y / 120}px)`
+    }" class="moneda1" src="moneda.svg" alt="">
+    <img :style="{
+      transform: `translate(-${x / 80}px, -${y / 80}px)`
+    }" class="moneda2" src="moneda.svg" alt="">
+    <img :style="{
+      transform: `translate(${x / 80}px, ${y / 80}px)`
+    }" class="billete1" src="billete.svg" alt="">
+    <img :style="{
+      transform: `translate(-${x / 80}px, -${y / 80}px)`
+    }" class="billete2" src="billete.svg" alt="">
     <h2 id="faq">Preguntas frecuentes</h2>
     <div class="con-faq">
       <div class="con-texts">
@@ -85,6 +93,28 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class faq extends Vue {
   active: number = 1
+  x: any = 0
+  y: any = 0
+  visible: boolean = false
+
+  handleMousemove(evt) {
+    if (window.innerWidth > 812) {
+      this.x = evt.x
+      this.y = evt.y
+    }
+  }
+  mounted() {
+    window.addEventListener('mousemove', this.handleMousemove)
+
+    const content = document.querySelector('.content')
+    content.addEventListener('scroll', () => {
+      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+        this.visible = true
+      } else {
+        this.visible = false
+      }
+    })
+  }
 }
 </script>
 <style lang="sass" scoped>
@@ -124,6 +154,13 @@ export default class faq extends Vue {
   padding-bottom: 150px
   padding-top: 80px
   background: #fff
+  &.visible
+    h2
+      opacity: 1
+      transform: translate(0)
+    .con-faq
+      opacity: 1
+      transform: translate(0)
   .con-faq
     display: flex
     align-items: center
@@ -131,6 +168,9 @@ export default class faq extends Vue {
     max-width: 1000px
     z-index: 100
     position: relative
+    transform: translate(0, 100px)
+    opacity: 0
+    transition: all .25s ease
     .con-texts
       max-width: 550px
       padding: 20px
@@ -156,6 +196,9 @@ export default class faq extends Vue {
     text-align: center
     margin-bottom: 50px
     padding-top: 120px
+    opacity: 0
+    transform: translate(0, 50px)
+    transition: all .25s ease
   .con-btns
     ul
       li

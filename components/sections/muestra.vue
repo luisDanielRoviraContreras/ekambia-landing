@@ -1,11 +1,15 @@
 <template>
-  <div id="como-cambiar" class="muestra">
-    <img class="planeta" src="planeta.svg" alt="">
+  <div :class="{ visible }" id="como-cambiar" class="muestra">
+    <img :style="{
+      transform: `translate(${x / 90}px, ${y / 90}px)`
+    }" class="planeta" src="planeta.svg" alt="">
 
     <h2>Todo es muy fácil con la app de eKambia</h2>
 
     <div class="con-phone">
-      <div class="phone">
+      <div :style="{
+      transform: `translate(-${x / 140}px, -${y / 140}px)`
+    }" class="phone">
         <div class="tel">
           <img src="tel.png" alt="">
         </div>
@@ -63,9 +67,31 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class muestra extends Vue {
   active: number = 1
+  visible: boolean = false
+  x: any = 0
+  y: any = 0
+
+  handleMousemove(evt) {
+    if (window.innerWidth > 812) {
+      this.x = evt.x
+      this.y = evt.y
+    }
+  }
 
   handleClick(val) {
     this.active = val
+  }
+
+  mounted() {
+    window.addEventListener('mousemove', this.handleMousemove)
+    const content = document.querySelector('.content')
+    content.addEventListener('scroll', () => {
+      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+        this.visible = true
+      } else {
+        this.visible = false
+      }
+    })
   }
 }
 </script>
@@ -95,6 +121,13 @@ export default class muestra extends Vue {
   padding-top: 130px
   padding-bottom: 200px
   position: relative
+  &.visible
+    h2
+      opacity: 1
+      transform: translate(0, 0px)
+    .con-phone
+      opacity: 1
+      transform: translate(0, 0px)
   h2
     width: 100%
     padding: 20px
@@ -103,6 +136,9 @@ export default class muestra extends Vue {
     padding-bottom: 60px
     z-index: 100
     position: relative
+    opacity: 0
+    transition: all .35s ease
+    transform: translate(0, 50px)
   .con-phone
     display: flex
     align-items: center
@@ -110,6 +146,9 @@ export default class muestra extends Vue {
     z-index: 100
     position: relative
     padding: 0px 20px
+    transition: all .25s ease
+    opacity: 0
+    transform: translate(0, 100px)
     ul
       margin-left: -20px
       z-index: 10

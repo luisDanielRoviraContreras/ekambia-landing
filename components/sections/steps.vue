@@ -1,5 +1,5 @@
 <template>
-  <div class="steps">
+  <div :class="{ visible }" class="steps">
     <img class="star1" src="estrella.svg" alt="">
     <img class="star2" src="estrella.svg" alt="">
     <img class="star3" src="estrella.svg" alt="">
@@ -9,7 +9,7 @@
     <img class="star7" src="estrella.svg" alt="">
     <h2>Como realizar tus cambios</h2>
     <div class="con-cards">
-      <div class="card">
+      <div class="card card1">
         <div class="number">
           1
         </div>
@@ -18,7 +18,7 @@
           Descarga la App o continua desde aca
         </h3>
       </div>
-      <div class="card">
+      <div class="card card2">
         <div class="number">
           2
         </div>
@@ -35,7 +35,7 @@
           <path id="Trazado_7838" data-name="Trazado 7838" d="M192.633-1155.515s70.575,28.338,123.2,22.8,50.358-47.388,108.8-56.4,132.8,22.4,132.8,22.4" transform="translate(-190.682 1192.276)" fill="none" stroke="#ffda1a" stroke-linecap="round" stroke-width="3" stroke-dasharray="7"/>
         </svg>
       </div>
-      <div class="card">
+      <div class="card card3">
         <div class="number">
           3
         </div>
@@ -53,7 +53,19 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
-export default class steps extends Vue {}
+export default class steps extends Vue {
+  visible: boolean = false
+  mounted() {
+    const content = document.querySelector('.content')
+    content.addEventListener('scroll', () => {
+      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+        this.visible = true
+      } else {
+        this.visible = false
+      }
+    })
+  }
+}
 </script>
 <style lang="sass" scoped>
 .star1
@@ -97,6 +109,12 @@ export default class steps extends Vue {}
   z-index: 200
   position: relative
   padding-bottom: 300px
+  opacity: 0
+  transition: all .3s ease
+  &.visible
+    opacity: 1
+    .card
+      transform: translate(0)
   h2
     color: #fff
     width: 100%
@@ -137,6 +155,13 @@ export default class steps extends Vue {}
     position: relative
     border-radius: 30px
     margin: 20px
+    transform: translate(0, 100px)
+    transition: all .25s ease
+    &.card2
+      transition: all .4s ease
+    &.card3
+      transition: all .55s ease
+
     .svg1
       width: 300px
       position: absolute
