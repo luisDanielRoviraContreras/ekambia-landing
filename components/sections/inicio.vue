@@ -1,5 +1,6 @@
 <template>
   <div class="inicio">
+    <liston relative />
     <div class="update">
       Ultima actualización de cotizaciones: <b>29/09/2002 - 13:30</b>
     </div>
@@ -64,8 +65,7 @@
 
           <footer>
             <p>
-              Los tipos de cambio están sujetos a fluctuaciones. Será de aplicación el tipo de cambio
-correspondiente al momento de confirmar la operación
+              Los tipos de cambio están sujetos a fluctuaciones. Será de aplicación el tipo de cambio correspondiente al momento de confirmar la operación
             </p>
 
             <a href="#">Conocé más sobre los beneficios por tramos, en función de la cantidad operada</a>
@@ -300,6 +300,7 @@ export default class inicio extends Vue {
   display: flex
   align-items: center
   justify-content: center
+  margin-top: 59px
   .con-inicio
     display: flex
     align-items: center

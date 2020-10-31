@@ -84,12 +84,12 @@ export default class navbar extends Vue {
   display: flex
   align-items: center
   justify-content: space-between
-  &.scroll
-    .button
-      padding: 10px 20px
-    nav
-      a
-        padding: 16px 20px
+  // &.scroll
+  //   .button
+  //     padding: 10px 20px
+  //   nav
+  //     a
+  //       padding: 16px 20px
   .logo-menu
     display: flex
     align-items: center

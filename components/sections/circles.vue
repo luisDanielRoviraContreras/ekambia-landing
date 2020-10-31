@@ -26,7 +26,7 @@
     <div class="circle">
       <div class="text">
         <h3>
-          Con <logo white height="20px" /> puedes operar y recibir tu dinero desde tu domicilio
+          Con <logo white height="20px" /> podés operar y recibir tu dinero desde tu casa
         </h3>
       </div>
 
@@ -58,7 +58,7 @@
       </div>
       <div class="text">
         <h3>
-          No tenes efectivo? No importa, con <logo white height="20px" /> podes operar con tu tarjeta de crédito y/o débito, en nuestras oficinas y te acercamos el POS
+          ¿No tenés efectivo? No importa! Te acercamos el POS a tu domicilio!! Podés operar con tu tarjeta de crédito o débito!
         </h3>
       </div>
     </div>

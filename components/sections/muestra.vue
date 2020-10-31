@@ -1,10 +1,16 @@
 <template>
   <div :class="{ visible }" id="como-cambiar" class="muestra">
     <img :style="{
+      transform: `translate(-${x / 120}px, -${y / 120}px)`
+    }" class="moneda1" src="monedas/svg1/3.svg" alt="">
+    <img :style="{
+      transform: `translate(-${x / 120}px, -${y / 120}px)`
+    }" class="moneda2" src="monedas/svg1/5.svg" alt="">
+    <img :style="{
       transform: `translate(${x / 90}px, ${y / 90}px)`
     }" class="planeta" src="planeta.svg" alt="">
 
-    <h2>Todo es muy fácil con la app de <logo /></h2>
+    <h2>Todo es más fácil con la App de <logo /></h2>
 
     <div class="con-phone">
       <div :style="{
@@ -35,7 +41,7 @@
       <ul>
         <li @click="handleClick(1)" :class="{ active: active == 1 }">
           <p class="title">
-            Escoja la moneda que deseas cambiar y la cantidad
+            Elegí la moneda y la cantidad que deseas cambiar
           </p>
         </li>
         <li @click="handleClick(2)" :class="{ active: active == 2 }">
@@ -96,6 +102,20 @@ export default class muestra extends Vue {
 }
 </script>
 <style lang="sass" scoped>
+.moneda1
+  position: absolute
+  left: 100px
+  top: 10px
+  z-index: 10
+  width: 125px
+  z-index: 100
+.moneda2
+  position: absolute
+  right: 100px
+  bottom: 160px
+  z-index: 10
+  width: 125px
+  z-index: 100
 .img-enter-active, .img-leave-active
   transition: all .25s ease
 .img-enter

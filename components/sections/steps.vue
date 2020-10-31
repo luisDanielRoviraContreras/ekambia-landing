@@ -7,7 +7,7 @@
     <img class="star5" src="estrella.svg" alt="">
     <img class="star6" src="estrella.svg" alt="">
     <img class="star7" src="estrella.svg" alt=""> -->
-    <h2>Como realizar tus cambios</h2>
+    <h2>Cómo realizar tus cambios</h2>
     <div class="con-cards">
       <div class="card card1">
         <div class="number">
@@ -46,7 +46,7 @@
       </div>
     </div>
     <h2 class="bottom">
-      Ya esta! Asi de fácil! Asi de seguro! Asi de comodo!
+      Ya está! Así de fácil! Así de seguro! Así de cómodo!
     </h2>
   </div>
 </template>

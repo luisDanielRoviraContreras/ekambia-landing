@@ -1,6 +1,6 @@
 <template>
   <div class="inicio">
-    <trend
+    <!-- <trend
       class="chart"
       :data="getArray"
       gradientDirection="top"
@@ -15,20 +15,20 @@
           transform: `translate(${x / 80}px, 0)`
         }"
       smooth>
-    </trend>
+    </trend> -->
 
     <img :style="{
       transform: `translate(-${x / 80}px, -${y / 80}px)`
     }" class="moneda1" src="monedas/svg1/1.svg" alt="">
     <img :style="{
       transform: `translate(-${x / 40}px, -${y / 40}px)`
-    }" class="moneda2" src="monedas/svg1/5.svg" alt="">
-    <img :style="{
+    }" class="moneda2" src="monedas/svg1/4.svg" alt="">
+    <!-- <img :style="{
       transform: `translate(${x / 60}px, ${y / 60}px)`
     }" class="billete1" src="monedas/svg1/2.svg" alt="">
     <img :style="{
       transform: `translate(${x / 70}px, ${y / 70}px)`
-    }" class="billete2" src="monedas/svg1/4.svg" alt="">
+    }" class="billete2" src="monedas/svg1/4.svg" alt=""> -->
 
     <div class="con-inicio">
       <img :style="{
@@ -85,30 +85,16 @@ export default class inicio extends Vue {
   bottom: 50px
 .moneda1
   position: absolute
-  right: -40px
-  top: 80px
+  left: 60px
+  bottom: 180px
   z-index: 10
-  width: 150px
+  width: 125px
 .moneda2
   position: absolute
-  left: 80px
-  bottom: 150px
-  z-index: 10
-  width: 150px
-  transform: rotate(90deg)
-.billete1
-  position: absolute
-  right: 46%
-  bottom: 400px
+  right: 80px
+  bottom: 70px
   z-index: 10
   width: 110px
-  transform: rotate(50deg)
-.billete2
-  position: absolute
-  left: 0px
-  top: 40px
-  z-index: 10
-  width: 120px
 
 .change
   width: 100%

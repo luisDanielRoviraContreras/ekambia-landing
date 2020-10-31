@@ -4,9 +4,6 @@
       transform: `translate(${x / 120}px, ${y / 120}px)`
     }" class="moneda1" src="monedas/svg1/1.svg" alt="">
     <img :style="{
-      transform: `translate(-${x / 80}px, -${y / 80}px)`
-    }" class="moneda2" src="monedas/svg1/2.svg" alt="">
-    <img :style="{
       transform: `translate(${x / 80}px, ${y / 80}px)`
     }" class="billete1" src="monedas/svg1/3.svg" alt="">
     <img :style="{
@@ -123,27 +120,20 @@ export default class faq extends Vue {
   left: 120px
   top: 200px
   z-index: 10
-  width: 170px
-.moneda2
-  position: absolute
-  right: -30px
-  bottom: 10px
-  z-index: 10
-  width: 170px
-  transform: rotate(90deg)
+  width: 120px
 .billete1
   position: absolute
   right: 100px
-  top: 170px
+  top: 160px
   z-index: 10
   width: 120px
   transform: rotate(50deg)
 .billete2
   position: absolute
-  left: 20px
-  bottom: 180px
+  left: 50%
+  bottom: -30px
   z-index: 10
-  width: 140px
+  width: 120px
 .faq
   display: flex
   align-items: center

@@ -1,7 +1,6 @@
 <template>
   <div class="content">
     <navbar />
-    <liston relative />
     <!-- <banner-prices /> -->
     <inicio />
     <montana />

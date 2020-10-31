@@ -196,10 +196,10 @@ export default class bannerPrices extends Vue {
   -webkit-backdrop-filter: saturate(180%) blur(30px)
   backdrop-filter: saturate(180%) blur(30px)
   &.relative
-    position: relative
-    margin-top: 59px
-    border-top: 1px solid rgba(255,255,255,.1)
+    position: absolute
     height: 60px
+    bottom: auto
+    top: 0px
   .con-items
     display: flex
     align-items: center
