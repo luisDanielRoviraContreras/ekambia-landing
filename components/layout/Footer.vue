@@ -23,7 +23,7 @@
       </ul>
       <ul>
         <li>
-          <h4>Mas de ekambia</h4>
+          <h4>Mas de <logo white height="19px" /></h4>
         </li>
         <li>
           <a href="">Noticias relacionadas</a>

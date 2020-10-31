@@ -99,7 +99,7 @@ export default class navbar extends Vue {
     .logo-responsive
       display: none
     img
-      max-width: 160px
+      max-width: 140px
   &.scroll
     background: #000
   nav
@@ -108,7 +108,7 @@ export default class navbar extends Vue {
     justify-content: center
     margin-left: 30px
     a
-      padding: 22px 20px
+      padding: 20px 20px
       color: -color(bg)
       cursor: pointer
       font-weight: bold
@@ -116,7 +116,7 @@ export default class navbar extends Vue {
       align-items: center
       justify-content: center
       position: relative
-      font-size: 1rem
+      font-size: .9rem
       opacity: .7
       text-decoration: none
       transition: all .25s ease

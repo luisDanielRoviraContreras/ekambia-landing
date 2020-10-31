@@ -32,7 +32,7 @@ export default class btn extends Vue {
   border: 0px
   color: #fff
   border-radius: 20px
-  font-size: 16px
+  font-size: 14px
   font-weight: 600
   display: flex
   align-items: center

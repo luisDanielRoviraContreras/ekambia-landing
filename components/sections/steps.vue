@@ -1,19 +1,19 @@
 <template>
-  <div :class="{ visible }" class="steps">
-    <img class="star1" src="estrella.svg" alt="">
+  <div id="steps" :class="{ visible }" class="steps">
+    <!-- <img class="star1" src="estrella.svg" alt="">
     <img class="star2" src="estrella.svg" alt="">
     <img class="star3" src="estrella.svg" alt="">
     <img class="star4" src="estrella.svg" alt="">
     <img class="star5" src="estrella.svg" alt="">
     <img class="star6" src="estrella.svg" alt="">
-    <img class="star7" src="estrella.svg" alt="">
+    <img class="star7" src="estrella.svg" alt=""> -->
     <h2>Como realizar tus cambios</h2>
     <div class="con-cards">
       <div class="card card1">
         <div class="number">
           1
         </div>
-        <img src="/1_descarga.svg" alt="">
+        <img src="steps/1.svg" alt="">
         <h3>
           Descarga la App o continua desde aca
         </h3>
@@ -22,7 +22,7 @@
         <div class="number">
           2
         </div>
-        <img src="/2_telefono.svg" alt="">
+        <img src="steps/2.svg" alt="">
         <h3>
           Solicita tu operación de cambio e identificación
         </h3>
@@ -39,7 +39,7 @@
         <div class="number">
           3
         </div>
-        <img src="/3_chico.svg" alt="">
+        <img src="steps/3.svg" alt="">
         <h3>
           Recibe tu dinero en casa o en nuestras oficinas
         </h3>
@@ -52,7 +52,15 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-@Component
+@Component({
+  components: {
+    matrix: () => {
+      if (process.client) {
+        return import("@/components/sections/matrix.vue");
+      }
+    },
+  }
+})
 export default class steps extends Vue {
   visible: boolean = false
   mounted() {
@@ -109,10 +117,31 @@ export default class steps extends Vue {
   z-index: 200
   position: relative
   padding-bottom: 300px
-  opacity: 0
   transition: all .3s ease
+  &:after
+    width: 100%
+    position: absolute
+    left: 0px
+    top: 0px
+    background: #fff
+    height: 200px
+    content: ''
+    z-index: 100
+    background: linear-gradient(0deg, rgba(0,0,0,.0001) 0%, #000 100%)
+  &:before
+    width: 100%
+    position: absolute
+    left: 0px
+    bottom: 0px
+    background: #fff
+    height: 200px
+    content: ''
+    z-index: 100
+    background: linear-gradient(180deg, rgba(0,0,0,.0001) 0%, #000 100%)
+
   &.visible
-    opacity: 1
+    h2,.con-cards
+      opacity: 1
     .card
       transform: translate(0)
   h2
@@ -123,6 +152,9 @@ export default class steps extends Vue {
     padding: 20px
     padding-bottom: 80px
     position: relative
+    z-index: 100
+    opacity: 0
+    transition: all .25s ease
     &:after
       content: ''
       position: absolute
@@ -142,9 +174,14 @@ export default class steps extends Vue {
     display: flex
     align-items: center
     justify-content: center
+    z-index: 100
+    position: relative
+    transition: all .25s ease
+    opacity: 0
   .card
     color: #fff
-    background: rgba(255,255,255,.1)
+    // background: rgba(255,255,255,.1)
+    background: rgb(27, 27, 27)
     width: 300px
     padding: 20px
     height: 340px

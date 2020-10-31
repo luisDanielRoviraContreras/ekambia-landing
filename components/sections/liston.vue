@@ -1,5 +1,5 @@
 <template>
-  <div @mouseenter="stop" @mouseleave="initInterval" class="liston">
+  <div :class="{ relative }" @mouseenter="stop" @mouseleave="initInterval" class="liston">
     <div ref="items" class="con-items">
       <div v-for="(item) in 6" :key="item" class="item">
         <div class="con-banderas">
@@ -149,10 +149,11 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class bannerPrices extends Vue {
   interval: any = null
+  @Prop({ type: Boolean }) relative: boolean
   stop() {
     clearInterval(this.interval)
   }
@@ -183,7 +184,7 @@ export default class bannerPrices extends Vue {
   overflow: hidden
 .liston
   width: 100%
-  height: 80px
+  height: 70px
   display: flex
   align-items: center
   justify-content: flex-start
@@ -194,18 +195,23 @@ export default class bannerPrices extends Vue {
   z-index: 500
   -webkit-backdrop-filter: saturate(180%) blur(30px)
   backdrop-filter: saturate(180%) blur(30px)
+  &.relative
+    position: relative
+    margin-top: 59px
+    border-top: 1px solid rgba(255,255,255,.1)
+    height: 60px
   .con-items
     display: flex
     align-items: center
     flex: 1
     justify-content: flex-start
     overflow: hidden
-    height: 80px
+    height: 70px
     scroll-behavior: smooth
     transition: all .25s linear
     .item
       background: rgba(0,0,0,.7)
-      height: 80px
+      height: 70px
       display: flex
       align-items: center
       justify-content: center

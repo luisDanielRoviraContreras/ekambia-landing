@@ -4,7 +4,7 @@
       transform: `translate(${x / 90}px, ${y / 90}px)`
     }" class="planeta" src="planeta.svg" alt="">
 
-    <h2>Todo es muy fácil con la app de eKambia</h2>
+    <h2>Todo es muy fácil con la app de <logo /></h2>
 
     <div class="con-phone">
       <div :style="{

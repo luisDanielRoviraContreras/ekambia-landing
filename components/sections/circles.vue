@@ -26,7 +26,7 @@
     <div class="circle">
       <div class="text">
         <h3>
-          Con ekambia puedes operar y recibir tu dinero desde tu domicilio
+          Con <logo white height="20px" /> puedes operar y recibir tu dinero desde tu domicilio
         </h3>
       </div>
 
@@ -58,14 +58,14 @@
       </div>
       <div class="text">
         <h3>
-          No tenes efectivo? No importa, con ekambia podes operar con tu tarjeta de crédito y/o débito, en nuestras oficinas y te acercamos el POS
+          No tenes efectivo? No importa, con <logo white height="20px" /> podes operar con tu tarjeta de crédito y/o débito, en nuestras oficinas y te acercamos el POS
         </h3>
       </div>
     </div>
     <div class="circle">
       <div class="text">
         <h3>
-          Quieres ahorrar mas? Con ekambia nunca dejas de ahorrar, porque tu cotización mejora en función al monto a cambiar, y por ser cliente habitual
+          Quieres ahorrar mas? Con <logo white height="20px" /> nunca dejas de ahorrar, porque tu cotización mejora en función al monto a cambiar, y por ser cliente habitual
         </h3>
       </div>
 
@@ -91,8 +91,8 @@
         </div>
 
         <div class="icon">
-          <img src="circles/4tienda.svg" alt="">
-          <img src="circles/4tienda.svg" class="blur" alt="">
+          <img src="circles/4.svg" alt="">
+          <img src="circles/4.svg" class="blur" alt="">
         </div>
       </div>
       <div class="text">

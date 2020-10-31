@@ -2,22 +2,22 @@
   <div :class="{ visible }" class="faq">
     <img :style="{
       transform: `translate(${x / 120}px, ${y / 120}px)`
-    }" class="moneda1" src="moneda.svg" alt="">
+    }" class="moneda1" src="monedas/svg1/1.svg" alt="">
     <img :style="{
       transform: `translate(-${x / 80}px, -${y / 80}px)`
-    }" class="moneda2" src="moneda.svg" alt="">
+    }" class="moneda2" src="monedas/svg1/2.svg" alt="">
     <img :style="{
       transform: `translate(${x / 80}px, ${y / 80}px)`
-    }" class="billete1" src="billete.svg" alt="">
+    }" class="billete1" src="monedas/svg1/3.svg" alt="">
     <img :style="{
       transform: `translate(-${x / 80}px, -${y / 80}px)`
-    }" class="billete2" src="billete.svg" alt="">
+    }" class="billete2" src="monedas/svg1/4.svg" alt="">
     <h2 id="faq">Preguntas frecuentes</h2>
     <div class="con-faq">
       <div class="con-texts">
         <div v-if="active == 1" class="text-1">
           <h3>
-            Como hago mi operación con ekambia
+            Como hago mi operación con <logo height="24px" />
           </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
@@ -56,7 +56,7 @@
               1
             </div>
             <p class="title">
-              Como hago mi operación con ekambia
+              Como hago mi operación con <logo white height="20px" />
             </p>
           </li>
           <li @click="active = 2" :class="{ active: active == 2 }">
@@ -121,12 +121,12 @@ export default class faq extends Vue {
 .moneda1
   position: absolute
   left: 120px
-  top: 0px
+  top: 200px
   z-index: 10
-  width: 260px
+  width: 170px
 .moneda2
   position: absolute
-  right: -50px
+  right: -30px
   bottom: 10px
   z-index: 10
   width: 170px
@@ -134,13 +134,13 @@ export default class faq extends Vue {
 .billete1
   position: absolute
   right: 100px
-  top: 100px
+  top: 170px
   z-index: 10
-  width: 140px
+  width: 120px
   transform: rotate(50deg)
 .billete2
   position: absolute
-  left: -60px
+  left: 20px
   bottom: 180px
   z-index: 10
   width: 140px

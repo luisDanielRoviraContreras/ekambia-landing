@@ -1,8 +1,10 @@
 <template>
   <div class="content">
     <navbar />
-    <banner-prices />
+    <liston relative />
+    <!-- <banner-prices /> -->
     <inicio />
+    <montana />
     <steps />
     <astronauta />
     <muestra />
@@ -20,6 +22,11 @@ export default class index extends Vue {
 }
 </script>
 <style lang="sass">
+.p5Canvas
+  position: absolute
+  bottom: 0px
+  z-index: 10
+  height: 100% !important
 // @import url('../static/Gilroy-Bold.ttf');
 @font-face
   font-family: 'Gilroy'
@@ -45,6 +52,7 @@ body
   font-family: 'Open Sans', sans-serif
   scroll-behavior: smooth
   overflow: hidden
+  font-size: 15px
 
 h1,h2,h3,h4,h5,h6,.title
   font-family: 'Gilroy', sans-serif

@@ -1,75 +1,47 @@
 <template>
   <div class="inicio">
-    <div class="update">
-      Ultima actualización de cotizaciones: <b>29/09/2002 - 13:30</b>
-    </div>
+    <trend
+      class="chart"
+      :data="getArray"
+      gradientDirection="top"
+      :gradient="['#ffda1a']"
+      :padding="0"
+      :radius="0"
+      :stroke-width="1"
+      stroke-linecap="round"
+      :height="150"
+      :width="getInnerWidth"
+      :style="{
+          transform: `translate(${x / 80}px, 0)`
+        }"
+      smooth>
+    </trend>
+
+    <img :style="{
+      transform: `translate(-${x / 80}px, -${y / 80}px)`
+    }" class="moneda1" src="monedas/svg1/1.svg" alt="">
+    <img :style="{
+      transform: `translate(-${x / 40}px, -${y / 40}px)`
+    }" class="moneda2" src="monedas/svg1/5.svg" alt="">
+    <img :style="{
+      transform: `translate(${x / 60}px, ${y / 60}px)`
+    }" class="billete1" src="monedas/svg1/2.svg" alt="">
+    <img :style="{
+      transform: `translate(${x / 70}px, ${y / 70}px)`
+    }" class="billete2" src="monedas/svg1/4.svg" alt="">
 
     <div class="con-inicio">
+      <img :style="{
+        transform: `translate(-${x / 80}px, 0)`
+      }" class="montana" src="/montana.svg" alt="">
       <div class="con-text">
-        <arbitraje />
-      </div>
-      <div class="con-change">
-        <div class="change">
-          <header>
-            <h2>Cambiar dinero</h2>
-          </header>
-
-
-          <div class="change-form">
-            <div class="con-price">
-              <div class="price1 price">
-                Compra: 3.455
-              </div>
-              <div class="price2 price">
-                Venta: 4.890
-              </div>
-            </div>
-
-            <div class="con-inputs">
-              <div class="inputs">
-                <div class="con-input">
-                  <label for="">Yo tengo</label>
-                  <input placeholder="0.00" type="text">
-                  <select name="" id="">
-                    <option value="1">Dollar</option>
-                    <option value="2">Guarani</option>
-                  </select>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.939 7.939L12 12.879 7.061 7.939 4.939 10.061 12 17.121 19.061 10.061z"/></svg>
-                </div>
-                <button class="btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                    <g id="Stockholm-icons-_-Navigation-_-Up-down" data-name="Stockholm-icons-/-Navigation-/-Up-down" transform="translate(30) rotate(90)">
-                      <rect id="Rectangle" width="2.5" height="15" rx="1.25" transform="translate(8.75 21.25) rotate(180)" opacity="0.3"/>
-                      <path id="Path-104" d="M11.866,28.366a1.25,1.25,0,0,1,1.768,1.768l-3.75,3.75a1.25,1.25,0,0,1-1.768,0l-3.75-3.75a1.25,1.25,0,0,1,1.768-1.768L9,31.232Z" transform="translate(-1.5 -10.5)"/>
-                      <rect id="Rectangle-Copy" width="2.5" height="15" rx="1.25" transform="translate(23.75 23.75) rotate(180)" opacity="0.3"/>
-                      <path id="Path-104-Copy" d="M35.866-14.116a1.25,1.25,0,0,0,1.768,0,1.25,1.25,0,0,0,0-1.768l-3.75-3.75a1.25,1.25,0,0,0-1.768,0l-3.75,3.75a1.25,1.25,0,0,0,0,1.768,1.25,1.25,0,0,0,1.768,0L33-16.982Z" transform="translate(-10.5 26.25)"/>
-                    </g>
-                  </svg>
-                </button>
-                <div class="con-input">
-                  <label for="">Yo recibo</label>
-                  <input placeholder="0.00" type="text">
-                  <select name="" id="">
-                    <option value="1">Guarani</option>
-                    <option value="2">Dollar</option>
-                  </select>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.939 7.939L12 12.879 7.061 7.939 4.939 10.061 12 17.121 19.061 10.061z"/></svg>
-                </div>
-              </div>
-              <Button yellow block>
-                Iniciar operación
-              </Button>
-            </div>
+        <div class="text">
+          <h1>
+            Con <logo /> cambiar <br> dinero nunca fue tan fácil
+          </h1>
+          <div class="con-download">
+            <btns-download />
           </div>
-
-          <footer>
-            <p>
-              Los tipos de cambio están sujetos a fluctuaciones. Será de aplicación el tipo de cambio
-correspondiente al momento de confirmar la operación
-            </p>
-
-            <a href="#">Conocé más sobre los beneficios por tramos, en función de la cantidad operada</a>
-          </footer>
         </div>
       </div>
     </div>
@@ -111,16 +83,6 @@ export default class inicio extends Vue {
   left: -100px
   width: calc(100% + 200px)
   bottom: 50px
-.update
-  position: absolute
-  top: 0px
-  right: 0px
-  padding: 8px
-  font-size: .75rem
-  margin: 12px
-  border-radius: 12px
-  background: -color(gray)
-  color: -color(text, .6)
 .moneda1
   position: absolute
   right: -40px
@@ -303,25 +265,26 @@ export default class inicio extends Vue {
   .con-inicio
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: flex-end
     z-index: 100
     position: relative
     max-width: 1400px
+    width: 100%
   .con-change
     width: 50vw
+    min-height: 800px
     display: flex
     align-items: center
     justify-content: center
     position: relative
     z-index: 100
-    padding-top: 100px
   .con-text
-    padding-top: 100px
     width: 50vw
     display: flex
     align-items: center
     justify-content: center
-    // padding-top: 70px
+    padding-top: 200px
+    padding-bottom: 200px
     .text
       bottom: 550px
       padding: 0px 30px
@@ -331,7 +294,7 @@ export default class inicio extends Vue {
         justify-content: flex-start
         margin-top: 25px
       h1
-        font-size: 3rem
+        font-size: 2.7rem
         line-height: 3.5rem
   .montana
     position: absolute
