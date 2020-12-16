@@ -1,147 +1,149 @@
 <template>
-  <div :class="{ relative }" @mouseenter="stop" @mouseleave="initInterval" class="liston">
+  <div :class="{ relative, black }" class="liston">
     <div ref="items" class="con-items">
-      <div v-for="(item) in 6" :key="item" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item}.png`" alt="">
-        </div>
-
-        <div class="con-names">
-          Dolar
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              124
-            </b>
+      <div v-for="(item, i) in 2" :key="i" class="content" :class="`content${i}`">
+        <div v-for="(item, ix) in 6" :key="item" class="item">
+          <div class="con-banderas">
+            <img :src="`banderas/${item}.png`" alt="">
           </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              126
-            </b>
-          </div>
-        </div>
-      </div>
-      <div v-for="(item) in 6" :key="item+30" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item}.png`" alt="">
-        </div>
 
-        <div class="con-names">
-          Dolar
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              124
-            </b>
+          <div class="con-names">
+            {{ moneys[ix] }}
           </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              126
-            </b>
+
+          <div class="con-prices">
+            <div class="buy price">
+              <span>Compra</span>
+              <b>
+                124
+              </b>
+            </div>
+            <div class="sell price">
+              <span>Venta</span>
+              <b>
+                126
+              </b>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-for="(item) in 6" :key="item+10" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item}.png`" alt="">
-        </div>
-
-        <div class="con-names">
-          Dolar
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              124
-            </b>
+        <div v-for="(item, ix) in 6" :key="item+30" class="item">
+          <div class="con-banderas">
+            <img :src="`banderas/${item}.png`" alt="">
           </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              126
-            </b>
-          </div>
-        </div>
-      </div>
-      <div v-for="(item) in 6" :key="item+20" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item}.png`" alt="">
-        </div>
 
-        <div class="con-names">
-          Dolar
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              124
-            </b>
+          <div class="con-names">
+            {{ moneys[ix] }}
           </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              126
-            </b>
+
+          <div class="con-prices">
+            <div class="buy price">
+              <span>Compra</span>
+              <b>
+                124
+              </b>
+            </div>
+            <div class="sell price">
+              <span>Venta</span>
+              <b>
+                126
+              </b>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-for="(item) in 6" :key="item+40" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item}.png`" alt="">
-        </div>
-
-        <div class="con-names">
-          Dolar
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              124
-            </b>
+        <div v-for="(item, ix) in 6" :key="item+10" class="item">
+          <div class="con-banderas">
+            <img :src="`banderas/${item}.png`" alt="">
           </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              126
-            </b>
+
+          <div class="con-names">
+            {{ moneys[ix] }}
+          </div>
+
+          <div class="con-prices">
+            <div class="buy price">
+              <span>Compra</span>
+              <b>
+                124
+              </b>
+            </div>
+            <div class="sell price">
+              <span>Venta</span>
+              <b>
+                126
+              </b>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-for="(item) in 6" :key="item+50" class="item">
-        <div class="con-banderas">
-          <img :src="`banderas/${item}.png`" alt="">
-        </div>
-
-        <div class="con-names">
-          Dolar
-        </div>
-
-        <div class="con-prices">
-          <div class="buy price">
-            <span>Compra</span>
-            <b>
-              124
-            </b>
+        <div v-for="(item, ix) in 6" :key="item+20" class="item">
+          <div class="con-banderas">
+            <img :src="`banderas/${item}.png`" alt="">
           </div>
-          <div class="sell price">
-            <span>Venta</span>
-            <b>
-              126
-            </b>
+
+          <div class="con-names">
+            {{ moneys[ix] }}
+          </div>
+
+          <div class="con-prices">
+            <div class="buy price">
+              <span>Compra</span>
+              <b>
+                124
+              </b>
+            </div>
+            <div class="sell price">
+              <span>Venta</span>
+              <b>
+                126
+              </b>
+            </div>
+          </div>
+        </div>
+        <div v-for="(item, ix) in 6" :key="item+40" class="item">
+          <div class="con-banderas">
+            <img :src="`banderas/${item}.png`" alt="">
+          </div>
+
+          <div class="con-names">
+            {{ moneys[ix] }}
+          </div>
+
+          <div class="con-prices">
+            <div class="buy price">
+              <span>Compra</span>
+              <b>
+                124
+              </b>
+            </div>
+            <div class="sell price">
+              <span>Venta</span>
+              <b>
+                126
+              </b>
+            </div>
+          </div>
+        </div>
+        <div v-for="(item, ix) in 6" :key="item+50" class="item">
+          <div class="con-banderas">
+            <img :src="`banderas/${item}.png`" alt="">
+          </div>
+
+          <div class="con-names">
+            {{ moneys[ix] }}
+          </div>
+
+          <div class="con-prices">
+            <div class="buy price">
+              <span>Compra</span>
+              <b>
+                124
+              </b>
+            </div>
+            <div class="sell price">
+              <span>Venta</span>
+              <b>
+                126
+              </b>
+            </div>
           </div>
         </div>
       </div>
@@ -150,30 +152,41 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import anime from 'animejs'
 @Component
 export default class bannerPrices extends Vue {
   interval: any = null
   @Prop({ type: Boolean }) relative: boolean
+  @Prop({ type: Boolean }) black: boolean
   stop() {
     clearInterval(this.interval)
   }
-  initInterval() {
-    const el: any = this.$refs.items
-    this.interval = setInterval(() => {
-      const item: any = el.querySelector('.item')
-      item.style.marginLeft = '-240px'
-      setTimeout(() => {
-          item.style.marginLeft = '0px'
-          el.appendChild(item)
-      }, 2000);
-    }, 0)
-  }
-  mounted() {
-    this.initInterval()
-  }
+
+  moneys: any = [
+    'Euro',
+    'Dolar',
+    'Peso',
+    'Real',
+    'Peso',
+    'Peso',
+    'Peso',
+    'Peso',
+  ]
 }
 </script>
 <style lang="sass" scoped>
+
+.content0
+  animation: animateAll 50s linear infinite
+.content1
+  animation: animateAll 50s linear infinite
+
+@keyframes animateAll
+  0%
+    transform: translate(0)
+  100%
+    transform: translate(-100%)
+
 @keyframes animate
   0%
     margin-left: 0px
@@ -193,10 +206,19 @@ export default class bannerPrices extends Vue {
   position: absolute
   bottom: -2px
   z-index: 500
+  background: rgba(0,0,0,.7)
   -webkit-backdrop-filter: saturate(180%) blur(30px)
   backdrop-filter: saturate(180%) blur(30px)
+  &:hover
+    .content0, .content1
+      animation-play-state: paused
+  &.black
+    -webkit-backdrop-filter: none
+    backdrop-filter: none
+    border-top: 2px solid rgb(40,40,40)
+    background: rgba(0,0,0,1)
   &.relative
-    position: absolute
+    position: relative
     height: 60px
     bottom: auto
     top: 0px
@@ -207,10 +229,18 @@ export default class bannerPrices extends Vue {
     justify-content: flex-start
     overflow: hidden
     height: 70px
-    scroll-behavior: smooth
-    transition: all .25s linear
+    width: auto
+    position: absolute
+    .content
+      position: relative
+      display: flex
+      align-items: center
+      flex: 1
+      justify-content: flex-start
+      overflow: hidden
+    // scroll-behavior: smooth
+    // transition: all .25s linear
     .item
-      background: rgba(0,0,0,.7)
       height: 70px
       display: flex
       align-items: center
@@ -219,9 +249,9 @@ export default class bannerPrices extends Vue {
       position: relative
       color: #fff
       max-width: 240px
-      transition: all .25s linear, margin-left 2s linear
+      transition: all .25s ease
       &:hover
-        background: rgba(0,0,0,.85)
+        background: rgba(255,255,255,.15)
       &:after
         content: ''
         position: absolute
@@ -237,6 +267,7 @@ export default class bannerPrices extends Vue {
           width: 35px
           border-radius: 13px
           margin: 0px 5px
+          display: block
       .con-names
         white-space: nowrap
         font-size: .8rem
@@ -257,6 +288,10 @@ export default class bannerPrices extends Vue {
 // responsive
 
 @media (max-width: 600px)
+  .content0
+    animation: animateAll 100s linear infinite
+  .content1
+    animation: animateAll 100s linear infinite
   .liston
     height: 60px
     .con-items

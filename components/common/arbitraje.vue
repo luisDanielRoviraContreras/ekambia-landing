@@ -2,21 +2,26 @@
   <div class="arbitraje">
     <header>
       <div class="con-btns">
-        <Button border>
-          Asunción
-        </Button>
-        <Button>
-          Arbitraje
-        </Button>
+        <div class="div1">
+          <Select :data="states" v-model="state" >
+            <Option v-for="(item, i) in states" :key="i" :value="item.id" :text="item.alias" />
+          </Select>
+          <Button border>
+            <i class='bx bxs-share-alt'></i> <span>Compartir</span>
+          </Button>
+        </div>
+        <div class="div2">
+          <Button border>
+            Cotización
+          </Button>
+          <Button>
+            Arbitraje
+          </Button>
+        </div>
       </div>
     </header>
-
-    <div class="con-items">
-      <header>
-        <h6>Asunción</h6>
-        <h6>CDE</h6>
-      </header>
-
+    <!-- @mouseup="handleUp" @mousemove="handleMove" @mousedown="handleClickItems" -->
+    <div  ref="conitems" class="con-items">
       <div class="items">
         <div class="con-item" v-for="(item, i) in prices" :key="i">
           <div class="item">
@@ -70,20 +75,127 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="items">
+        <div class="con-item" v-for="(item, i) in prices" :key="i">
+          <div class="item">
+            <div class="con-banderas">
+              <img :src="`banderas/${item.img1}.png`" alt="">
+              <img :src="`banderas/${item.img2}.png`" alt="">
+            </div>
 
+            <div class="con-names">
+              {{ item.name }}
+            </div>
+
+            <div class="con-prices">
+              <div class="buy price">
+                <span>Compra</span>
+                <b>
+                  {{ item.buy }}
+                </b>
+              </div>
+              <div class="sell price">
+                <span>Venta</span>
+                <b>
+                  {{ item.sell }}
+                </b>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="con-banderas">
+              <img :src="`banderas/${item.img1}.png`" alt="">
+              <img :src="`banderas/${item.img2}.png`" alt="">
+            </div>
+
+            <div class="con-names">
+              {{ item.name }}
+            </div>
+
+            <div class="con-prices">
+              <div class="buy price">
+                <span>Compra</span>
+                <b>
+                  {{ item.buy }}
+                </b>
+              </div>
+              <div class="sell price">
+                <span>Venta</span>
+                <b>
+                  {{ item.sell }}
+                </b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="items">
+        <div class="con-item" v-for="(item, i) in prices" :key="i">
+          <div class="item">
+            <div class="con-banderas">
+              <img :src="`banderas/${item.img1}.png`" alt="">
+              <img :src="`banderas/${item.img2}.png`" alt="">
+            </div>
+
+            <div class="con-names">
+              {{ item.name }}
+            </div>
+
+            <div class="con-prices">
+              <div class="buy price">
+                <span>Compra</span>
+                <b>
+                  {{ item.buy }}
+                </b>
+              </div>
+              <div class="sell price">
+                <span>Venta</span>
+                <b>
+                  {{ item.sell }}
+                </b>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="con-banderas">
+              <img :src="`banderas/${item.img1}.png`" alt="">
+              <img :src="`banderas/${item.img2}.png`" alt="">
+            </div>
+
+            <div class="con-names">
+              {{ item.name }}
+            </div>
+
+            <div class="con-prices">
+              <div class="buy price">
+                <span>Compra</span>
+                <b>
+                  {{ item.buy }}
+                </b>
+              </div>
+              <div class="sell price">
+                <span>Venta</span>
+                <b>
+                  {{ item.sell }}
+                </b>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <footer>
-      <button>
+      <button @click="handlePrev">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.939 4.939L6.879 12 13.939 19.061 16.061 16.939 11.121 12 16.061 7.061z"></path></svg>
       </button>
       <ul>
-        <li class="active"></li>
-        <li></li>
-        <li></li>
+        <li @click="handleClickLi(0)" :class="{active: scrollLeft < offsetWidth / 2}"></li>
+        <li @click="handleClickLi(1)" :class="{active: scrollLeft > offsetWidth / 2 && scrollLeft < offsetWidth * 2}"></li>
+        <li @click="handleClickLi(2)" :class="{active: scrollLeft > offsetWidth + (offsetWidth / 2)  && scrollLeft < offsetWidth * 3}"></li>
       </ul>
-      <button>
+      <button @click="handleNext">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.061 19.061L17.121 12 10.061 4.939 7.939 7.061 12.879 12 7.939 16.939z"></path></svg>
       </button>
     </footer>
@@ -93,6 +205,54 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class arbitraje extends Vue {
+  state: any = 1
+  offsetWidth: any = 0
+  scrollLeft: any = 0
+
+  mounted() {
+    this.offsetWidth = (this.$refs.conitems as any).offsetWidth;
+    (this.$refs.conitems as any).addEventListener('scroll', (evt) => {
+      this.scrollLeft = evt.target.scrollLeft
+    })
+  }
+
+  handleClickLi(n: any) {
+    const scrollLeft = this.offsetWidth * n;
+    (this.$refs.conitems as any).scrollTo(scrollLeft, 0)
+  }
+
+  handleNext() {
+    const scrollLeft = this.scrollLeft += this.offsetWidth;
+    (this.$refs.conitems as any).scrollTo(scrollLeft, 0)
+  }
+  handlePrev() {
+    const scrollLeft = this.scrollLeft -= this.offsetWidth;
+    (this.$refs.conitems as any).scrollTo(scrollLeft, 0)
+  }
+
+  states: any = [
+    {
+      alias:'Asunción',
+      id: 1
+    },
+    {
+      alias:'Caacupé',
+      id: 2
+    },
+    {
+      alias:'Pilar',
+      id: 3
+    },
+    {
+      alias:'Villa Hayes',
+      id: 4
+    },
+    {
+      alias:'Villarrica',
+      id: 5
+    }
+  ]
+
   prices: any = [
     {
       name: 'Euro x Dólar',
@@ -127,6 +287,7 @@ export default class arbitraje extends Vue {
 </script>
 <style lang="sass" scoped>
 .arbitraje
+  width: 100%
   >footer
     display: flex
     align-items: center
@@ -142,15 +303,19 @@ export default class arbitraje extends Vue {
         margin: 8px
         border-radius: 10px
         opacity: .2
+        transition: all .25s ease
+        cursor: pointer
+        &:hover
+          opacity: .4
         &.active
           opacity: 1
 
     button
-      width: 50px
-      height: 50px
+      width: 40px
+      height: 45px
       background: transparent
       border: 2px solid rgba(0,0,0,.05)
-      border-radius: 20px
+      border-radius: 16px
       cursor: pointer
       color: #000
       transition: all .25s ease
@@ -160,6 +325,7 @@ export default class arbitraje extends Vue {
         fill: #fff
       svg
         fill: inherit
+        margin-top: 4px
   >header
     display: flex
     align-items: center
@@ -167,11 +333,44 @@ export default class arbitraje extends Vue {
     .con-btns
       display: flex
       align-items: center
-      justify-content: flex-start
+      justify-content: space-between
       padding: 10px 0px
+      width: 100%
+      .div1
+        display: flex
+        align-items: center
+        justify-content: center
+        i
+          font-size: 1rem
+          margin-right: 5px
+        /deep/
+          .select
+            margin-right: 10px
+            input
+              width: 160px
+              padding: 12px
+              border-radius: 20px
+              font-size: 14px
+      .div2
+        display: flex
+        align-items: center
+        justify-content: center
       .button
         margin-right: 10px
 .con-items
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  overflow: auto
+  scroll-snap-type: x mandatory
+  scroll-behavior: smooth
+  .items
+    min-width: 100%
+    flex: 1
+    scroll-snap-align: center
+    margin-left: 15px
+    &:first-child
+      margin-left: 0px
   header
     display: flex
     align-items: center
@@ -191,6 +390,7 @@ export default class arbitraje extends Vue {
   cursor: pointer
   transition: all .25s ease
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05)
+  user-select: none
   &:hover
     background: #fff
     box-shadow: 0px 6px 25px 0px rgba(0,0,0,.05)
@@ -199,7 +399,7 @@ export default class arbitraje extends Vue {
   height: 60px
   display: flex
   align-items: center
-  justify-content: flex-start
+  justify-content: space-between
   padding: 0px 6px
   position: relative
   width: 50%
@@ -240,5 +440,42 @@ export default class arbitraje extends Vue {
         font-size: .8rem
 // responsive
 
-// @media (max-width: 812px), (pointer:none), (pointer:coarse)
+@media (max-width: 660px)
+  .arbitraje
+    >header
+      .con-btns
+        flex-direction: column
+        .div1
+          width: 100%
+          justify-content: space-between
+          /deep/.select
+            flex: 1
+            input
+              width: 100% !important
+              max-width: 100%
+          .button
+            width: 44px
+            height: 44px
+            padding: 0px
+            i
+              margin-right: 0px
+            span
+              display: none
+        .div2
+          justify-content: flex-start
+          width: 100%
+          margin-top: 10px
+          .button
+            width: 100%
+  .con-item
+    flex-direction: column
+    .item
+      width: 100%
+      justify-content: space-between
+      &:not(:last-child):after
+        width: 100%
+        height: 1px
+        bottom: 0px
+
+
 </style>

@@ -1,48 +1,59 @@
 <template>
   <div class="inicio">
-    <!-- <trend
-      class="chart"
-      :data="getArray"
-      gradientDirection="top"
-      :gradient="['#ffda1a']"
-      :padding="0"
-      :radius="0"
-      :stroke-width="1"
-      stroke-linecap="round"
-      :height="150"
-      :width="getInnerWidth"
-      :style="{
-          transform: `translate(${x / 80}px, 0)`
-        }"
-      smooth>
-    </trend> -->
-
-    <img :style="{
-      transform: `translate(-${x / 80}px, -${y / 80}px)`
-    }" class="moneda1" src="monedas/svg1/1.svg" alt="">
-    <img :style="{
-      transform: `translate(-${x / 40}px, -${y / 40}px)`
-    }" class="moneda2" src="monedas/svg1/4.svg" alt="">
-    <!-- <img :style="{
-      transform: `translate(${x / 60}px, ${y / 60}px)`
-    }" class="billete1" src="monedas/svg1/2.svg" alt="">
-    <img :style="{
-      transform: `translate(${x / 70}px, ${y / 70}px)`
-    }" class="billete2" src="monedas/svg1/4.svg" alt=""> -->
+    <div  class="con-svg1">
+      <div :style="{
+      transform: `translate(-${x / 40}px, 0)`
+    }" class="custom-shape-divider-top-1602088878">
+          <!-- <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg> -->
+         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </div>
 
     <div class="con-inicio">
-      <img :style="{
-        transform: `translate(-${x / 80}px, 0)`
-      }" class="montana" src="/montana.svg" alt="">
       <div class="con-text">
         <div class="text">
-          <h1>
-            Con <logo /> cambiar <br> dinero nunca fue tan fácil
-          </h1>
+          <div class="con-btns-slide">
+            <span @click="active = 0" :class="{active: active == 0}"></span>
+            <span @click="active = 1" :class="{active: active == 1}"></span>
+            <span @click="active = 2" :class="{active: active == 2}"></span>
+          </div>
+          <div class="con-h1">
+            <transition name="fade-h1">
+              <h1 v-if="active == 0">
+                Descarga la App y disfruta <br> de los beneficios que solo te <br> puede brindar <logo />
+              </h1>
+            </transition>
+            <transition name="fade-h1">
+              <h1 v-if="active == 1">
+                Usa tus tarjetas para hacer <br> los cambios como y cuando lo necesites
+              </h1>
+            </transition>
+            <transition name="fade-h1">
+              <h1 v-if="active == 2">
+                Cambia desde el lugar que <br> necesites tenemos la opción de delivery para ti
+              </h1>
+            </transition>
+          </div>
           <div class="con-download">
             <btns-download />
           </div>
         </div>
+      </div>
+
+      <div class="con-images">
+        <transition name="fade">
+          <img v-show="active == 0" :src="`/${numberImage}.png`" alt="">
+        </transition>
+        <transition name="fade">
+          <img v-show="active == 1" :src="`/${numberImage2}.png`" alt="">
+        </transition>
+        <transition name="fade">
+          <img v-show="active == 2" :src="`/${numberImage3}.png`" alt="">
+        </transition>
       </div>
     </div>
   </div>
@@ -54,6 +65,32 @@ export default class inicio extends Vue {
   x: any = 0
   y: any = 0
   getInnerWidth: any = 0
+  numberImage: any = 0
+  numberImage2: any = 0
+  numberImage3: any = 0
+  active: any = 0
+
+  slide1: any = [
+    // '1',
+    '2',
+    '6',
+    '7',
+    '10',
+    '12'
+  ]
+
+  slide2: any = [
+    '3',
+    '4',
+    '5',
+    '9',
+    '11'
+  ]
+
+  slide3: any = [
+    '8',
+  ]
+
   handleMousemove(evt) {
     if (window.innerWidth > 812) {
       this.x = evt.x
@@ -68,7 +105,19 @@ export default class inicio extends Vue {
     }
     return picos
   }
+
+  getImage() {
+    this.numberImage = this.slide1[Math.floor((Math.random() * (4 - 0 + 0)) + 0)]
+    this.numberImage2 = this.slide2[Math.floor((Math.random() * (4 - 0 + 0)) + 0)]
+    this.numberImage3 = 8
+  }
+
+  created() {
+    this.getImage()
+  }
+
   mounted() {
+
     this.$nextTick(() => {
       this.getInnerWidth = window.innerWidth + 500
     })
@@ -78,166 +127,103 @@ export default class inicio extends Vue {
 }
 </script>
 <style lang="sass" scoped>
-.chart
-  position: absolute
-  left: -100px
-  width: calc(100% + 200px)
-  bottom: 50px
-.moneda1
-  position: absolute
-  left: 60px
-  bottom: 180px
-  z-index: 10
-  width: 125px
-.moneda2
-  position: absolute
-  right: 80px
-  bottom: 70px
-  z-index: 10
-  width: 110px
+.fade-enter-active, .fade-leave-active
+  transition: all .25s ease-out
 
-.change
-  width: 100%
-  max-width: 440px
-  z-index: 100
-  position: relative
-  h2
-    text-align: center
-    width: 100%
-  footer
-    padding: 20px
-    padding-top: 30px
-    padding-bottom: 0px
-    p
-      font-size: .7rem
-      text-align: center
-      opacity: .6
-    a
-      font-size: .7rem
-      text-align: center
-      color: #000
-      display: block
-      width: 100%
-      margin-top: 20px
+.fade-enter, .fade-leave-to
+  opacity: 0
+  transform-origin: bottom
+  transform: scale(0)
 
-.change-form
-  box-shadow: 0px 0px 30px 0px rgba(0,0,0,.05)
-  border-radius: 30px
-  padding: 40px
+.fade-h1-enter-active, .fade-h1-leave-active
+  transition: all .25s ease-out
+
+.fade-h1-enter
+  opacity: 0
+  transform: translate(-100px)
+.fade-h1-leave-to
+  opacity: 0
+  transform: translate(100px)
+
+
+.con-h1
   position: relative
+  min-height: 150px
   display: flex
   align-items: center
   justify-content: center
-  flex-direction: column
-  margin-top: 60px
   width: 100%
-  background: #fff
-  .button
-    margin-top: 30px
-    padding: 17px
-  // button
-  //   margin-top: 20px
-  .con-inputs
-    width: 100%
-    padding-top: 35px
-    .btn
-      width: 54px
-      height: 54px
-      background: #000
-      border-radius: 20px
-      display: flex
-      align-items: center
-      justify-content: center
-      border: 0px
-      margin-left: auto
-      margin-right: 30px
-      margin-top: -10px
-      margin-bottom: -10px
-      cursor: pointer
-      z-index: 100
-      position: relative
-      transition: all .25s ease
-      &:hover
-        transform: scale(1.1) rotate(8deg)
-      svg
-        transform: rotate(90deg)
-        fill: #fff
-        width: 30px
-  .con-input
-    display: flex
-    align-items: center
-    justify-content: center
-    position: relative
-    border: 2px solid rgba(0,0,0,.1)
-    width: 100%
-    border-radius: 20px
-    z-index: 10
-    label
-      position: absolute
-      left: 20px
-      top: -12px
-      background: #fff
-      border-radius: 10px
-      padding: 0px 8px
-      font-weight: bold
-      font-family: 'Gilroy', sans-serif
-    input
-      width: 100%
-      padding: 18px
-      border: 0px
-      background: transparent
-      font-weight: bold
-      font-family: 'Gilroy', sans-serif
-    svg
-      width: 18px
-      position: absolute
-      right: 0px
-      margin: 10px
-      top: 4px
-    select
-      background: transparent
-      padding: 18px
-      padding-right: 40px
-      border: 0px
-      font-weight: bold
-      font-family: 'Gilroy', sans-serif
-      max-width: 140px
-      border-radius: inherit
-      -webkit-appearance: none
-      -moz-appearance: none
-      text-indent: 1px
-      text-overflow: ''
-      cursor: pointer
-      &:hover
-        background: -color(gray)
-      &:-ms-expand
-        display: none
-  .con-price
-    display: flex
-    align-items: center
-    justify-content: center
+  h1
     position: absolute
-    top: 0px
-    background: #fff
-    border-radius: 20px
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,.05)
-    transform: translate(0,-50%)
-    padding: 0px 10px
-    .price
-      padding: 20px
-      font-weight: bold
+
+.con-btns-slide
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  width: 100%
+  margin-bottom: 10px
+  span
+    margin: 0px 8px
+    width: 40px
+    height: 5px
+    display: block
+    background: #000
+    opacity: .15
+    border-radius: 5px
+    cursor: pointer
+    &:first-child
+      margin-left: 0px
+    &.active
+      opacity: 1
+
+.con-svg1
+  position: absolute
+  width: 100%
+  left: 0px
+  bottom: 0px
+  transform: translate(0,-100%) rotate(180deg)
+  z-index: 200
+  pointer-events: none
+.line
+  position: absolute
+  top: -10px
+  left: -10%
+  width: 120%
+  overflow: hidden
+  line-height: 0
+  transform: rotate(4deg)
+  svg
+    fill: transparent
+    stroke: #000
+    z-index: 20
+.custom-shape-divider-top-1602088878
+    position: absolute
+    top: 0
+    left: 0
+    width: 120%
+    overflow: hidden
+    line-height: 0
+    svg
+      z-index: 10
       position: relative
-      display: flex
-      align-items: center
-      justify-content: center
-      &:last-child
-       &:after
-         content: ''
-         position: absolute
-         left: 0px
-         height: 30px
-         width: 1px
-         background: rgba(0,0,0,.1)
+      display: block
+      width: calc(155% + 1.3px)
+      height: 150px
+
+.con-images
+  width: 50vw
+  margin-top: 50px
+  margin-bottom: -50px
+  min-height: 522px
+  position: relative
+  display: flex
+  align-items: flex-end
+  justify-content: center
+  img
+    width: 100%
+    display: block
+    position: absolute
 
 .inicio
   width: 100%
@@ -256,117 +242,73 @@ export default class inicio extends Vue {
     position: relative
     max-width: 1400px
     width: 100%
-  .con-change
-    width: 50vw
-    min-height: 800px
-    display: flex
-    align-items: center
-    justify-content: center
-    position: relative
-    z-index: 100
+    margin-bottom: 50px
+    margin-top: 50px
   .con-text
     width: 50vw
     display: flex
     align-items: center
     justify-content: center
-    padding-top: 200px
-    padding-bottom: 200px
+    flex-direction: column
     .text
       bottom: 550px
-      padding: 0px 30px
+      width: 100%
+      max-width: 500px
       .con-download
         display: flex
         align-items: center
         justify-content: flex-start
         margin-top: 25px
       h1
-        font-size: 2.7rem
-        line-height: 3.5rem
-  .montana
-    position: absolute
-    bottom: 0px
-    left: -490px
-    width: 2600px
-    // transform: translate(0%,100%)
-    pointer-events: none
+        font-size: 2.2rem
+        line-height: 3rem
+        width: 500px
 // responsive
 
-@media (max-width: 1275px)
-  .inicio
-    .con-text
-      .text
-        h1
-          font-size: 2.5rem
-          line-height: 2.5rem
-
-@media (max-width: 1085px)
-  .inicio
-    .con-text
-      .text
-        h1
-          font-size: 2.2rem
-          line-height: 2.2rem
-@media (max-width: 970px)
+@media (max-width: 1100px)
   .con-inicio
     flex-direction: column
-    padding-bottom: 100px
-    .con-change
-      height: auto
-      width: 100vw
-      padding-bottom: 150px
-      min-height: auto
-      .change
-        width: calc(100% - 40px)
-        margin: 0px 20px
+    padding-top: 60px
     .con-text
-      min-height: auto
-      height: auto
-      padding-top: 70px
-      padding-bottom: 50px
-      .montana
-        left: -100px
-        width: 1200px
-        bottom: 208px
+      width: 100%
       .text
+        width: 100%
+        text-align: center
+        .con-h1
+          min-height: auto
+          h1
+            position: relative
+        .con-download
+          display: flex
+          align-items: center
+          justify-content: center
+        .con-btns-slide
+          display: none
+        br
+          display: none
+    .con-images
+      width: 100%
+      margin-bottom: -100px
+      min-height: auto
+      img
         position: relative
-        bottom: 0px
-        h1
-          font-size: 1.8rem
-          line-height: 1.8rem
-          text-align: center
 @media (max-width: 600px)
-  .update
-    font-size: .6rem
-    margin: 10px
-  .moneda2
-    left: auto
-    right: 0px
-    bottom: 100px
-    width: 100px
-  .con-inicio
-    padding-bottom: 150px
+  .custom-shape-divider-top-1602088878
+    svg
+      height: 60px
+  .inicio
+    .con-images
+      img
+        width: 130%
     .con-text
-      .montana
-        left: -230px
-        width: 1400px
-        bottom: 250px
       .text
+        padding: 0px 20px
         h1
           font-size: 1.5rem
-    .con-change
-      .change
-        margin: 0px
-        width: 100%
-        footer
-          p
-            font-size: .6rem
-          a
-            font-size: .6rem
-            margin-top: 10px
-      .change-form
-        padding: 20px
-        margin-top: 45px
-        .con-price
-          .price
-            padding: 15px
+          line-height: 1.5rem
+          /deep/
+            .logo
+              svg
+                height: 26px !important
+
 </style>

@@ -28,6 +28,7 @@
       </Button>
       <Button @click="handleClickRegister" class="btn-2" yellow>
         Crear una Cuenta
+        <div class="effect" />
       </Button>
     </div>
   </div>
@@ -45,27 +46,25 @@ export default class navbar extends Vue {
   }
 
   mounted() {
-    const content = document.querySelector('.content')
-    content.addEventListener('scroll', () => {
-      const scrollTop = content.scrollTop
+    document.addEventListener('scroll', () => {
       const cambiar: any = document.querySelector('#como-cambiar')
       const beneficios: any = document.querySelector('#beneficios')
       const faq: any = document.querySelector('#faq').parentNode
 
-      this.scroll = scrollTop > 0
+      this.scroll = window.pageYOffset > 0
 
-      if (scrollTop > cambiar.offsetTop - 100) {
+      if (window.pageYOffset > cambiar.offsetTop - 100) {
         document.querySelectorAll('.navbar a').forEach(item => item.classList.remove('active'))
         document.querySelector('.como-cambiar-btn').classList.add('active')
       } else {
         document.querySelectorAll('.navbar a').forEach(item => item.classList.remove('active'))
         document.querySelector('.inicio-btn').classList.add('active')
       }
-      if (scrollTop > beneficios.offsetTop - 100) {
+      if (window.pageYOffset > beneficios.offsetTop - 100) {
         document.querySelectorAll('.navbar a').forEach(item => item.classList.remove('active'))
         document.querySelector('.beneficios-btn').classList.add('active')
       }
-      if (scrollTop > faq.offsetTop - 100) {
+      if (window.pageYOffset > faq.offsetTop - 100) {
         document.querySelectorAll('.navbar a').forEach(item => item.classList.remove('active'))
         document.querySelector('.faq-btn').classList.add('active')
       }
@@ -74,6 +73,22 @@ export default class navbar extends Vue {
 }
 </script>
 <style lang="sass" scoped>
+.effect
+  width: 140%
+  background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,.4) 50%, transparent 80%)
+  height: 100%
+  position: absolute
+  animation: payEffect 6s ease infinite
+  top: 0px
+  left: 0px
+  z-index: 200
+@keyframes payEffect
+  0%
+    transform: translate(-100%)
+  20%
+    transform: translate(100%)
+  100%
+    transform: translate(100%)
 .navbar
   position: fixed
   left: 0px
@@ -166,6 +181,8 @@ export default class navbar extends Vue {
     padding-right: 20px
     .btn-2
       margin-left: 10px
+      overflow: hidden
+      position: relative
 // responsive
 
 @media (max-width: 1200px)
@@ -181,12 +198,12 @@ export default class navbar extends Vue {
     nav
       margin-left: 10px
     .con-logo
-      padding-left: 10px
+      padding-left: 0px
       .logo-web
         display: none
       .logo-responsive
         display: block
-        width: 65px
+        width: 60px
 
 @media (max-width: 970px)
   .navbar

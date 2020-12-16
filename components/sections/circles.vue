@@ -1,12 +1,12 @@
 <template>
   <div :class="{ visible }" id="beneficios" class="circles">
-    <img class="star1" src="estrella.svg" alt="">
+    <!-- <img class="star1" src="estrella.svg" alt="">
     <img class="star2" src="estrella.svg" alt="">
     <img class="star3" src="estrella.svg" alt="">
     <img class="star4" src="estrella.svg" alt="">
     <img class="star5" src="estrella.svg" alt="">
     <img class="star6" src="estrella.svg" alt="">
-    <img class="star7" src="estrella.svg" alt="">
+    <img class="star7" src="estrella.svg" alt=""> -->
     <div  class="con-svg1">
       <div :style="{
       transform: `translate(-${x / 40}px, 0)`
@@ -106,15 +106,15 @@
       transform: `translate(-${x / 40}px, 0)`
     }" class="custom-shape-divider-top-1602088878">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-      </svg>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
       </div>
       <div :style="{
       transform: `translate(${x / 60}px, 0)`
     }" class="line">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-          </svg>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
       </div>
     </div>
   </div>
@@ -136,9 +136,8 @@ export default class circles extends Vue {
   mounted() {
     window.addEventListener('mousemove', this.handleMousemove)
 
-    const content = document.querySelector('.content')
-    content.addEventListener('scroll', () => {
-      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+    document.addEventListener('scroll', () => {
+      if (window.pageYOffset > (this.$el as any).offsetTop - 400) {
         this.visible = true
       } else {
         this.visible = false
@@ -206,6 +205,12 @@ export default class circles extends Vue {
   margin-top: -250px
   img
     width: 400px
+.con-svg1
+  .custom-shape-divider-top-1602088878
+    top: -2px
+.con-svg2
+  .custom-shape-divider-top-1602088878
+    top: -2px
 .custom-shape-divider-top-1602088878
     position: absolute
     top: 0
@@ -215,6 +220,10 @@ export default class circles extends Vue {
     line-height: 0
     svg
       z-index: 10
+      position: relative
+      display: block
+      width: calc(155% + 1.3px)
+      height: 150px
 .line
   position: absolute
   top: -10px
@@ -227,6 +236,10 @@ export default class circles extends Vue {
     fill: transparent
     stroke: #000
     z-index: 20
+    position: relative
+    display: block
+    width: calc(155% + 1.3px)
+    height: 150px
 .con-svg1
   position: absolute
   width: 100%
@@ -305,7 +318,7 @@ export default class circles extends Vue {
           width: 100%
           height: 100%
           transform: scale(1.25)
-          border: 2px solid rgba(255,255,255,.08)
+          border: 2px solid rgba(255,255,255,.15)
           position: absolute
           border-radius: 50%
           animation: circleAnimate 3s ease infinite alternate
@@ -314,7 +327,7 @@ export default class circles extends Vue {
           width: 100%
           height: 100%
           transform: scale(.85)
-          border: 2px solid rgba(255,255,255,.08)
+          border: 2px solid rgba(255,255,255,.15)
           position: absolute
           border-radius: 50%
           animation: circleAnimate 5s ease infinite alternate
@@ -368,19 +381,34 @@ export default class circles extends Vue {
             max-width: 80px
       .text
         font-size: .8rem
+        /deep/
+          .logo
+            transform: translate(0px, 5px) !important
+            svg
+              height: 18px !important
 @media (max-width: 540px)
   .circles
     padding-top: 80px
     padding-bottom: 80px
     .circle
-      padding: 20px 10px
+      padding: 20px 20px
       .con-svg
-        width: 140px
-        height: 140px
+        width: 130px
+        height: 130px
         .icon
           img
             max-width: 60px
       .text
         font-size: .7rem
         padding: 0px 15px
+        /deep/
+          .logo
+            transform: translate(0px, 4px) !important
+            svg
+              height: 15px !important
+
+@media (max-width: 600px)
+  .custom-shape-divider-top-1602088878,.line
+    svg
+      height: 60px
 </style>

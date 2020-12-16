@@ -1,18 +1,18 @@
 <template>
   <div :class="{ visible }" class="faq">
-    <img :style="{
+    <!-- <img :style="{
       transform: `translate(${x / 120}px, ${y / 120}px)`
     }" class="moneda1" src="monedas/svg1/1.svg" alt="">
     <img :style="{
       transform: `translate(${x / 80}px, ${y / 80}px)`
-    }" class="billete1" src="monedas/svg1/3.svg" alt="">
+    }" class="billete1" src="monedas/svg1/2.svg" alt="">
     <img :style="{
       transform: `translate(-${x / 80}px, -${y / 80}px)`
-    }" class="billete2" src="monedas/svg1/4.svg" alt="">
+    }" class="billete2" src="monedas/svg1/6.svg" alt=""> -->
     <h2 id="faq">Preguntas frecuentes</h2>
     <div class="con-faq">
       <div class="con-texts">
-        <div v-if="active == 1" class="text-1">
+        <div v-if="$device.isDesktop ? active == 1 : true" class="text-1">
           <h3>
             Como hago mi operación con <logo height="24px" />
           </h3>
@@ -20,7 +20,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
           </p>
         </div>
-        <div v-else-if="active == 2" class="text-1">
+        <div v-if="$device.isDesktop ? active == 2 : true" class="text-1">
           <h3>
             Como funciona el servicio a domicilio
           </h3>
@@ -28,7 +28,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
           </p>
         </div>
-        <div v-else-if="active == 3" class="text-1">
+        <div v-if="$device.isDesktop ? active == 3 : true" class="text-1">
           <h3>
             Que coste tiene el servicio a domicilio
           </h3>
@@ -36,7 +36,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
           </p>
         </div>
-        <div v-else-if="active == 4" class="text-1">
+        <div v-if="$device.isDesktop ? active == 4 : true" class="text-1">
           <h3>
             Puedo operar con mi tarjeta de crédito y/o débito?
           </h3>
@@ -103,9 +103,8 @@ export default class faq extends Vue {
   mounted() {
     window.addEventListener('mousemove', this.handleMousemove)
 
-    const content = document.querySelector('.content')
-    content.addEventListener('scroll', () => {
-      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+    document.addEventListener('scroll', () => {
+      if (window.pageYOffset > (this.$el as any).offsetTop - 400) {
         this.visible = true
       } else {
         this.visible = false
@@ -271,6 +270,27 @@ export default class faq extends Vue {
           display: flex
           .title
             font-size: .85rem
+@media (max-width: 600px)
+  .faq
+    padding-bottom: 60px
+    h2
+      padding-top: 50px
+    .con-faq
+      .con-texts
+        padding: 0px 20px
+        .text-1
+          position: relative
+          margin-top: 25px
+          h3
+            font-size: 1.2rem
+            /deep/
+              .logo
+                svg
+                  height: 20px !important
+    .moneda1,.billete1,.billete2
+      display: none
+    .con-btns
+      display: none
 @media (max-width: 530px)
   .faq
     padding-left: 5px
@@ -288,10 +308,5 @@ export default class faq extends Vue {
       top: -160px
     h2
       font-size: 1.8rem
-    .con-btns
-      ul
-        li
-          width: calc(100% - 20px)
-          padding: 10px 20px
 
 </style>

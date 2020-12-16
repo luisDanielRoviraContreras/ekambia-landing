@@ -1,14 +1,14 @@
 <template>
   <div :class="{ visible }" id="como-cambiar" class="muestra">
-    <img :style="{
+    <!-- <img :style="{
       transform: `translate(-${x / 120}px, -${y / 120}px)`
-    }" class="moneda1" src="monedas/svg1/3.svg" alt="">
+    }" class="moneda1" src="monedas/svg1/1.svg" alt="">
     <img :style="{
       transform: `translate(-${x / 120}px, -${y / 120}px)`
     }" class="moneda2" src="monedas/svg1/5.svg" alt="">
     <img :style="{
       transform: `translate(${x / 90}px, ${y / 90}px)`
-    }" class="planeta" src="planeta.svg" alt="">
+    }" class="planeta" src="planeta.svg" alt=""> -->
 
     <h2>Todo es más fácil con la App de <logo /></h2>
 
@@ -41,27 +41,27 @@
       <ul>
         <li @click="handleClick(1)" :class="{ active: active == 1 }">
           <p class="title">
-            Elegí la moneda y la cantidad que deseas cambiar
+            Paso 1 <span>Elegí la moneda y la cantidad que deseas cambiar</span>
           </p>
         </li>
         <li @click="handleClick(2)" :class="{ active: active == 2 }">
           <p class="title">
-            Paso 1: Inicia una nueva transacción
+            Paso 2 <span>Inicia una nueva transacción</span>
           </p>
         </li>
         <li @click="handleClick(3)" :class="{ active: active == 3 }">
           <p class="title">
-            Paso 2: Agrega el comprobante de la transferencia
+            Paso 3 <span>Agrega el comprobante de la transferencia</span>
           </p>
         </li>
         <li @click="handleClick(4)" :class="{ active: active == 4 }">
           <p class="title">
-            Paso 3: Verificación de transacción
+            Paso 4 <span>Verificación de transacción</span>
           </p>
         </li>
         <li @click="handleClick(5)" :class="{ active: active == 5 }">
           <p class="title">
-            Listo! transacción exitosa!
+            Listo! <span>transacción exitosa!</span>
           </p>
         </li>
       </ul>
@@ -90,9 +90,8 @@ export default class muestra extends Vue {
 
   mounted() {
     window.addEventListener('mousemove', this.handleMousemove)
-    const content = document.querySelector('.content')
-    content.addEventListener('scroll', () => {
-      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+    document.addEventListener('scroll', () => {
+      if (window.pageYOffset > (this.$el as any).offsetTop - 400) {
         this.visible = true
       } else {
         this.visible = false
@@ -180,6 +179,10 @@ export default class muestra extends Vue {
         transition: all .25s ease
         position: relative
         background: #fff
+        &:hover
+          p
+            background: rgba(0,0,0,.05)
+            border: 2px solid transparent
         &:after
           content: ''
           position: absolute
@@ -212,6 +215,7 @@ export default class muestra extends Vue {
           border-radius: 25px
           position: relative
           font-size: .95rem
+          transition: all .25s ease
         &.active
           color: #fff
           &:after
@@ -265,35 +269,60 @@ export default class muestra extends Vue {
             margin-left: 40px
 @media (max-width: 600px)
   .muestra
+    padding-top: 80px
+    .moneda1,.planeta
+      display: none
     .con-phone
       ul
         li
           p
             font-size: .8rem
             padding: 15px
+            span
+              display: none
 @media (max-width: 600px)
   .muestra
+    padding-bottom: 100px
     h2
       font-size: 1.6rem
+      padding-bottom: 40px
+      /deep/
+        .logo
+          svg
+            height: 25px !important
     .con-phone
       flex-direction: column
+      padding: 0px
+      padding-right: 0px
+      align-items: flex-start
       .phone
         width: 100%
-        max-width: 300px
+        max-width: 260px
+        margin-left: calc(100% - 280px)
+        left: 0px
       ul
         margin-left: 0px
         margin-top: 0px
         order: -1
         margin-bottom: 20px
-        width: 100%
+        width: 80px
+        position: absolute
+        z-index: 200
+        left: 0px
         li
           margin-bottom: 15px
+          border-radius: 0px 20px 20px 0px
+          &:before
+            display: none
+          &:after
+            border-radius: 0px 20px 20px 0px !important
+          .title
+            border-radius: 0px 20px 20px 0px !important
+            border-left: 0px
           .title
             border-radius: 20px
             width: 100%
             margin-left: 0px
             max-width: none
-          &:after
-            border-radius: 20px
 
 </style>

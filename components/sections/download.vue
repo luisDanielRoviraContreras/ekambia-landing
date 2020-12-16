@@ -39,8 +39,8 @@ export default class download extends Vue {
     window.addEventListener('mousemove', this.handleMousemove)
 
     const content = document.querySelector('.content')
-    content.addEventListener('scroll', () => {
-      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+    document.addEventListener('scroll', () => {
+      if (window.pageYOffset > (this.$el as any).offsetTop - 500) {
         this.visible = true
       } else {
         this.visible = false
@@ -134,6 +134,8 @@ export default class download extends Vue {
         max-width: 400px
 @media (max-width: 650px)
   .download
+    .nave,.planeta
+      display: none
     .circle1
       width: 400px
       height: 400px

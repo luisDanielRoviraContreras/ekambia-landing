@@ -7,7 +7,8 @@
       disabled,
       sticky,
       stickyPrev,
-      lowercase
+      lowercase,
+      yellow
     }"
     class="con-input"
   >
@@ -41,12 +42,13 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class InputComponent extends Vue {
   @Prop({}) identificador: any
   @Prop({}) value: any
-  @Prop({ type: Boolean, default: false }) danger!: boolean
-  @Prop({ type: Boolean, default: false }) gray!: boolean
-  @Prop({ type: Boolean, default: false }) disabled!: boolean
-  @Prop({ type: Boolean }) sticky!: boolean
-  @Prop({ type: Boolean }) stickyPrev!: boolean
-  @Prop({ type: Boolean }) lowercase!: boolean
+  @Prop({ type: Boolean, default: false }) danger: boolean
+  @Prop({ type: Boolean, default: false }) gray: boolean
+  @Prop({ type: Boolean, default: false }) disabled: boolean
+  @Prop({ type: Boolean }) sticky: boolean
+  @Prop({ type: Boolean }) stickyPrev: boolean
+  @Prop({ type: Boolean }) lowercase: boolean
+  @Prop({ type: Boolean }) yellow: boolean
 
   focus: boolean = false
   forceInputText: boolean = false
@@ -60,7 +62,18 @@ export default class InputComponent extends Vue {
     return {
       ...this.$listeners,
       input: (evt: any) => {
-        this.$emit('input', evt.target.value)
+        const max = Number(this.$attrs.maxlength)
+        if (!!this.$attrs.maxlength) {
+          if (evt.target.value.length < max) {
+              this.$emit('input', evt.target.value)
+              this.$emit('change-value', evt.target.value)
+          } else {
+            evt.target.value = evt.target.value.substring(0, max)
+          }
+        } else {
+          this.$emit('input', evt.target.value)
+          this.$emit('change-value', evt.target.value)
+        }
       }
     }
   }
@@ -74,12 +87,30 @@ export default class InputComponent extends Vue {
 }
 </script>
 <style lang="sass" scoped>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+/* Firefox */
+input[type=number]
+  -moz-appearance: textfield
+
 .con-input
   position: relative
   width: 100%
   display: flex
   align-items: center
   justify-content: flex-start
+  &.yellow
+    input
+      color: #000
+    .placeholder
+      background: -color('color') !important
+      z-index: 200
+    .bg
+      background: -color('color')
+      border: 2px solid -color('black') !important
   &.lowercase
     input
       text-transform: lowercase
@@ -161,6 +192,9 @@ export default class InputComponent extends Vue {
     line-height: 1rem
     border-radius: 5px
     font-size: 16px
+    pointer-events: none
+    &:first-letter
+      text-transform: uppercase
   .bg
     width: 100%
     height: 100%

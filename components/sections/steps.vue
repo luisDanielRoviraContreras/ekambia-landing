@@ -15,8 +15,11 @@
         </div>
         <img src="steps/1.svg" alt="">
         <h3>
-          Descarga la App o continua desde aca
+          Asi de fácil!!
         </h3>
+        <p>
+          Descárgate la App o <br> continua desde acá
+        </p>
       </div>
       <div class="card card2">
         <div class="number">
@@ -24,8 +27,11 @@
         </div>
         <img src="steps/2.svg" alt="">
         <h3>
-          Solicita tu operación de cambio e identificación
+          Asi de seguro!!
         </h3>
+        <p>
+          Solicita tu operación de <br> cambio e identificación
+        </p>
 
         <svg class="svg1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.005 79.28">
           <path id="Trazado_7839" data-name="Trazado 7839" d="M199.033-1166.715s88.175,50.138,140.8,44.6,37.158-61.938,89.6-73.6,145.6,26.952,145.6,26.952" transform="translate(-196.988 1199.455)" fill="none" stroke="#ffda1a" stroke-linecap="round" stroke-width="3" stroke-dasharray="7"/>
@@ -41,13 +47,13 @@
         </div>
         <img src="steps/3.svg" alt="">
         <h3>
-          Recibe tu dinero en casa o en nuestras oficinas
+          Asi de cómodo!!
         </h3>
+        <p>
+          Recibí tu dinero en casa o <br> en nuestras oficinas
+        </p>
       </div>
     </div>
-    <h2 class="bottom">
-      Ya está! Así de fácil! Así de seguro! Así de cómodo!
-    </h2>
   </div>
 </template>
 <script lang="ts">
@@ -64,9 +70,8 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class steps extends Vue {
   visible: boolean = false
   mounted() {
-    const content = document.querySelector('.content')
-    content.addEventListener('scroll', () => {
-      if (content.scrollTop > (this.$el as any).offsetTop - 400) {
+    document.addEventListener('scroll', () => {
+      if (window.pageYOffset > (this.$el as any).offsetTop - 400) {
         this.visible = true
       } else {
         this.visible = false
@@ -116,7 +121,7 @@ export default class steps extends Vue {
   padding-top: 160px
   z-index: 200
   position: relative
-  padding-bottom: 300px
+  padding-bottom: 160px
   transition: all .3s ease
   &:after
     width: 100%
@@ -164,12 +169,6 @@ export default class steps extends Vue {
       width: 80px
       background: -color('color')
       top: -5px
-    &.bottom
-      padding-bottom: 20px
-      padding-top: 80px
-      &:after
-        top: auto
-        bottom: -5px
   .con-cards
     display: flex
     align-items: center
@@ -184,7 +183,7 @@ export default class steps extends Vue {
     background: rgb(27, 27, 27)
     width: 300px
     padding: 20px
-    height: 340px
+    height: 380px
     display: flex
     align-items: center
     justify-content: center
@@ -227,6 +226,22 @@ export default class steps extends Vue {
       text-align: center
       width: 100%
       font-weight: normal
+      padding-top: 16px
+      position: relative
+      margin-top: 20px
+      &:after
+        content: ''
+        position: absolute
+        left: 50%
+        transform: translate(-50%)
+        height: 3px
+        border-radius: 5px
+        width: 40px
+        background: -color('color')
+        top: -5px
+    p
+      text-align: center
+      padding: 15px 0px
     img
       flex: 1
       max-width: 200px
@@ -250,9 +265,12 @@ export default class steps extends Vue {
 
 @media (max-width: 812px)
   .steps
-    padding-bottom: 150px
+    padding-bottom: 100px
+    padding-top: 100px
+
     h2
       font-size: 1.7rem
+      z-index: 200
     .con-cards
       flex-direction: column
       .card

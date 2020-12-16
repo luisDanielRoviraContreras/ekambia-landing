@@ -43,6 +43,7 @@ export default {
   ** Global CSS
   */
   css: [
+    'boxicons/css/boxicons.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -87,5 +88,8 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  env: {
+    API: 'https://ekambia.lusaxweb.pro/api/'
   }
 }

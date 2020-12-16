@@ -45,12 +45,12 @@ export default class index extends Vue {
 .content
   // padding-top: 66px
   scroll-behavior: smooth
-
+html
+  scroll-behavior: smooth
 body
   background: #000
   font-family: 'Open Sans', sans-serif
   scroll-behavior: smooth
-  overflow: hidden
   font-size: 15px
 
 h1,h2,h3,h4,h5,h6,.title
@@ -71,7 +71,7 @@ h1,h2,h3,h4,h5,h6,.title
   .content
     overflow: auto
     overflow-x: hidden
-    height: 100vh
+    // height: 100vh
 
 *::-webkit-scrollbar
   width: 5px
