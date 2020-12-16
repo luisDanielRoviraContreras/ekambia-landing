@@ -210,6 +210,11 @@ export default class inicio extends Vue {
   .update
     font-size: .6rem
     margin: 10px
+    margin-left: 0px
+    left: 50%
+    transform: translate(-50%)
+    width: 100%
+    text-align: center
   .moneda2
     left: auto
     right: 0px

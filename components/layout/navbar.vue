@@ -75,7 +75,7 @@ export default class navbar extends Vue {
 <style lang="sass" scoped>
 .effect
   width: 140%
-  background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,.4) 50%, transparent 80%)
+  background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,.4) 50%, rgba(255,255,255, .0001) 80%)
   height: 100%
   position: absolute
   animation: payEffect 6s ease infinite
@@ -217,5 +217,8 @@ export default class navbar extends Vue {
       display: none
     .open
       display: block
+@media (max-width: 812px)
+  .effect
+    display: none
 
 </style>

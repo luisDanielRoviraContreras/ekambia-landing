@@ -17,9 +17,9 @@
       <div class="con-text">
         <div class="text">
           <div class="con-btns-slide">
-            <span @click="active = 0" :class="{active: active == 0}"></span>
-            <span @click="active = 1" :class="{active: active == 1}"></span>
-            <span @click="active = 2" :class="{active: active == 2}"></span>
+            <span @click="handleClick(0)" :class="{active: active == 0}"></span>
+            <span @click="handleClick(1)" :class="{active: active == 1}"></span>
+            <span @click="handleClick(2)" :class="{active: active == 2}"></span>
           </div>
           <div class="con-h1">
             <transition name="fade-h1">
@@ -91,6 +91,8 @@ export default class inicio extends Vue {
     '8',
   ]
 
+  interval: any = null
+
   handleMousemove(evt) {
     if (window.innerWidth > 812) {
       this.x = evt.x
@@ -112,12 +114,36 @@ export default class inicio extends Vue {
     this.numberImage3 = 8
   }
 
-  created() {
-    this.getImage()
+  // created() {
+  //   this.getImage()
+  // }
+
+  handleClick(n) {
+    this.active = n
+    clearInterval(this.interval)
+    this.initInterval()
+  }
+
+  initInterval() {
+    if (this.$cookies.get('numberImage') == this.numberImage) {
+      this.numberImage = this.slide1[Math.floor((Math.random() * (4 - 0 + 0)) + 0)]
+    }
+
+    setTimeout(() => {
+      this.$cookies.set('numberImage', this.numberImage)
+    }, 300);
+    this.interval = setInterval(() => {
+      if (this.active == 2) {
+        this.active = 0
+      } else {
+        this.active += 1
+      }
+    }, 6000)
   }
 
   mounted() {
-
+    this.getImage()
+    this.initInterval()
     this.$nextTick(() => {
       this.getInnerWidth = window.innerWidth + 500
     })
@@ -138,12 +164,13 @@ export default class inicio extends Vue {
 .fade-h1-enter-active, .fade-h1-leave-active
   transition: all .25s ease-out
 
-.fade-h1-enter
-  opacity: 0
-  transform: translate(-100px)
-.fade-h1-leave-to
-  opacity: 0
-  transform: translate(100px)
+@media (min-width: 600px)
+  .fade-h1-enter
+    opacity: 0
+    transform: translate(-100px)
+  .fade-h1-leave-to
+    opacity: 0
+    transform: translate(100px)
 
 
 .con-h1
@@ -268,31 +295,37 @@ export default class inicio extends Vue {
 @media (max-width: 1100px)
   .con-inicio
     flex-direction: column
-    padding-top: 60px
+    padding-top: 20px
+    .con-btns-slide
+      justify-content: center
     .con-text
       width: 100%
       .text
         width: 100%
         text-align: center
         .con-h1
-          min-height: auto
+          min-height: 100px
           h1
-            position: relative
+            width: 100%
         .con-download
           display: flex
           align-items: center
           justify-content: center
-        .con-btns-slide
-          display: none
         br
           display: none
     .con-images
       width: 100%
       margin-bottom: -100px
-      min-height: auto
-      img
-        position: relative
+      min-height: 365px
+      // img
+      //   position: relative
 @media (max-width: 600px)
+  .fade-h1-enter
+    opacity: 0
+    transform: translate(50px)
+  .fade-h1-leave-to
+    opacity: 0
+    transform: translate(-50px)
   .custom-shape-divider-top-1602088878
     svg
       height: 60px

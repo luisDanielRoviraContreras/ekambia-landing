@@ -6,7 +6,7 @@
           <Select :data="states" v-model="state" >
             <Option v-for="(item, i) in states" :key="i" :value="item.id" :text="item.alias" />
           </Select>
-          <Button border>
+          <Button @click="handleShare" border>
             <i class='bx bxs-share-alt'></i> <span>Compartir</span>
           </Button>
         </div>
@@ -208,6 +208,18 @@ export default class arbitraje extends Vue {
   state: any = 1
   offsetWidth: any = 0
   scrollLeft: any = 0
+
+  handleShare() {
+    if ((navigator as any).share) {
+      (navigator as any).share({
+        title: 'Ekambia',
+        text: 'Cambia tu dinero como nunca antes!',
+        url: 'https://ekambia.herokuapp.com/',
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    }
+  }
 
   mounted() {
     this.offsetWidth = (this.$refs.conitems as any).offsetWidth;

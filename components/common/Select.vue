@@ -314,5 +314,8 @@ export default class Select extends Vue {
 
 // responsive
 
-// @media (max-width: 812px), (pointer:none), (pointer:coarse)
+@media (max-width: 812px)
+  .select
+    input
+      font-size: 16px !important
 </style>

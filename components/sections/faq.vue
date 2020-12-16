@@ -53,7 +53,7 @@
               1
             </div>
             <p class="title">
-              Como hago mi operación con <logo white height="20px" />
+              Como hago mi operación con <logo :white="active == 1" height="20px" />
             </p>
           </li>
           <li @click="active = 2" :class="{ active: active == 2 }">
@@ -210,6 +210,7 @@ export default class faq extends Vue {
         &.active
           background: #000
           color: #fff
+
           .number
             transform: translate(-6px) rotate(12deg)
           &:after

@@ -11,30 +11,30 @@
     }" class="planeta" src="planeta.svg" alt=""> -->
 
     <h2>Todo es más fácil con la App de <logo /></h2>
-
-    <div class="con-phone">
-      <div :style="{
+<!-- :style="{
       transform: `translate(-${x / 140}px, -${y / 140}px)`
-    }" class="phone">
+    }" -->
+    <div class="con-phone">
+      <div  class="phone">
         <div class="tel">
           <img src="tel.png" alt="">
         </div>
         <div class="con-images">
           <img class="bg" src="/muestra/1.png" alt="">
           <transition name="img">
-            <img v-if="active == 1" src="/muestra/1.png" key="1" alt="">
+            <img v-show="active == 1" src="/muestra/1.png" key="1" alt="">
           </transition>
           <transition name="img">
-            <img v-if="active == 2" src="/muestra/2.png" key="2" alt="">
+            <img v-show="active == 2" src="/muestra/2.png" key="2" alt="">
           </transition>
           <transition name="img">
-            <img v-if="active == 3" src="/muestra/3.png" key="3" alt="">
+            <img v-show="active == 3" src="/muestra/3.png" key="3" alt="">
           </transition>
           <transition name="img">
-            <img v-if="active == 4" src="/muestra/4.png" key="4" alt="">
+            <img v-show="active == 4" src="/muestra/4.png" key="4" alt="">
           </transition>
           <transition name="img">
-            <img v-if="active == 5" src="/muestra/5.png" key="5" alt="">
+            <img v-show="active == 5" src="/muestra/5.png" key="5" alt="">
           </transition>
         </div>
       </div>
@@ -181,8 +181,9 @@ export default class muestra extends Vue {
         background: #fff
         &:hover
           p
-            background: rgba(0,0,0,.05)
-            border: 2px solid transparent
+            background: rgba(0,0,0,0)
+            border: 2px solid -color(black, .1)
+            padding-left: 25px
         &:after
           content: ''
           position: absolute
@@ -312,6 +313,11 @@ export default class muestra extends Vue {
         li
           margin-bottom: 15px
           border-radius: 0px 20px 20px 0px
+          &:hover
+            p
+              background: rgba(0,0,0,0)
+              border: 2px solid -color(black, .1)
+              padding-left: 15px
           &:before
             display: none
           &:after

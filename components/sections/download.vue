@@ -150,5 +150,7 @@ export default class download extends Vue {
     h2
       font-size: 1.5rem
       text-align: center
+      br
+        display: none
 
 </style>

@@ -15,16 +15,54 @@ export default {
     height: '5px',
     color: '#ffda1a'
   },
-  /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
   head: {
     title: 'Ekambia',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      {
+        hid: 'twitter:url',
+        name: 'twitter:url',
+        content: 'https://ekambia-landing.herokuapp.com/'
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Ekambia'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          'Cambia tu dinero como nunca antes'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://ekambia-landing.herokuapp.com/og/1.png'
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://ekambia-landing.herokuapp.com/'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Ekambia'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Cambia tu dinero como nunca antes'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://ekambia-landing.herokuapp.com/og/1.png'
+      },
     ],
     script: [
       {
@@ -72,6 +110,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/device',
+    'cookie-universal-nuxt',
     // '@nuxtjs/tailwindcss'
   ],
 
