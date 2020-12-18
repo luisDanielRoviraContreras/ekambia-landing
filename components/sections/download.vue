@@ -3,7 +3,7 @@
     <img class="nave" src="nave.svg" alt="">
     <img class="planeta" src="planeta.svg" alt="">
     <header>
-      <h2>Descarga la App ahora mismo y cambia <br> tu dinero Como nunca antes!</h2>
+      <h2>Descargá la App ahora mismo y cambia <br> tu dinero Como nunca antes!</h2>
       <div class="con-btns-download">
         <btns-download />
       </div>

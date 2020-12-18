@@ -183,7 +183,7 @@ export default class muestra extends Vue {
           p
             background: rgba(0,0,0,0)
             border: 2px solid -color(black, .1)
-            padding-left: 25px
+            color: rgba(0,0,0,.7)
         &:after
           content: ''
           position: absolute

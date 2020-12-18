@@ -30,7 +30,7 @@
           Asi de seguro!!
         </h3>
         <p>
-          Solicita tu operación de <br> cambio e identificación
+          Identificate y empezá a operar
         </p>
 
         <svg class="svg1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.005 79.28">
