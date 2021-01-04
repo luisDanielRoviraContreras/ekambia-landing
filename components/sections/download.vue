@@ -1,7 +1,11 @@
 <template>
   <div :class="{ visible }" class="download">
-    <img class="nave" src="nave.svg" alt="">
-    <img class="planeta" src="planeta.svg" alt="">
+    <img class="img1 img" src="/footer/yen.png" alt="">
+    <img class="img2 img" src="/footer/card.png" alt="">
+    <img class="img3 img" src="/footer/euro.png" alt="">
+    <img class="img4 img" src="/footer/moneda.png" alt="">
+    <img class="img5 img" src="/footer/money.png" alt="">
+    <img class="img6 img" src="/footer/dollar.png" alt="">
     <header>
       <h2>Descargá la App ahora mismo y cambia <br> tu dinero Como nunca antes!</h2>
       <div class="con-btns-download">
@@ -77,6 +81,38 @@ export default class download extends Vue {
   position: relative
   padding-top: 50px
   background: #fff
+  .img
+    position: absolute
+    &.img1
+      width: 85px
+      bottom: 20px
+      z-index: 500
+      transform: translate(-500px)
+    &.img2
+      width: 240px
+      bottom: 150px
+      z-index: 500
+      transform: translate(-380px)
+    &.img3
+      width: 80px
+      bottom: 380px
+      z-index: 500
+      transform: translate(-250px)
+    &.img4
+      width: 140px
+      bottom: 20px
+      z-index: 500
+      transform: translate(500px)
+    &.img5
+      width: 240px
+      bottom: 150px
+      z-index: 500
+      transform: translate(380px)
+    &.img6
+      width: 66px
+      bottom: 380px
+      z-index: 500
+      transform: translate(250px)
   &.visible
     h2
       opacity: 1
