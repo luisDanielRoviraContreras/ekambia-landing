@@ -11,6 +11,8 @@
     <faq />
     <download />
     <Footer />
+    <privacidad v-model="visiblePriv"/>
+    <cookies v-model="visibleCook"/>
   </div>
 </template>
 
@@ -18,6 +20,14 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class index extends Vue {
+  visiblePriv: any = false
+  visibleCook: any = false
+  openPriv() {
+    this.visiblePriv = true
+  }
+  openCook() {
+    this.visibleCook = true
+  }
 }
 </script>
 <style lang="sass">

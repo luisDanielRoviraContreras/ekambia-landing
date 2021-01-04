@@ -32,16 +32,16 @@
           <a href="">Descarga legal</a>
         </li>
         <li>
-          <a href="">Preguntas frecuentes</a>
+          <a href="#faq">Preguntas frecuentes</a>
         </li>
         <li>
           <a href="">Garantía de seguridad del sistema</a>
         </li>
-        <li>
-          <a href="">Políticas de Privacidad</a>
+        <li @click="$parent.openPriv()">
+          <a>Políticas de Privacidad</a>
         </li>
-        <li>
-          <a href="">Políticas de Cookies</a>
+        <li @click="$parent.openCook()">
+          <a>Políticas de Cookies</a>
         </li>
       </ul>
       <ul>
@@ -55,7 +55,7 @@
         </li>
         <li>
           <p>
-            cantact@ekambia.com
+            consultas@ekambia.com
           </p>
         </li>
       </ul>
@@ -106,8 +106,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
-export default class footerx extends Vue {}
+export default class footerx extends Vue {
+  openPrivacidad: boolean = false
+}
 </script>
+
 <style lang="sass" scoped>
 .footer
   width: 100%
@@ -162,6 +165,7 @@ export default class footerx extends Vue {}
             width: 40px
             height: 40px
             transition: all .25s ease
+            cursor: pointer
             &:hover
               transform: scale(1.15)
               svg
@@ -191,6 +195,7 @@ export default class footerx extends Vue {}
           opacity: .5
           font-size: .85rem
           transition: all .2s ease
+          cursor: pointer
           &:hover
             opacity: 1
 // responsive

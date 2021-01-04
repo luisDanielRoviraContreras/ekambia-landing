@@ -15,7 +15,7 @@
         </div>
         <img src="steps/1.svg" alt="">
         <h3>
-          Asi de fácil!!
+          Así de fácil!!
         </h3>
         <p>
           Descárgate la App o <br> continua desde acá
@@ -27,7 +27,7 @@
         </div>
         <img src="steps/2.svg" alt="">
         <h3>
-          Asi de seguro!!
+          Así de seguro!!
         </h3>
         <p>
           Identificate y empezá a operar
@@ -47,7 +47,7 @@
         </div>
         <img src="steps/3.svg" alt="">
         <h3>
-          Asi de cómodo!!
+          Así de cómodo!!
         </h3>
         <p>
           Recibí tu dinero en casa o <br> en nuestras oficinas

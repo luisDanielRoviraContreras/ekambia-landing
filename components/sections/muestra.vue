@@ -179,7 +179,7 @@ export default class muestra extends Vue {
         transition: all .25s ease
         position: relative
         background: #fff
-        &:hover
+        &:not(.active):hover
           p
             background: rgba(0,0,0,0)
             border: 2px solid -color(black, .1)
