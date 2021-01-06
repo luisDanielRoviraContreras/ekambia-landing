@@ -7,7 +7,9 @@
     <img class="img5 img" src="/footer/money.png" alt="">
     <img class="img6 img" src="/footer/dollar.png" alt="">
     <header>
-      <h2>Descargá la App ahora mismo y cambia <br> tu dinero Como nunca antes!</h2>
+      <h2>
+        ¡Descargá la App ahora mismo y cambiá <br> tu dinero como nunca antes!
+      </h2>
       <div class="con-btns-download">
         <btns-download />
       </div>

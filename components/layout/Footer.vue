@@ -6,13 +6,13 @@
     <div class="con-links">
       <ul>
         <li>
-          <h4>Quienes somos</h4>
+          <h4>¿Quiénes somos?</h4>
         </li>
         <li>
           <a href="">Misión</a>
         </li>
         <li>
-          <a href="">Vision y valores</a>
+          <a href="">Visión y valores</a>
         </li>
         <li>
           <a href="">Accionistas</a>
@@ -23,10 +23,7 @@
       </ul>
       <ul>
         <li>
-          <h4>Mas de <logo white height="19px" /></h4>
-        </li>
-        <li>
-          <a href="">Noticias relacionadas</a>
+          <h4>Más de <logo white height="19px" /></h4>
         </li>
         <li>
           <a href="">Descarga legal</a>
@@ -35,13 +32,13 @@
           <a href="#faq">Preguntas frecuentes</a>
         </li>
         <li>
-          <a href="">Garantía de seguridad del sistema</a>
+          <a>Términos y Condiciones</a>
         </li>
         <li @click="$parent.openPriv()">
-          <a>Políticas de Privacidad</a>
+          <a>Políticas de privacidad</a>
         </li>
         <li @click="$parent.openCook()">
-          <a>Políticas de Cookies</a>
+          <a>Políticas de cookies</a>
         </li>
       </ul>
       <ul>
@@ -73,7 +70,7 @@
       </ul>
       <ul>
         <li>
-          <h4>Síguenos</h4>
+          <h4>Seguinos</h4>
         </li>
         <li>
           <div class="redes">
@@ -95,10 +92,10 @@
     </div>
     <div class="cinta">
       <p>
-        © 2021 eKambia. All rights reserved.
+        © 2021 eKambia. Todos los derechos reservados.
       </p>
       <p>
-        Al usar este sitio web estas aceptando los Términos y Condiciones, KYC & AML Policies Para mas información accede al CENTRO DE SOPORTE
+        Al ingresar a este sitio web estás aceptando los términos y condiciones, KYC & AML Policies. Para más información accede al Centro de Soporte.
       </p>
     </div>
   </footer>

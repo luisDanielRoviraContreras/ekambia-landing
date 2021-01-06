@@ -7,7 +7,7 @@
     <img class="star5" src="estrella.svg" alt="">
     <img class="star6" src="estrella.svg" alt="">
     <img class="star7" src="estrella.svg" alt=""> -->
-    <h2>Cómo realizar tus cambios</h2>
+    <h2>¿Cómo realizar tus cambios?</h2>
     <div class="con-cards">
       <div class="card card1">
         <div class="number">
@@ -15,10 +15,10 @@
         </div>
         <img src="steps/1.svg" alt="">
         <h3>
-          Así de fácil!!
+          ¡Así de fácil!
         </h3>
         <p>
-          Descárgate la App o <br> continua desde acá
+          Descárgate la App o <br> continuá desde acá.
         </p>
       </div>
       <div class="card card2">
@@ -27,10 +27,10 @@
         </div>
         <img src="steps/2.svg" alt="">
         <h3>
-          Así de seguro!!
+          ¡Así de seguro!
         </h3>
         <p>
-          Identificate y empezá a operar
+          Identifícate y empezá a operar.
         </p>
 
         <svg class="svg1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.005 79.28">
@@ -47,10 +47,10 @@
         </div>
         <img src="steps/3.svg" alt="">
         <h3>
-          Así de cómodo!!
+          ¡Así de cómodo!
         </h3>
         <p>
-          Recibí tu dinero en casa o <br> en nuestras oficinas
+          Recibí tu dinero en casa o <br> en nuestras oficinas.
         </p>
       </div>
     </div>

@@ -3,7 +3,7 @@
     <liston relative black />
 
     <div class="update">
-      Ultima actualización de cotizaciones: <b>15/12/2020 - 13:30</b>
+      Última actualización de cotizaciones: <b>15/12/2020 - 13:30</b>
     </div>
     <div class="con-inicio">
       <div class="con-text">

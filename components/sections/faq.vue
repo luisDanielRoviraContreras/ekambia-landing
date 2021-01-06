@@ -14,7 +14,7 @@
       <div class="con-texts">
         <div v-if="$device.isDesktop ? active == 1 : true" class="text-1">
           <h3>
-            Como hago mi operación con <logo height="24px" />
+            ¿Cómo hago mi operación con <logo height="24px" />?
           </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
@@ -22,7 +22,7 @@
         </div>
         <div v-if="$device.isDesktop ? active == 2 : true" class="text-1">
           <h3>
-            Como funciona el servicio a domicilio
+            ¿Cómo funciona el servicio a domicilio?
           </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
@@ -30,7 +30,7 @@
         </div>
         <div v-if="$device.isDesktop ? active == 3 : true" class="text-1">
           <h3>
-            Que coste tiene el servicio a domicilio
+            ¿Qué costo tiene el servicio a domicilio?
           </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
@@ -38,7 +38,7 @@
         </div>
         <div v-if="$device.isDesktop ? active == 4 : true" class="text-1">
           <h3>
-            Puedo operar con mi tarjeta de crédito y/o débito?
+            ¿Puedo operar con mi tarjeta de crédito o débito?
           </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
@@ -53,7 +53,7 @@
               1
             </div>
             <p class="title">
-              Como hago mi operación con <logo :white="active == 1" height="20px" />
+              ¿Cómo hago mi operación con <logo :white="active == 1" height="24px" />?
             </p>
           </li>
           <li @click="active = 2" :class="{ active: active == 2 }">
@@ -61,7 +61,7 @@
               2
             </div>
             <p class="title">
-              Como funciona el servicio a domicilio
+              ¿Cómo funciona el servicio a domicilio?
             </p>
           </li>
           <li @click="active = 3" :class="{ active: active == 3 }">
@@ -69,7 +69,7 @@
               3
             </div>
             <p class="title">
-              Que coste tiene el servicio a domicilio
+              ¿Qué costo tiene el servicio a domicilio?
             </p>
           </li>
           <li @click="active = 4" :class="{ active: active == 4 }">
@@ -77,7 +77,7 @@
               4
             </div>
             <p class="title">
-              Puedo operar con mi tarjeta de crédito y/o débito?
+              ¿Puedo operar con mi tarjeta de crédito o débito?
             </p>
           </li>
         </ul>

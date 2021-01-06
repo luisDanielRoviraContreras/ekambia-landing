@@ -41,27 +41,27 @@
       <ul>
         <li @click="handleClick(1)" :class="{ active: active == 1 }">
           <p class="title">
-            Paso 1 <span>Elegí la moneda y la cantidad que deseas cambiar</span>
+            Paso 1. <span>Elegí la moneda y la cantidad que deseas cambiar.</span>
           </p>
         </li>
         <li @click="handleClick(2)" :class="{ active: active == 2 }">
           <p class="title">
-            Paso 2 <span>Inicia una nueva transacción</span>
+            Paso 2. <span>Iniciá una nueva transacción.</span>
           </p>
         </li>
         <li @click="handleClick(3)" :class="{ active: active == 3 }">
           <p class="title">
-            Paso 3 <span>Agrega el comprobante de la transferencia</span>
+            Paso 3. <span>Agregá el comprobante de la transferencia.</span>
           </p>
         </li>
         <li @click="handleClick(4)" :class="{ active: active == 4 }">
           <p class="title">
-            Paso 4 <span>Verificación de transacción</span>
+            Paso 4. <span>Verificación de la transacción.</span>
           </p>
         </li>
         <li @click="handleClick(5)" :class="{ active: active == 5 }">
           <p class="title">
-            Listo! <span>transacción exitosa!</span>
+            ¡Listo <span>, transacción exitosa!</span>
           </p>
         </li>
       </ul>

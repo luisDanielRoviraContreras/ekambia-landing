@@ -24,17 +24,17 @@
           <div class="con-h1">
             <transition name="fade-h1">
               <h1 v-if="active == 0">
-                Descargá la App y disfrutá <br> de los beneficios que solo te <br> puede brindar <logo />
+                Descargá la App y disfrutá <br> de los beneficios que solo te <br> puede brindar <logo />.
               </h1>
             </transition>
             <transition name="fade-h1">
               <h1 v-if="active == 1">
-                Operá con tus tarjetas de <br> crédito o débito cómo y cuando lo necesités
+                Operá con tus tarjetas de <br> crédito o débito cómo y cuando lo necesités.
               </h1>
             </transition>
             <transition name="fade-h1">
               <h1 v-if="active == 2">
-                Cambiá desde tu hogar <br> tenemos delivery para vos
+                Cambiá desde tu hogar. <br> Tenemos delivery para vos.
               </h1>
             </transition>
           </div>

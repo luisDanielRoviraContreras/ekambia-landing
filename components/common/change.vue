@@ -71,10 +71,10 @@
 
     <footer>
       <p>
-        Los tipos de cambio están sujetos a fluctuaciones. Será de aplicación el tipo de cambio correspondiente al momento de confirmar la operación
+        Los tipos de cambio están sujetos a fluctuaciones. Será de aplicación el tipo de cambio correspondiente al momento de confirmar la operación.
       </p>
 
-      <a href="#beneficios">Conocé más sobre los beneficios por tramos, en función de la cantidad operada</a>
+      <a href="#beneficios">Conocé más sobre los beneficios por tramos, en función de la cantidad operada.</a>
     </footer>
   </div>
 </template>

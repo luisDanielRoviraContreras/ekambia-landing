@@ -1,12 +1,5 @@
 <template>
   <div :class="{ visible }" id="beneficios" class="circles">
-    <!-- <img class="star1" src="estrella.svg" alt="">
-    <img class="star2" src="estrella.svg" alt="">
-    <img class="star3" src="estrella.svg" alt="">
-    <img class="star4" src="estrella.svg" alt="">
-    <img class="star5" src="estrella.svg" alt="">
-    <img class="star6" src="estrella.svg" alt="">
-    <img class="star7" src="estrella.svg" alt=""> -->
     <div  class="con-svg1">
       <div :style="{
       transform: `translate(-${x / 40}px, 0)`
@@ -15,18 +8,11 @@
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
       </svg>
       </div>
-      <!-- <div :style="{
-      transform: `translate(${x / 60}px, 0)`
-    }" class="line">
-          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-          </svg>
-      </div> -->
     </div>
     <div class="circle">
       <div class="text">
         <h3>
-          Con <logo white height="20px" /> podés operar y recibir tu dinero desde tu casa
+          Con <logo white height="20px" /> podés operar y recibir. dinero desde tu casa.
         </h3>
       </div>
 
@@ -58,14 +44,14 @@
       </div>
       <div class="text">
         <h3>
-          ¿No tenés efectivo? No importa! Te acercamos el POS a tu domicilio!! Podés operar con tu tarjeta de crédito o débito!
+          ¿No tenés efectivo? ¡No importa! Podés operar con tu tarjeta de crédito o débito y acercamos el POS a tu domicilio.
         </h3>
       </div>
     </div>
     <div class="circle">
       <div class="text">
         <h3>
-          ¿Querés ahorrar más? Con <logo white height="20px" /> nunca dejás de ahorrar, porque tu cotización mejora en función al monto a cambiar, y por ser cliente habitual
+          ¿Querés ahorrar más? con <logo white height="20px" /> nunca dejás ahorrar, porque tu cotización mejora en función al monto a cambiar, y por ser cliente  habitual.Eliminar las coma y agregar punto al final.
         </h3>
       </div>
 
@@ -97,7 +83,7 @@
       </div>
       <div class="text">
         <h3>
-          Obtené beneficios a través de nuestros comercios adheridos
+          Obtené beneficios a través de nuestros comercios adheridos.
         </h3>
       </div>
     </div>

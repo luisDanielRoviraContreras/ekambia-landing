@@ -8,10 +8,10 @@
 
       <nav>
         <a class="inicio-btn active" :class="{active: $route.hash == '#inicio'}" href="#inicio">
-          inicio
+          Inicio
         </a>
         <a class="como-cambiar-btn" href="#como-cambiar">
-          Como cambiar
+          ¿Cómo cambiar?
         </a>
         <a class="beneficios-btn" href="#beneficios">
           Beneficios
@@ -24,10 +24,10 @@
 
     <div class="con-btns">
       <Button @click="handleClickLogin" border white>
-        Iniciar Sesión
+        Iniciar sesión
       </Button>
       <Button @click="handleClickRegister" class="btn-2" yellow>
-        Crear una Cuenta
+        Crear una cuenta
         <div class="effect" />
       </Button>
     </div>
