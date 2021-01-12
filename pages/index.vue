@@ -13,6 +13,10 @@
     <Footer />
     <privacidad v-model="visiblePriv"/>
     <cookies v-model="visibleCook"/>
+    <mision v-model="visibleMis"/>
+    <vision v-model="visibleVis"/>
+    <valores v-model="visibleVal"/>
+    <empresa v-model="visibleEmp"/>
   </div>
 </template>
 
@@ -22,11 +26,27 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class index extends Vue {
   visiblePriv: any = false
   visibleCook: any = false
+  visibleMis: any = false
+  visibleVis: any = false
+  visibleVal: any = false
+  visibleEmp: any = false
   openPriv() {
     this.visiblePriv = true
   }
   openCook() {
     this.visibleCook = true
+  }
+  openMis() {
+    this.visibleMis = true
+  }
+  openVis() {
+    this.visibleVis = true
+  }
+  openVal() {
+    this.visibleVal = true
+  }
+  openEmp() {
+    this.visibleEmp = true
   }
 }
 </script>

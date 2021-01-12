@@ -17,7 +17,7 @@
             ¿Cómo hago mi operación con <logo height="24px" />?
           </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
+            Para operar y realizar transacciones de cambio de divisas con eKambiá, deberás estar registrado en nuestro sistema. Para ello puedes descargar la aplicación desde las tiendas online o desde el botón “Crear una cuenta” ubicado en la parte superior de esta página y ya podés empezar a operar.
           </p>
         </div>
         <div v-if="$device.isDesktop ? active == 2 : true" class="text-1">
@@ -25,7 +25,7 @@
             ¿Cómo funciona el servicio a domicilio?
           </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
+            Al operar con eKambiá, podés seleccionar nuestro servicio de delivery puerta a puerta, tanto para entregar o recibir tu dinero, resultado de una operación de cambio. Para ello deberás estar registrado como usuario.
           </p>
         </div>
         <div v-if="$device.isDesktop ? active == 3 : true" class="text-1">
@@ -33,7 +33,7 @@
             ¿Qué costo tiene el servicio a domicilio?
           </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
+            Nuestro servicio de delivery puerta a puerta, o a domicilio, posee tarifas competitivas que hacen que eKambiá sea la opción más conveniente, económica y rápida para tus operaciones de cambio. El costo de entrega se calcula en función al monto de la operación y a la distancia del recorrido.
           </p>
         </div>
         <div v-if="$device.isDesktop ? active == 4 : true" class="text-1">
@@ -41,7 +41,7 @@
             ¿Puedo operar con mi tarjeta de crédito o débito?
           </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni minus qui natus quod nihil iste. Praesentium placeat voluptatum delectus tempora odit quam laborum fugiat velit cum. Nemo, at fuga.
+            Para la entrega del importe del dinero a cambiar, te ofrecemos todas las formas de pago, tanto con tarjetas de crédito como de débito. Trabajamos con todas las operadoras de tarjetas para brindarte el mejor servicio. También podrás optar por la tarjeta Ekambiá, con la cual podrás acceder a múltiples beneficios tanto en tus operaciones como en las empresas afiliadas a Global Cambios S.A.
           </p>
         </div>
       </div>
@@ -178,7 +178,7 @@ export default class faq extends Vue {
         padding-bottom: 20px
         font-size: 1.4rem
       p
-        opacity: .5
+        color: rgba(0,0,0,.6)
   h2
     font-size: 2.5rem
     width: 100%

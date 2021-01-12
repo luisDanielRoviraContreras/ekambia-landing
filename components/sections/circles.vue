@@ -12,7 +12,7 @@
     <div class="circle">
       <div class="text">
         <h3>
-          Con <logo white height="20px" /> podés operar y recibir. dinero desde tu casa.
+          Con <logo white height="20px" /> podés operar y recibir dinero desde tu casa.
         </h3>
       </div>
 
@@ -51,7 +51,7 @@
     <div class="circle">
       <div class="text">
         <h3>
-          ¿Querés ahorrar más? con <logo white height="20px" /> nunca dejás ahorrar, porque tu cotización mejora en función al monto a cambiar, y por ser cliente  habitual.Eliminar las coma y agregar punto al final.
+          ¿Querés ahorrar más? con <logo white height="20px" /> nunca dejás ahorrar porque tu cotización mejora en función al monto a cambiar y por ser cliente habitual.
         </h3>
       </div>
 

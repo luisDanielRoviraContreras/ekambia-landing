@@ -8,17 +8,20 @@
         <li>
           <h4>¿Quiénes somos?</h4>
         </li>
-        <li>
-          <a href="">Misión</a>
+        <li @click="$parent.openMis()">
+          <a>Misión</a>
         </li>
-        <li>
-          <a href="">Visión y valores</a>
+        <li @click="$parent.openVis()">
+          <a>Visión</a>
         </li>
-        <li>
-          <a href="">Accionistas</a>
+        <li @click="$parent.openVal()">
+          <a>Valores y Principios</a>
         </li>
-        <li>
-          <a href="">Empresas afiliadas</a>
+        <li @click="$parent.openEmp()">
+          <a>La empresa</a>
+        </li>
+        <li >
+          <a>Empresas afiliadas</a>
         </li>
       </ul>
       <ul>

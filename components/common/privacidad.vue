@@ -13,7 +13,7 @@ información personal, privacidad y datos financieros es muy importante para
 nosotros.</span></p>
 
 <p class=MsoNormal style='text-align:justify'><span lang=ES>El presente
-documento contiene la Política de Publicidad de Casa de Cambio Global, S.A., y
+documento contiene la Política de Privacidad de Casa de Cambio Global, S.A., y
 se ha redactado en consonancia con la normativa vigente en la República del
 Paraguay, en especial sobre lo dispuesto en la Ley 1682/2001 de Información de
 Carácter Privado y sus modificatorias posteriores, y siempre en relación a la
@@ -122,7 +122,7 @@ nosotros o asociada a cualquier otro servicio provisto por nosotros. También es
 autorizados a recibir información de los bancos u otras instituciones
 financieras utilizadas para transferir fondos. También trabajamos con terceras
 partes (como agencias de historial crediticio, proveedores de análisis de
-datos, redes de publicidad, negocios aliados, entre otros) y podríamos recibir
+datos, redes de Privacidad, negocios aliados, entre otros) y podríamos recibir
 información de ellos. </span></p>
 
 <p class=MsoNormal style='text-align:justify'><b><span lang=ES>Usos de la
@@ -203,8 +203,8 @@ asegurar, mantener y mejorar la seguridad de nuestra página web. </span></p>
 <p class=MsoListParagraphCxSpMiddle style='margin-left:20px;text-align:justify;
 '><span lang=ES style='font-family:"Courier New"'>o<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span lang=ES>Para
-medir y entender la efectividad de la publicidad enviada a usted y a otros, con
-el fin de poder enviarle publicidad relevante y adecuada a sus intereses. Para
+medir y entender la efectividad de la Privacidad enviada a usted y a otros, con
+el fin de poder enviarle Privacidad relevante y adecuada a sus intereses. Para
 brindarle recomendaciones acerca de otros bienes y servicios que podrían
 interesarle.</span><span lang=ES> </span></p>
 
@@ -242,7 +242,7 @@ ayudar a mejorar nuestro servicio. </span></p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-align:justify;'><span
 lang=ES style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;
-</span></span><span lang=ES>Agencias de publicidad que requieran datos para
+</span></span><span lang=ES>Agencias de Privacidad que requieran datos para
 seleccionar y enviar avisos relevantes a usted o terceros.</span></p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-align:justify;'><span
@@ -403,7 +403,7 @@ solicite su cancelación o manifieste su oposición expresa al tratamiento de lo
 mismos con dichos fines, en cuyo caso, los datos serán bloqueados y conservados
 durante tres (3) años a los efectos de demostrar el cumplimiento de Casa de
 Cambio Global, S.A. con respecto a la normativa aplicable en materia de
-protección de datos, sociedad de la información y publicidad.</span></p>
+protección de datos, sociedad de la información y Privacidad.</span></p>
 
 <p class=MsoNormal style='text-align:justify'><b><span lang=ES>Ley y
 Jurisdicción</span></b><span lang=ES> </span></p>

@@ -1,7 +1,7 @@
 <template>
   <div :class="{ scroll }" class="navbar">
     <div class="logo-menu">
-      <div class="con-logo">
+      <div @click="$router.go()" class="con-logo">
         <img class="logo-web" src="ekambia_logo.svg" alt="">
         <img class="logo-responsive" src="ekambia_logo_final.svg" alt="">
       </div>
@@ -111,6 +111,7 @@ export default class navbar extends Vue {
     justify-content: flex-start
   .con-logo
     padding-left: 20px
+    cursor: pointer
     .logo-responsive
       display: none
     img

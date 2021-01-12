@@ -61,7 +61,7 @@
         </li>
         <li @click="handleClick(5)" :class="{ active: active == 5 }">
           <p class="title">
-            ¡Listo <span>, transacción exitosa!</span>
+            ¡Listo<span>, transacción exitosa!</span>
           </p>
         </li>
       </ul>
