@@ -20,16 +20,10 @@
         <li @click="$parent.openEmp()">
           <a>La empresa</a>
         </li>
-        <li >
-          <a>Empresas afiliadas</a>
-        </li>
       </ul>
       <ul>
         <li>
           <h4>Más de <logo white height="19px" /></h4>
-        </li>
-        <li>
-          <a href="">Descarga legal</a>
         </li>
         <li>
           <a href="#faq">Preguntas frecuentes</a>
