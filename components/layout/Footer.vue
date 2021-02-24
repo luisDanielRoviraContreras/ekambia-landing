@@ -20,6 +20,9 @@
         <li @click="$parent.openEmp()">
           <a>La empresa</a>
         </li>
+        <li @click="$parent.openAcc()">
+          <a>Accionistas</a>
+        </li>
       </ul>
       <ul>
         <li>
@@ -29,6 +32,9 @@
           <a href="#faq">Preguntas frecuentes</a>
         </li>
         <li>
+          <a href="#">Centro de Soporte</a>
+        </li>
+        <li @click="$parent.openTerm()">
           <a>Términos y Condiciones</a>
         </li>
         <li @click="$parent.openPriv()">
@@ -44,7 +50,7 @@
         </li>
         <li>
           <p>
-            +595 1222 34253
+            +595 992 923 106
           </p>
         </li>
         <li>
@@ -92,7 +98,7 @@
         © 2021 eKambia. Todos los derechos reservados.
       </p>
       <p>
-        Al ingresar a este sitio web estás aceptando los términos y condiciones, KYC & AML Policies. Para más información accede al Centro de Soporte.
+        Al ingresar a este sitio web estás aceptando los términos y condiciones, <span class="link" @click="$parent.openKYC()">Políticas KYC & AML.</span> Para más información accede al Centro de Soporte.
       </p>
     </div>
   </footer>
@@ -106,6 +112,10 @@ export default class footerx extends Vue {
 </script>
 
 <style lang="sass" scoped>
+.link
+  text-decoration: underline
+  font-weight: bold
+  cursor: pointer
 .footer
   width: 100%
   background: -color(black)

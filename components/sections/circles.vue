@@ -51,7 +51,7 @@
     <div class="circle">
       <div class="text">
         <h3>
-          ¿Querés ahorrar más? con <logo white height="20px" /> nunca dejás ahorrar porque tu cotización mejora en función al monto a cambiar y por ser cliente habitual.
+          ¿Querés ahorrar más? con <logo white height="20px" /> nunca dejás de ahorrar porque tu cotización mejora en función al monto a cambiar y por ser cliente habitual.
         </h3>
       </div>
 

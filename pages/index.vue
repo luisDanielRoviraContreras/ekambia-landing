@@ -17,6 +17,9 @@
     <vision v-model="visibleVis"/>
     <valores v-model="visibleVal"/>
     <empresa v-model="visibleEmp"/>
+    <kyc v-model="visibleKYC"/>
+    <c-term v-model="visibleTerm"/>
+    <acc v-model="visibleAcc"/>
   </div>
 </template>
 
@@ -30,6 +33,9 @@ export default class index extends Vue {
   visibleVis: any = false
   visibleVal: any = false
   visibleEmp: any = false
+  visibleKYC: any = false
+  visibleTerm: any = false
+  visibleAcc: any = false
   openPriv() {
     this.visiblePriv = true
   }
@@ -47,6 +53,15 @@ export default class index extends Vue {
   }
   openEmp() {
     this.visibleEmp = true
+  }
+  openKYC() {
+    this.visibleKYC = true
+  }
+  openTerm() {
+    this.visibleTerm = true
+  }
+  openAcc() {
+    this.visibleAcc = true
   }
 }
 </script>

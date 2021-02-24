@@ -41,7 +41,7 @@
             ¿Puedo operar con mi tarjeta de crédito o débito?
           </h3>
           <p>
-            Para la entrega del importe del dinero a cambiar, te ofrecemos todas las formas de pago, tanto con tarjetas de crédito como de débito. Trabajamos con todas las operadoras de tarjetas para brindarte el mejor servicio. También podrás optar por la tarjeta Ekambiá, con la cual podrás acceder a múltiples beneficios tanto en tus operaciones como en las empresas afiliadas a Global Cambios S.A.
+            Para la entrega del importe del dinero a cambiar, te ofrecemos todas las formas de pago, tanto con tarjetas de crédito como de débito. Trabajamos con todas las operadoras de tarjetas para brindarte el mejor servicio. También podrás optar por la tarjeta Ekambiá, con la cual podrás acceder a múltiples beneficios tanto en tus operaciones como en las empresas afiliadas a Casa de Cambios Global S.A.
           </p>
         </div>
       </div>

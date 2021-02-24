@@ -177,9 +177,9 @@ export default class bannerPrices extends Vue {
 <style lang="sass" scoped>
 
 .content0
-  animation: animateAll 50s linear infinite
+  animation: animateAll 70s linear infinite
 .content1
-  animation: animateAll 50s linear infinite
+  animation: animateAll 70s linear infinite
 
 @keyframes animateAll
   0%
