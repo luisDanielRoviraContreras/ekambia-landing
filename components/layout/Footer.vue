@@ -32,7 +32,7 @@
           <a href="#faq">Preguntas frecuentes</a>
         </li>
         <li>
-          <a href="#">Centro de Soporte</a>
+          <a target="_blank" href="https://soporte.ekambia.com">Centro de Soporte</a>
         </li>
         <li @click="$parent.openTerm()">
           <a>Términos y Condiciones</a>
