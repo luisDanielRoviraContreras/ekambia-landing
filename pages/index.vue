@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <beta/>
     <navbar />
     <!-- <banner-prices /> -->
     <inicio />
