@@ -1,6 +1,6 @@
 <template>
     <div class="beta">
-        Este sitio web se encuentra en estado <b>(Beta)</b>, los datos y funcionalidades no son reales, contacta directamente con ekambia si necesitas hacer alguna operacion.
+        Este sitio web se encuentra en estado <b>(Beta)</b> , los datos y funcionalidades de operaciones de arbitrajes no son reales y constituyen solo procesos de prueba. La fecha de apertura oficial de este servicio se estará comunicando por este medio.
     </div>
 </template>
 <script lang="ts">
@@ -17,7 +17,8 @@ export default class footerx extends Vue {
     z-index: 90000
     width: 100%
     padding: 20px
-    background: #000
-    color: #fff
+    background: rgba(var(--color), 1)
+    color: #000
+    font-size: .9rem
     
 </style>
