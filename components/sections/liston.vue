@@ -2,146 +2,146 @@
   <div :class="{ relative, black }" class="liston">
     <div ref="items" class="con-items">
       <div v-for="(item, i) in 2" :key="i" class="content" :class="`content${i}`">
-        <div v-for="(item, ix) in 6" :key="item" class="item">
+        <div v-for="(item, ix) in coins" :key="ix+i" class="item">
           <div class="con-banderas">
-            <img :src="`banderas/${item}.png`" alt="">
+            <img :src="`banderas/${item.MonId}.png`" alt="">
           </div>
 
           <div class="con-names">
-            {{ moneys[ix] }}
+            {{ names[item.MonId] }}
           </div>
 
           <div class="con-prices">
             <div class="buy price">
               <span>Compra</span>
               <b>
-                124
+                {{ item.CotSucArbCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                126
+                {{ item.CotSucArbVen }}
               </b>
             </div>
           </div>
         </div>
-        <div v-for="(item, ix) in 6" :key="item+30" class="item">
+        <div v-for="(item, ix) in coins" :key="ix+i+'x1'" class="item">
           <div class="con-banderas">
-            <img :src="`banderas/${item}.png`" alt="">
+            <img :src="`banderas/${item.MonId}.png`" alt="">
           </div>
 
           <div class="con-names">
-            {{ moneys[ix] }}
+            {{ names[item.MonId] }}
           </div>
 
           <div class="con-prices">
             <div class="buy price">
               <span>Compra</span>
               <b>
-                124
+                {{ item.CotSucArbCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                126
+                {{ item.CotSucArbVen }}
               </b>
             </div>
           </div>
         </div>
-        <div v-for="(item, ix) in 6" :key="item+10" class="item">
+        <div v-for="(item, ix) in coins" :key="ix+i+'x3'" class="item">
           <div class="con-banderas">
-            <img :src="`banderas/${item}.png`" alt="">
+            <img :src="`banderas/${item.MonId}.png`" alt="">
           </div>
 
           <div class="con-names">
-            {{ moneys[ix] }}
+            {{ names[item.MonId] }}
           </div>
 
           <div class="con-prices">
             <div class="buy price">
               <span>Compra</span>
               <b>
-                124
+                {{ item.CotSucArbCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                126
+                {{ item.CotSucArbVen }}
               </b>
             </div>
           </div>
         </div>
-        <div v-for="(item, ix) in 6" :key="item+20" class="item">
+        <div v-for="(item, ix) in coins" :key="ix+i+'x4'" class="item">
           <div class="con-banderas">
-            <img :src="`banderas/${item}.png`" alt="">
+            <img :src="`banderas/${item.MonId}.png`" alt="">
           </div>
 
           <div class="con-names">
-            {{ moneys[ix] }}
+            {{ names[item.MonId] }}
           </div>
 
           <div class="con-prices">
             <div class="buy price">
               <span>Compra</span>
               <b>
-                124
+                {{ item.CotSucArbCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                126
+                {{ item.CotSucArbVen }}
               </b>
             </div>
           </div>
         </div>
-        <div v-for="(item, ix) in 6" :key="item+40" class="item">
+        <div v-for="(item, ix) in coins" :key="ix+i+'x5'" class="item">
           <div class="con-banderas">
-            <img :src="`banderas/${item}.png`" alt="">
+            <img :src="`banderas/${item.MonId}.png`" alt="">
           </div>
 
           <div class="con-names">
-            {{ moneys[ix] }}
+            {{ names[item.MonId] }}
           </div>
 
           <div class="con-prices">
             <div class="buy price">
               <span>Compra</span>
               <b>
-                124
+                {{ item.CotSucArbCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                126
+                {{ item.CotSucArbVen }}
               </b>
             </div>
           </div>
         </div>
-        <div v-for="(item, ix) in 6" :key="item+50" class="item">
+        <div v-for="(item, ix) in coins" :key="ix+i+'x6'" class="item">
           <div class="con-banderas">
-            <img :src="`banderas/${item}.png`" alt="">
+            <img :src="`banderas/${item.MonId}.png`" alt="">
           </div>
 
           <div class="con-names">
-            {{ moneys[ix] }}
+            {{ names[item.MonId] }}
           </div>
 
           <div class="con-prices">
             <div class="buy price">
               <span>Compra</span>
               <b>
-                124
+                {{ item.CotSucArbCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                126
+                {{ item.CotSucArbVen }}
               </b>
             </div>
           </div>
@@ -152,7 +152,7 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import anime from 'animejs'
+import axios from '~/plugins/axios'
 @Component
 export default class bannerPrices extends Vue {
   interval: any = null
@@ -162,24 +162,42 @@ export default class bannerPrices extends Vue {
     clearInterval(this.interval)
   }
 
-  moneys: any = [
-    'Euro',
-    'Dolar',
-    'Peso',
-    'Real',
-    'Peso',
-    'Peso',
-    'Peso',
-    'Peso',
+  names: any = [
+    '',
+    'GUARANIES',
+    'DOLARES AMERICANOS',
+    'PESOS ARGENTINOS',
+    'REALES',
+    'EUROS',
+    '',
+    'YEN JAPONES',
+    'LIBRAS ESTERLINAS',
+    'FRANCO SUIZO',
   ]
+  coins = [];
+
+  mounted() {
+    axios.post('dynatech-cotizacionxfechaysucursal', {
+      "CotSucCod":"SUC",
+      "CotSucFecIni":"2021-06-08",
+      "CotSucFecFin":"2021-06-08",
+      "CotSucSucId":2,
+      "CotSucMonIdCol":"[2,3,4,5,7,8,9]",
+      "CotSucImp":0
+    }).then(({data}) => {
+      console.log(data)
+      this.coins = data.info.data.SDTCotizaciones
+      console.log(this.coins)
+    })
+  }
 }
 </script>
 <style lang="sass" scoped>
 
 .content0
-  animation: animateAll 70s linear infinite
+  animation: animateAll 100s linear infinite
 .content1
-  animation: animateAll 70s linear infinite
+  animation: animateAll 100s linear infinite
 
 @keyframes animateAll
   0%
@@ -248,7 +266,7 @@ export default class bannerPrices extends Vue {
       padding: 0px 15px
       position: relative
       color: #fff
-      max-width: 240px
+      // max-width: 300px
       transition: all .25s ease
       &:hover
         background: rgba(255,255,255,.15)
