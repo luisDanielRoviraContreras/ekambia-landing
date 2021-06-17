@@ -177,9 +177,8 @@ export default class bannerPrices extends Vue {
   coins = [];
 
   mounted() {
-    axios.get('cotizaciones').then((data) => {
-      // this.coins = data.info.data.SDTCotizaciones
-      console.log(data)
+    axios.get('cotizaciones').then(({data}) => {
+      this.coins = data.info.SDTCotizaciones
     })
   }
 }
