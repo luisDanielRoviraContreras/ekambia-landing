@@ -28,11 +28,13 @@
             >
               Yo tengo
             </c-input>
-            <Select esquina @change="handleChangeCoin" child="coin" :data="coins" placeholder="Moneda" block v-model="form.coinSend" :danger="!form.coinSend && send">
-            <template>
-              <Option :disabled="option.id == form.coinReceive" :key="i" v-for="(option, i) in coins" :value="option.id" :text="option.coin" />
+            <template v-if="coinsList.length > 0">
+              <Select esquina @change="handleChangeCoin" child="MonNom" :data="coinsList" uid="MonId" placeholder="Moneda" block v-model="form.coinSend" :danger="!form.coinSend && send">
+                <template>
+                  <Option :disabled="option.MonId == form.coinReceive" :key="i" v-for="(option, i) in coinsList" :value="option.MonId" :text="option.MonNom" />
+                </template>
+              </Select>
             </template>
-          </Select>
           </div>
           <button @click="handleChange" class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -46,20 +48,22 @@
           </button>
           <div class="con-input input-select">
             <c-input
-              ref="send"
+              ref="receive"
               v-model="form.receive"
               inputmode="numeric"
               :type="$device.isDesktop ? 'number' : null"
-              identificador="send"
+              identificador="receive"
               @change-value="handleFormSend"
             >
               Yo recibo
             </c-input>
-              <Select esquina @change="handleChangeCoin" child="coin" :data="coins" placeholder="Moneda" block v-model="form.coinReceive" :danger="!form.coinReceive && send">
-              <template>
-                <Option :disabled="option.id == form.coinSend" :key="i" v-for="(option, i) in coins" :value="option.id" :text="option.coin" />
-              </template>
-            </Select>
+            <template v-if="coinsList.length > 0">
+              <Select esquina @change="handleChangeCoin" child="MonNom" :data="coinsList" uid="MonId" placeholder="Moneda" block v-model="form.coinReceive" :danger="!form.coinReceive && send">
+                <template>
+                  <Option :disabled="option.MonId == form.coinSend" :key="i" v-for="(option, i) in coinsList" :value="option.MonId" :text="option.MonNom" />
+                </template>
+              </Select>
+            </template>
             
           </div>
         </div>
@@ -84,6 +88,7 @@ import axios from '@/plugins/axios'
 @Component
 export default class name extends Vue {
   coins: any = []
+  coinsList: any = []
   sale_price: any = null
   purchase_price: any = null
   send: boolean = false
@@ -92,46 +97,65 @@ export default class name extends Vue {
     send: '',
     receive: '',
     coinSend: 2,
-    coinReceive: 1
+    coinReceive: 3
   }
 
+  changeActive = false
+
   handleChange () {
+    this.changeActive = !this.changeActive 
     const oldForm = JSON.parse(JSON.stringify(this.form))
-    this.form.send = `${oldForm.receive}`
-    this.form.receive = `${oldForm.send}`
+    
     this.form.coinSend = Number(`${oldForm.coinReceive}`)
     this.form.coinReceive = Number(`${oldForm.coinSend}`)
+    if (!this.changeActive) {
+      this.form.receive = (this.form.send * this.sale_price).toFixed(3)
+      } else {
+        this.form.receive = (this.form.send / this.purchase_price).toFixed(3)
+      }
   }
 
   getCoins() {
-    axios.post('arbitraje', {paresMonedas: '[{"MonIdCom":2,"MonIdVen":4},{"MonIdCom":4,"MonIdVen":2}]'
+    console.log(`[{"MonIdCom":${this.form.coinSend},"MonIdVen":${this.form.coinReceive}},{"MonIdCom":${this.form.coinReceive},"MonIdVen":${this.form.coinSend}}]`)
+    axios.post('arbitraje', {paresMonedas: `[{"MonIdCom":${this.form.coinSend},"MonIdVen":${this.form.coinReceive}},{"MonIdCom":${this.form.coinReceive},"MonIdVen":${this.form.coinSend}}]`
 }).then(({data}) => {
+      this.form.send = ``
+      this.form.receive = ``
       this.coins = data.info.SDTMonArbReal
-      this.purchase_price = this.coins[0].ArbReal
-      this.sale_price = this.coins[1].ArbReal
+      this.purchase_price = this.coins[1].ArbReal
+      this.sale_price = this.coins[0].ArbReal
+      console.log(this.coins);
     })
-    // axios.get('/coins').then(({ data }) => {
-    //   this.coins = data.info
-    //   this.handleChangeCoin(2)
-    // })
-  }
-
-  handleFormSend(val) {
-    if (this.form.coinReceive !== 1) {
-      this.form.receive = (val / this.sale_price).toFixed(3)
-    } else {
-      this.form.receive = (val * this.sale_price).toFixed(3)
+    if (this.coinsList.length == 0) {
+      axios.get('cotizaciones').then(({data}) => {
+        this.coinsList = data.info.SDTCotizaciones
+        console.log(this.coinsList)
+      })
     }
   }
 
-  handleChangeCoin(id) {
-    axios.get(`/coins-show/${id}`).then(({ data }) => {
-      this.purchase_price = data.info.purchase_price
-      this.sale_price = data.info.sale_price
-      if(this.form.send) {
-        this.handleFormSend(this.form.send)
+  handleFormSend(val, identificador?) {
+    console.log(identificador)
+
+    // this.form.receive = (val * this.sale_price).toFixed(3)
+    if (identificador == 'receive') {
+      if (!this.changeActive) {
+      this.form.send = (val / this.sale_price).toFixed(3)
+      } else {
+        this.form.send = (val * this.purchase_price).toFixed(3)
       }
-    })
+    } else {
+      if (!this.changeActive) {
+      this.form.receive = (val * this.sale_price).toFixed(3)
+      } else {
+        this.form.receive = (val / this.purchase_price).toFixed(3)
+      }
+    }
+    
+  }
+
+  handleChangeCoin(id) {
+    this.getCoins()
   }
   mounted() {
     this.getCoins()

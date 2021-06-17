@@ -72,7 +72,7 @@ export default class InputComponent extends Vue {
           }
         } else {
           this.$emit('input', evt.target.value)
-          this.$emit('change-value', evt.target.value)
+          this.$emit('change-value', evt.target.value, this.identificador)
         }
       }
     }

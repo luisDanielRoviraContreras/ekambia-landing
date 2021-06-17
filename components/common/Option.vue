@@ -1,6 +1,6 @@
 <template>
   <li :class="{ active: valueParent == value, disabled }" @click="handleClick" class="option">
-    <i class='bx bx-check'></i>
+    <!-- <i class='bx bx-check'></i> -->
     <div :class="{ subText }" class="text">
       <span>
         {{ text }}
@@ -46,6 +46,7 @@ export default class optionItem extends Vue {
   border-radius: 15px
   cursor: pointer
   .text
+    font-size: .8rem
     &.subText
       span
         font-weight: bold
@@ -66,7 +67,7 @@ export default class optionItem extends Vue {
   &.active
     font-weight: bold
     background: -color(gray)
-    padding-left: 40px
+    // padding-left: 40px
     i
       opacity: 1
       transform: translate(0px)

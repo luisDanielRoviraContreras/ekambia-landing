@@ -202,7 +202,7 @@ export default class Select extends Vue {
 
       .option
         padding: 13px 10px
-        padding-left: 35px
+        // padding-left: 35px
         i
           transition: all 0s ease
     ul
