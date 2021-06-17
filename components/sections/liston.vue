@@ -177,17 +177,9 @@ export default class bannerPrices extends Vue {
   coins = [];
 
   mounted() {
-    axios.post('dynatech-cotizacionxfechaysucursal', {
-      "CotSucCod":"SUC",
-      "CotSucFecIni":"2021-06-08",
-      "CotSucFecFin":"2021-06-08",
-      "CotSucSucId":2,
-      "CotSucMonIdCol":"[2,3,4,5,7,8,9]",
-      "CotSucImp":0
-    }).then(({data}) => {
+    axios.get('cotizaciones').then((data) => {
+      // this.coins = data.info.data.SDTCotizaciones
       console.log(data)
-      this.coins = data.info.data.SDTCotizaciones
-      console.log(this.coins)
     })
   }
 }

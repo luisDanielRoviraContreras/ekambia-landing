@@ -60,7 +60,7 @@
                 <Option :disabled="option.id == form.coinSend" :key="i" v-for="(option, i) in coins" :value="option.id" :text="option.coin" />
               </template>
             </Select>
-            </Select>
+            
           </div>
         </div>
         <Button yellow block>
@@ -104,10 +104,16 @@ export default class name extends Vue {
   }
 
   getCoins() {
-    axios.get('/coins').then(({ data }) => {
-      this.coins = data.info
-      this.handleChangeCoin(2)
+    axios.post('arbitraje', {paresMonedas: '[{"MonIdCom":2,"MonIdVen":4},{"MonIdCom":4,"MonIdVen":2}]'
+}).then(({data}) => {
+      this.coins = data.info.SDTMonArbReal
+      this.purchase_price = this.coins[0].ArbReal
+      this.sale_price = this.coins[1].ArbReal
     })
+    // axios.get('/coins').then(({ data }) => {
+    //   this.coins = data.info
+    //   this.handleChangeCoin(2)
+    // })
   }
 
   handleFormSend(val) {
