@@ -127,7 +127,7 @@ export default class name extends Vue {
       console.log(this.coins);
     })
     if (this.coinsList.length == 0) {
-      axios.get('cotizaciones').then(({data}) => {
+      axios.get('newcoins').then(({data}) => {
         this.coinsList = data.info.SDTCotizaciones
         console.log(this.coinsList)
       })

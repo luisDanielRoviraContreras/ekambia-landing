@@ -114,13 +114,15 @@ export default class inicio extends Vue {
     position: relative
     z-index: 100
     padding-top: 100px
+    margin-left: 40px
+    margin-right: 40px
   .con-text
     padding-top: 100px
     width: 50vw
     display: flex
     align-items: center
     justify-content: center
-    max-width: 700px
+    max-width: 500px
     // padding-top: 70px
     .text
       bottom: 550px

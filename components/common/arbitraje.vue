@@ -3,19 +3,20 @@
     <header>
       <div class="con-btns">
         <div class="div1">
-          <Select :data="states" v-model="state" >
+          <!-- <Select :data="states" v-model="state" >
             <Option v-for="(item, i) in states" :key="i" :value="item.id" :text="item.alias" />
-          </Select>
-          <Button @click="handleShare" border>
-            <i class='bx bxs-share-alt'></i> <span>Compartir</span>
+          </Select> -->
+          
+          <Button :border="!cotizacionActive" @click="cotizacionActive = true">
+            Cotización
+          </Button>
+          <Button :border="cotizacionActive" @click="cotizacionActive = false">
+            Arbitraje
           </Button>
         </div>
         <div class="div2">
-          <Button border>
-            Cotización
-          </Button>
-          <Button>
-            Arbitraje
+          <Button @click="handleShare" border>
+            <i class='bx bxs-share-alt'></i> <span>Compartir</span>
           </Button>
         </div>
       </div>
@@ -23,11 +24,15 @@
     <!-- @mouseup="handleUp" @mousemove="handleMove" @mousedown="handleClickItems" -->
     <div  ref="conitems" class="con-items">
       <div class="items">
-        <div class="con-item" v-for="(item, i) in prices" :key="i">
+        <div class="con-item" v-for="(item, i) in coins" :key="i">
           <div class="item">
-            <div class="con-banderas">
-              <img :src="`banderas/${item.img1}.png`" alt="">
-              <img :src="`banderas/${item.img2}.png`" alt="">
+            <div v-if="item.MonId != 1" class="con-banderas">
+              <img :src="`banderas/${item.MonId}.png`" alt="">
+              <img :src="`banderas/${!cotizacionActive ? '2.png' : '1.svg'}`" alt="">
+            </div>
+            <div v-else class="con-banderas">
+              <img :src="`banderas/1.svg`" alt="">
+              <img :src="`banderas/${cotizacionActive ? '2.png' : '1.svg'}`" alt="">
             </div>
 
             <div class="con-names">
@@ -38,146 +43,13 @@
               <div class="buy price">
                 <span>Compra</span>
                 <b>
-                  {{ item.buy }}
+                  {{ cotizacionActive ? item.CotSucCotCom : item.CotSucArbCom }}
                 </b>
               </div>
               <div class="sell price">
                 <span>Venta</span>
                 <b>
-                  {{ item.sell }}
-                </b>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="con-banderas">
-              <img :src="`banderas/${item.img1}.png`" alt="">
-              <img :src="`banderas/${item.img2}.png`" alt="">
-            </div>
-
-            <div class="con-names">
-              {{ item.name }}
-            </div>
-
-            <div class="con-prices">
-              <div class="buy price">
-                <span>Compra</span>
-                <b>
-                  {{ item.buy }}
-                </b>
-              </div>
-              <div class="sell price">
-                <span>Venta</span>
-                <b>
-                  {{ item.sell }}
-                </b>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="items">
-        <div class="con-item" v-for="(item, i) in prices" :key="i">
-          <div class="item">
-            <div class="con-banderas">
-              <img :src="`banderas/${item.img1}.png`" alt="">
-              <img :src="`banderas/${item.img2}.png`" alt="">
-            </div>
-
-            <div class="con-names">
-              {{ item.name }}
-            </div>
-
-            <div class="con-prices">
-              <div class="buy price">
-                <span>Compra</span>
-                <b>
-                  {{ item.buy }}
-                </b>
-              </div>
-              <div class="sell price">
-                <span>Venta</span>
-                <b>
-                  {{ item.sell }}
-                </b>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="con-banderas">
-              <img :src="`banderas/${item.img1}.png`" alt="">
-              <img :src="`banderas/${item.img2}.png`" alt="">
-            </div>
-
-            <div class="con-names">
-              {{ item.name }}
-            </div>
-
-            <div class="con-prices">
-              <div class="buy price">
-                <span>Compra</span>
-                <b>
-                  {{ item.buy }}
-                </b>
-              </div>
-              <div class="sell price">
-                <span>Venta</span>
-                <b>
-                  {{ item.sell }}
-                </b>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="items">
-        <div class="con-item" v-for="(item, i) in prices" :key="i">
-          <div class="item">
-            <div class="con-banderas">
-              <img :src="`banderas/${item.img1}.png`" alt="">
-              <img :src="`banderas/${item.img2}.png`" alt="">
-            </div>
-
-            <div class="con-names">
-              {{ item.name }}
-            </div>
-
-            <div class="con-prices">
-              <div class="buy price">
-                <span>Compra</span>
-                <b>
-                  {{ item.buy }}
-                </b>
-              </div>
-              <div class="sell price">
-                <span>Venta</span>
-                <b>
-                  {{ item.sell }}
-                </b>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="con-banderas">
-              <img :src="`banderas/${item.img1}.png`" alt="">
-              <img :src="`banderas/${item.img2}.png`" alt="">
-            </div>
-
-            <div class="con-names">
-              {{ item.name }}
-            </div>
-
-            <div class="con-prices">
-              <div class="buy price">
-                <span>Compra</span>
-                <b>
-                  {{ item.buy }}
-                </b>
-              </div>
-              <div class="sell price">
-                <span>Venta</span>
-                <b>
-                  {{ item.sell }}
+                  {{ cotizacionActive ? item.CotSucCotVen : item.CotSucArbVen }}
                 </b>
               </div>
             </div>
@@ -186,7 +58,7 @@
       </div>
     </div>
 
-    <footer>
+    <!-- <footer>
       <button @click="handlePrev">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.939 4.939L6.879 12 13.939 19.061 16.061 16.939 11.121 12 16.061 7.061z"></path></svg>
       </button>
@@ -198,16 +70,19 @@
       <button @click="handleNext">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.061 19.061L17.121 12 10.061 4.939 7.939 7.061 12.879 12 7.939 16.939z"></path></svg>
       </button>
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import axios from '@/plugins/axios'
 @Component
 export default class arbitraje extends Vue {
   state: any = 1
   offsetWidth: any = 0
   scrollLeft: any = 0
+  coins: any = []
+  cotizacionActive = true;
 
   handleShare() {
     if ((navigator as any).share) {
@@ -226,6 +101,15 @@ export default class arbitraje extends Vue {
     (this.$refs.conitems as any).addEventListener('scroll', (evt) => {
       this.scrollLeft = evt.target.scrollLeft
     })
+    this.getData()
+  }
+
+  getData() {
+    console.log('get data')
+    axios.get('newcoins').then(({data}) => {
+        this.coins = data.info.SDTCotizaciones
+        console.log(this.coins)
+      })
   }
 
   handleClickLi(n: any) {
@@ -414,7 +298,7 @@ export default class arbitraje extends Vue {
   justify-content: space-between
   padding: 0px 6px
   position: relative
-  width: 50%
+  width: 100%
   &:not(:last-child):after
     content: ''
     position: absolute
