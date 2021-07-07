@@ -15,13 +15,13 @@
             <div class="buy price">
               <span>Compra</span>
               <b>
-                {{ item.CotSucArbCom }}
+                {{ item.CotSucCotCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                {{ item.CotSucArbVen }}
+                {{ item.CotSucCotVen }}
               </b>
             </div>
           </div>
@@ -39,13 +39,13 @@
             <div class="buy price">
               <span>Compra</span>
               <b>
-                {{ item.CotSucArbCom }}
+                {{ item.CotSucCotCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                {{ item.CotSucArbVen }}
+                {{ item.CotSucCotVen }}
               </b>
             </div>
           </div>
@@ -63,13 +63,13 @@
             <div class="buy price">
               <span>Compra</span>
               <b>
-                {{ item.CotSucArbCom }}
+                {{ item.CotSucCotCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                {{ item.CotSucArbVen }}
+                {{ item.CotSucCotVen }}
               </b>
             </div>
           </div>
@@ -87,13 +87,13 @@
             <div class="buy price">
               <span>Compra</span>
               <b>
-                {{ item.CotSucArbCom }}
+                {{ item.CotSucCotCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                {{ item.CotSucArbVen }}
+                {{ item.CotSucCotVen }}
               </b>
             </div>
           </div>
@@ -111,13 +111,13 @@
             <div class="buy price">
               <span>Compra</span>
               <b>
-                {{ item.CotSucArbCom }}
+                {{ item.CotSucCotCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                {{ item.CotSucArbVen }}
+                {{ item.CotSucCotVen }}
               </b>
             </div>
           </div>
@@ -135,13 +135,13 @@
             <div class="buy price">
               <span>Compra</span>
               <b>
-                {{ item.CotSucArbCom }}
+                {{ item.CotSucCotCom }}
               </b>
             </div>
             <div class="sell price">
               <span>Venta</span>
               <b>
-                {{ item.CotSucArbVen }}
+                {{ item.CotSucCotVen }}
               </b>
             </div>
           </div>

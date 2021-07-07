@@ -4,14 +4,13 @@
       <h2>Cambiar dinero</h2>
     </header>
 
-
     <div class="change-form">
       <div class="con-price">
         <div class="price1 price">
-          Compra: {{ purchase_price }}
+          Compra: {{ getCoinCom() }}
         </div>
         <div class="price2 price">
-          Venta: {{ sale_price }}
+          Venta: {{ getCoinVen() }}
         </div>
       </div>
 
@@ -92,12 +91,13 @@ export default class name extends Vue {
   sale_price: any = null
   purchase_price: any = null
   send: boolean = false
+  allCoins: any = []
 
   form: any = {
     send: '',
     receive: '',
     coinSend: 2,
-    coinReceive: 3
+    coinReceive: 5
   }
 
   changeActive = false
@@ -108,54 +108,86 @@ export default class name extends Vue {
     
     this.form.coinSend = Number(`${oldForm.coinReceive}`)
     this.form.coinReceive = Number(`${oldForm.coinSend}`)
-    if (!this.changeActive) {
-      this.form.receive = (this.form.send * this.sale_price).toFixed(3)
-      } else {
-        this.form.receive = (this.form.send / this.purchase_price).toFixed(3)
+    this.form.send = ''
+    this.form.receive = ''
+  }
+
+  getCoinVen() {
+    var coins = []
+    this.allCoins.forEach(item => {
+      if (item.MonIdVen== this.form.coinSend && item.MonIdCom == this.form.coinReceive) {
+        coins.push(item.ArbReal)
       }
+    });
+    return coins[0]
+  }
+
+  getCoinCom() {
+    var coins = []
+    this.allCoins.forEach(item => {
+      if (item.MonIdCom == this.form.coinSend && item.MonIdVen == this.form.coinReceive) {
+        coins.push(item.ArbReal)
+      }
+    });
+    return coins[0]
   }
 
   getCoins() {
-    console.log(`[{"MonIdCom":${this.form.coinSend},"MonIdVen":${this.form.coinReceive}},{"MonIdCom":${this.form.coinReceive},"MonIdVen":${this.form.coinSend}}]`)
-    axios.post('arbitraje', {paresMonedas: `[{"MonIdCom":${this.form.coinSend},"MonIdVen":${this.form.coinReceive}},{"MonIdCom":${this.form.coinReceive},"MonIdVen":${this.form.coinSend}}]`
-}).then(({data}) => {
-      this.form.send = ``
-      this.form.receive = ``
-      this.coins = data.info.SDTMonArbReal
-      this.purchase_price = this.coins[1].ArbReal
-      this.sale_price = this.coins[0].ArbReal
-      console.log(this.coins);
+    axios.get('newcoins').then(({data}) => {
+      this.coinsList = data.info.SDTCotizaciones
     })
-    if (this.coinsList.length == 0) {
-      axios.get('newcoins').then(({data}) => {
-        this.coinsList = data.info.SDTCotizaciones
-        console.log(this.coinsList)
-      })
-    }
+    axios.get('totalarbitraje').then(({data}) => {
+      this.allCoins = data.info.SDTMonArbReal
+      console.log(this.allCoins)
+    })
+
+
+//     console.log(`[{"MonIdCom":${this.form.coinSend},"MonIdVen":${this.form.coinReceive}},{"MonIdCom":${this.form.coinReceive},"MonIdVen":${this.form.coinSend}}]`)
+//     axios.post('arbitraje', {paresMonedas: `[{"MonIdCom":${this.form.coinSend},"MonIdVen":${this.form.coinReceive}},{"MonIdCom":${this.form.coinReceive},"MonIdVen":${this.form.coinSend}}]`
+// }).then(({data}) => {
+//       this.form.send = ``
+//       this.form.receive = ``
+//       this.coins = data.info.SDTMonArbReal
+//       this.purchase_price = this.coins[1].ArbReal
+//       this.sale_price = this.coins[0].ArbReal
+//       console.log(this.coins);
+//     })
+//     if (this.coinsList.length == 0) {
+//       axios.get('newcoins').then(({data}) => {
+//         this.coinsList = data.info.SDTCotizaciones
+//         console.log(this.coinsList)
+//       })
+//     }
   }
 
   handleFormSend(val, identificador?) {
     console.log(identificador)
+    // if (identificador == 'send') {
+    //   this.form.receive = (val * this.getCoinVen()).toFixed(3)
+    // } else {
+    //   this.form.send = (val * this.getCoinCom()).toFixed(3)
+    // }
 
-    // this.form.receive = (val * this.sale_price).toFixed(3)
     if (identificador == 'receive') {
       if (!this.changeActive) {
-      this.form.send = (val / this.sale_price).toFixed(3)
+      this.form.send = (val / this.getCoinVen()).toFixed(3)
       } else {
-        this.form.send = (val * this.purchase_price).toFixed(3)
+        this.form.send = (val * this.getCoinCom()).toFixed(3)
       }
     } else {
       if (!this.changeActive) {
-      this.form.receive = (val * this.sale_price).toFixed(3)
+      this.form.receive = (val * this.getCoinCom()).toFixed(3)
       } else {
-        this.form.receive = (val / this.purchase_price).toFixed(3)
+        this.form.receive = (val / this.getCoinVen()).toFixed(3)
       }
     }
     
   }
 
   handleChangeCoin(id) {
-    this.getCoins()
+    this.form.send = ''
+    this.form.receive = ''
+    // this.getCoins()
   }
   mounted() {
     this.getCoins()

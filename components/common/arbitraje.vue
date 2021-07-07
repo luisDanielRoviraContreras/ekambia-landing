@@ -24,14 +24,14 @@
     <!-- @mouseup="handleUp" @mousemove="handleMove" @mousedown="handleClickItems" -->
     <div  ref="conitems" class="con-items">
       <div class="items">
-        <div class="con-item" v-for="(item, i) in coins" :key="i">
-          <div class="item">
+        <div :class="['con-item', {'notMargin': !cotizacionActive && item.MonId == 2 || !cotizacionActive && item.MonId == 1}]"  v-for="(item, i) in coins" :key="i">
+          <div v-if="(cotizacionActive && item.MonId != 1) || (!cotizacionActive && item.MonId != 2 && !cotizacionActive && item.MonId != 1)" class="item">
             <div v-if="item.MonId != 1" class="con-banderas">
+              <img v-if="!cotizacionActive" :src="`banderas/${!cotizacionActive ? '2.png' : '1.svg'}`" alt="">
               <img :src="`banderas/${item.MonId}.png`" alt="">
-              <img :src="`banderas/${!cotizacionActive ? '2.png' : '1.svg'}`" alt="">
             </div>
             <div v-else class="con-banderas">
-              <img :src="`banderas/1.svg`" alt="">
+              <img :src="`banderas/2.png`" alt="">
               <img :src="`banderas/${cotizacionActive ? '2.png' : '1.svg'}`" alt="">
             </div>
 
@@ -281,12 +281,14 @@ export default class arbitraje extends Vue {
   align-items: center
   justify-content: center
   background: -color(gray)
-  margin-bottom: 15px
+  margin-bottom: 10px
   border-radius: 22px
   cursor: pointer
   transition: all .25s ease
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05)
   user-select: none
+  &.notMargin
+    margin: 0px
   &:hover
     background: #fff
     box-shadow: 0px 6px 25px 0px rgba(0,0,0,.05)
